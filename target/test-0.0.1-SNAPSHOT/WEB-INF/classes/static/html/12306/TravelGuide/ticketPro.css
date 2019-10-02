@@ -1,0 +1,137 @@
+/*导航背景色*/
+.navigation ul li:nth-child(7){
+	background-color: #2676e3;
+}
+.navigation ul li:nth-child(1){
+	background-color: #3b99fc;
+}
+
+.ticket{
+	font-family: Tahoma,"宋体";
+	min-height: 620px;
+	width: 980px;
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+.ticket_top{
+	width: 980px;
+	height: 32px;
+	/*background-color: red;*/
+	line-height: 32px;
+	margin: 0 auto;
+	font-size: 12px;
+}
+.sidebar{
+	width: 200px;
+	height: 591px;
+	/*background-color: red;*/
+	margin-right: 10px;
+	float: left;
+}
+.sidebar>.side_left{
+	width: 200px;
+	height: 591px;
+	border: 1px solid #1678be;
+	background: url('images/bg.png');
+	/*background-repeat: no-repeat;*/
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.sidebar>.side_left>.side_top{
+	/*width: 198.4px;*/
+	height: 32px;
+	padding-left: 20px;
+	color: #E5F8FF;
+	font-size: 14px;
+	line-height: 30px;
+	background-color: #278acb;
+	border-bottom: 3px solid #66c8e8;
+}
+.sidebar>.side_left>.side_lay{
+	padding: 20px 14px;
+	background: #EEF1F8;
+	/*height: 550px;*/
+}
+dl,dt,dd{
+	margin: 0;
+}
+.side_lay>dl>dt{
+	
+	width: 170.4px;
+	height: 38.8px;
+	line-height: 38.8px;
+	border-bottom:1px solid #dddddd;
+	position: relative;
+}
+.side_lay>dl>dd{
+	width: 170.4px;
+	height: 38.8px;
+	line-height: 38.8px;
+	border-bottom:1px solid #dddddd;
+}
+.side_lay>dl>dt>a{
+	font-size: 14px;
+	color: #333;
+}
+.side_lay>dl>dd>a{
+	padding-left: 28px;
+	color: #666666;
+
+}
+/*鼠标滑过*/
+.side_lay>dl>dt:hover{
+	background-color: #fff;
+}
+.side_lay>dl>dt:hover a{
+	color: #66c8e8;
+}
+.side_lay>dl>dd:hover{
+	background-color: #fff;
+}
+.side_lay>dl>dd:hover a{
+	color: #66c8e8;
+}
+/*图标*/
+.side_lay>dl:nth-child(2)>dt>.icon-right
+,.side_lay>dl:nth-child(3)>dt>.icon-right
+,.side_lay>dl:nth-child(4)>dt>.icon-right
+,.side_lay>dl:nth-child(5)>dt>.icon-right
+,.side_lay>dl:nth-child(6)>dt>.icon-right
+,.side_lay>dl:nth-child(7)>dt>.icon-right
+,.side_lay>dl:nth-child(8)>dt>.icon-right
+,.side_lay>dl:nth-child(9)>dt>.icon-right
+,.side_lay>dl:nth-child(10)>dt>.icon-right{
+	position: absolute;
+	right: 0;
+}
+.side_lay>dl:nth-child(1)>dt>.icon-up{
+	position: absolute;
+	right: 0;
+}
+/*右侧内容*/
+.ticket_right{
+	width: 770px;
+	height: 620px;
+	/*background-color: red;*/
+	/*float: left;*/
+	margin-left: 210px;
+}
+.ticket_right>ul>li{
+	border:1px solid #66c8e8;
+	margin-bottom: 10px;
+}
+.ticket_right>ul>li:first-child>dt{
+	background-color: #66c8e8;
+}
+.ticket_right>ul>li>dt{
+	padding-left: 10px;
+	font-size: 14px;
+	height: 34px;
+	line-height: 34px;
+	color: #333;
+}
+.ticket_right>ul>li>dd{
+	padding: 5px 0 5px 8px;
+	line-height: 22px;
+	color: #666;
+}

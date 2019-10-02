@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:v-for="http://www.w3.org/1999/xhtml" xmlns:v-blind="http://www.w3.org/1999/xhtml"
+      xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加</title>
+    <style type="text/css">
+        table {margin-top: 30px;width: 100%;}
+        .submit {float: right}
+        .clear{float: right}
+        tr td {text-align: left;}
+        .base{background-color: #b5cfd9}
+        .table-{background-color: whitesmoke}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.js"></script>
+
+    <script>
+        $(function () {
+            var getInfo =new Vue({
+                el:"#all",
+                data:{
+                    cityList:{},
+                    train_model:{},
+                }
+            });
+            $.ajax({
+                url:"http://47.100.95.222:8080/api/city/getAllcity",
+                type:"post",
+                dataType:"json",
+                success:function (city) {
+                    getInfo.cityList=city;
+                }
+            });
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_trainmodel",
+                type:"post",
+                dataType:"json",
+                success:function (train) {
+                    getInfo.train_model=train;
+                }
+            });
+            $(".clear").click(function () {
+                window.location.reload();
+            })
+            $(".submit").click(function () {
+                $.ajax({
+                    url:"http://47.100.95.222:8080/backstage/add_trainInfo",
+                    type:"post",
+                    dataType:"json",
+                    data:{
+                        id:$(this).prev().find("tr").eq(0).find("td").eq(1).children().val(),
+                        day:$(this).prev().find("tr").eq(0).find("td").eq(3).children().val(),
+                        stopnumber:$(this).prev().find("tr").eq(0).find("td").eq(5).children().val(),
+                        number:$(this).prev().find("tr").eq(1).find("td").eq(1).children().val(),
+                        firststation:$(this).prev().find("tr").eq(1).find("td").eq(3).children().val(),
+                        laststation:$(this).prev().find("tr").eq(1).find("td").eq(5).children().val(),
+                        status:$(this).prev().find("tr").eq(2).find("td").eq(1).children().val(),
+                        changetime:$(this).prev().find("tr").eq(2).find("td").eq(3).children().val(),
+                        modelid:$(this).prev().find("tr").eq(2).find("td").eq(5).children().val(),
+                    },success:function (result) {
+                        alert(result);
+                        if(result==true){
+                            alert("插入成功")
+                        }else{
+                            alert("插入失败")
+                        }
+                    }
+                })
+            })
+            $("input[value='确认添加列车']").click(function () {
+                $.ajax({
+                    url:"http://47.100.95.222:8080/backstage/add_trainmodel",
+                    type:"post",
+                    dataType:"json",
+                    data:{
+                        id:$(this).parent().prev().prev().prev().children().val(),
+                        name:$(this).parent().prev().children().val()
+                    }
+                    ,success:function (result) {
+                        if(result==true){
+                            alert("添加成功");
+                            location.reload();
+                        }else{
+                            alert("添加失败")
+                        }
+                    }
+
+                })
+            })
+            $("input[value=确认生成车票]").click(function () {
+                alert($("#day").val())
+                $.ajax({
+                    url:"http://47.100.95.222:8080/api/train/generateDateTrain",
+                    typt:"post",
+                    dataType:"json",
+                    data:{
+                        day:$("#day").val(),
+                    },success:function (data) {
+                        alert("生成成功！请查验！")
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body class="base">
+<div id="all">
+<div style="font-size: 20px" class="one"><b>添加列车信息：</b></div>
+<form >
+    <table id="train" border="1" style="border-collapse: collapse" class="table-"><caption><b>列车车次信息添加:(所有行信息都不可空)</b></caption>
+        <tr><td>车次的ID(可空):</td><td><input type="text" size="5"></td><td>日期:</td><td><input type="date"size="3"></td><td>过站数量:</td><td><input type="text"size="7"></td></tr>
+        <tr><td>车次名:</td><td><input type="text"size="5"></td>
+
+            <td>始发站:</td><td><select name="start_station" size="1">
+                <option></option>
+                <option v-for="(city,index) in cityList" :value="city.id">{{city.name}}</option>
+                                                   </select></td>
+            <td>终点站:</td><td><select name="end_station" size="1">
+                                <option></option>
+                                <option v-for="city in cityList" :value="city.id">{{city.name}}</option>
+                                </select></td>
+        </tr>
+        <tr><td>正(晚)点:</td><td><select name="later"size="1">
+            <option ></option>
+            <option value=1>正点</option>
+            <option value=2>晚点</option>
+            <option value=3>取消</option>
+        </select></td><td>分钟数:</td><td><input type="text"size="7"></td><td>车型名:</td><td><select>
+            <option></option>
+            <option v-for="train in train_model" :value="train.id">{{train.name}}</option>
+        </select></td>
+        </tr>
+       </table>
+    <input  style="margin: 20px 10px 0px 0px ;float: right" type="button" value="确认添加" class="submit">
+    <input style="margin: 20px 10px 0px 0px ;float: right" type="button" value="清空" class="clear">
+</form>
+    <div style="margin-left: 20px;margin-top: 30px"><td>生成<input type="date" id="day">日期的车次所有车票</td><td><input type="button" value="确认生成车票"></td></div>
+    <table style="width: 100% ;border-collapse: collapse" border="1"class="table-" >
+        <caption><b>添加列车</b></caption>
+    <tr><td>添加列车ID(可空)：</td><td><input type="text"></td><td> 添加车型名：</td><td><input type="text"></td><td><input type="button" value="确认添加列车"></td></tr>
+    </table>
+    <table style="width: 100%" border="1" class="table-">
+        <caption>已有车型列表</caption>
+        <tr><th>车型ID</th><th>车型名</th></tr>
+        <tr v-for="model in train_model"><td>{{model.id}}</td><td>{{model.name}}</td></tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*内容*/
+.content{
+	width: 1200px;
+	height: 692px;
+	margin: 0 auto;
+}
+/*右侧*/
+.insurance_content >.right {
+	width: 1030px;
+	height: 692px;
+    /*margin-top: 50px;*/
+    margin-left: 170px;
+}
+
+/*右侧栏菜单*/
+.insurance_content >.right > .menu {
+	width: 275px;	
+}
+.insurance_content >.right > .menu >ul{
+	display: flex;
+}
+.insurance_content >.right > .menu > ul >li{
+    flex: 1;
+    text-align: center;
+    line-height: 3em;
+    border:1px solid #ededed;
+    font-size: 14px;
+}
+.insurance_content >.right > .menu > ul >li:nth-child(2)>p{
+	color: #3b99fc;
+}
+/*右侧主体*/
+ .right > .main{
+	width: 1030px;
+	height: 730px;
+    border: 1px solid #ededed;
+}
+ .right > .main >.select{
+	width: 550px;
+	height: 20px; 
+	margin-left: 30px; 
+	margin-top: 15px; 
+}
+.right >.main >.nav >ul{
+	width: 990px;
+	height: 50px;
+	border-bottom: 3px solid #3b99fc;
+	margin: 0 auto;
+
+}
+
+.right >.main >.nav >ul>li{
+    float: left;
+    width: 100px;
+    text-align: center;
+    line-height: 2.2em;
+    margin-top: 22px;
+    font-size: 14px;
+}
+.right >.main >.nav >ul>li:nth-child(3){
+	background-color: #3b99fc;
+	color: #fff;
+}
+ /*右侧主体细节*/
+ .right > .main > .details{
+ 	box-sizing: border-box;
+ 	width: 990px;
+ 	height: 350px;
+ 	padding-top: 120px;
+ 	padding-left: 300px;
+ }
+ .right > .main > .details > .pic{
+ 	float: left;
+ }
+ .right > .main > .details > ul{
+    color: #999999;
+    font-size: 14px;
+    padding-top: 30px;
+ }
+ .right > .main > .details > ul>li>a{
+ 	color: #3b99fc;
+ 	text-decoration: underline;
+ }
+
+ /*右侧主体底部*/
+.right > .main > .base{
+
+	font-size: 12px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	width: 990px;
+	height: 270px;
+	background-color: #fffbf8;
+	border: 2px solid #ffddba;
+	padding-left: 20px;
+	padding-top: 10px;
+    line-height: 2em;
+}
+/*火车票订票*/
+ ul.insurance_left >li:nth-child(2)>ul>li:nth-child(1){
+	background-color: #3b99fc;
+	
+}

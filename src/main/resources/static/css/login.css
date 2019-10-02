@@ -1,0 +1,300 @@
+/*头部logo和欢迎词*/
+#header {
+    position: relative;
+    width: 1190px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+#logo_image {
+    float: left;
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 50px;
+}
+
+#logo_word {
+    position: absolute;
+    left: 230px;
+    top: 25px;
+    float: left;
+    height: 80px;
+    color: #333333;
+    font-size: 20px;
+}
+
+/*主体区域*/
+#content {
+    position: relative;
+    width: 100%;
+    /*width: 1519px;*/
+    height: 600px;
+}
+
+/*背景大图片*/
+#login_main {
+    /*width: 1519px;*/
+    width: 100%;
+    height: 600px;
+    background: url("../images/login/login-main.jpg") no-repeat -200px 0px;
+}
+
+/*登录部分*/
+#login_part {
+    position: absolute;
+    top: 30px;
+    right: 170px;
+    width: 380px;
+    /*height: 500px;*/
+    background-color: white;
+}
+#login_part1 {
+    position: relative;
+    text-align: center;
+    width: 380px;
+    height: 80px;
+}
+#login_part1 ul{
+    display: inline-block;
+    margin: 30px auto;
+}
+/*.space{*/
+/*    color: lightgrey;*/
+/*    */
+/*}*/
+#login_part1 ul li{
+    display: inline-block;
+    margin: 0 30px;
+}
+#login_part1 li a {
+    cursor: pointer;
+    display: inline-block;
+    color: #666666;
+    font-size: 16px;
+}
+/*扫码登录*/
+#login_scan{
+    width: 380px;
+    height: 336px;
+}
+#login_part2 {
+    width: 380px;
+    height: 276px;
+}
+/*扫描部分盒子*/
+#lo_p2_scan{
+    position: relative;
+    text-align: center;
+    /*width: 320px;*/
+    /*height: 200px;*/
+}
+/*扫码图片*/
+#p2_scan_image{
+    width: 320px;
+    height: 170px;
+    display: inline-block;
+    margin-top: 20px;
+    vertical-align: middle;
+}
+#p2_scan_image2{
+    width: 150px;
+    height: 174px;
+    float: left;
+    position: absolute;left: 185px;top: -1px;
+}
+#p2_scan_word1{
+    margin: 5px 5px auto;
+    font-size: 14px;
+}
+#p2_scan_word1 span{
+     color: #3b99fc;
+ }
+#p2_scan_word2{
+    margin: 10px 0 auto;
+    font-size: 14px;
+}
+#p2_scan_word2 a{
+    color: #3b99fc;
+}
+#login_part3 {
+    position: relative;
+    width: 380px;
+    height: 60px;
+    /*border-bottom: 1px solid #f4f4f4;*/
+}
+#login_part3 ul{
+    width: 350px;
+    height: 28px;
+    margin: 16px 0 16px 30px;
+
+    /*display: inline-block;*/
+    /*position: absolute;top: 12px;*/
+ }
+#login_part3 li:not(#last_li){
+    font-size: 14px;
+    color: #999999;
+    margin-right: 40px;
+}
+#last_li{
+    font-size: 14px;
+    color: #999999;
+    margin-right: 10px;
+}
+#p3_scan_image1{
+    float: left;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    background: url("../images/login/qr-coagent.png") no-repeat ;
+}
+#p3_scan_image2{
+    float: left;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    background: url("../images/login/qr-coagent.png") no-repeat -26px 0px;
+}
+#p3_scan_image3{
+    float: left;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    background: url("../images/login/qr-coagent.png") no-repeat -55px 0px;
+}
+
+/*账号登录*/
+#login_user{
+    text-align: center;
+    position: relative;
+    width: 380px;
+    height: 400px;
+    /*background-color: yellow;*/
+}
+#lo_user_name{
+    width: 320px;
+    height: 30px;
+}
+/*用户名文本框*/
+#userName{
+    position: absolute;left: 30px;
+    display: block;
+    width: 270px;
+    height:18px;
+    padding: 4px 10px 4px 36px;
+    border: 1px solid #DEDEDE;
+    background: none;
+}
+.label1{
+    display: inline-block;
+    position: absolute;left: 40px;top: 6px;
+    float: left;
+    width: 17px;
+    height: 17px;
+    /*background: url("../images/user-icon1.png") no-repeat;*/
+}
+#icon_userName{
+    float: left;
+    width: 16px;
+    height: 16px;
+    background: url("../images/login/user-icon1.png") no-repeat;
+}
+/*密码文本框*/
+#password{
+    position: absolute;left: 30px;top: 50px;
+    display: block;
+    width: 270px;
+    height:18px;
+    padding: 4px 10px 4px 36px;
+    background:none;
+    border: 1px solid #DEDEDE;
+}
+.label2{
+    display: block;
+    position: absolute;left: 40px;top: 57px;
+    float: left;
+    width: 16px;
+    height: 16px;
+    /*background: url("../images/psd-icon1.png") no-repeat;*/
+}
+#icon_password{
+    float: left;
+    width: 16px;
+    height: 16px;
+    background: url("../images/login/psd-icon1.png") no-repeat;
+}
+/*验证码*/
+#lo_user_code{
+    border: 1px solid #DEDEDE;
+    position: absolute;
+    top: 100px;
+    left: 35px;
+}
+/*#msg {*/
+/*    width: 100%;*/
+/*    line-height: 40px;*/
+/*    font-size: 14px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*a:link,a:visited,a:hover,a:active {*/
+/*    margin-left: 100px;*/
+/*    color: #0366D6;*/
+/*}*/
+/*立即登录按钮*/
+#lo_user_button input{
+    width: 320px;
+    height: 30px;
+    /*background: none;*/
+    border: none;
+    background-color: #ff8000;
+    position: absolute;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    top: 330px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+}
+/*注册12306账号和忘记密码*/
+#lo_user_text{
+    width: 320px;
+    height: 20px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    top: 370px;
+}
+#lo_user_text a{
+    margin: 0px 5px;
+    font-size: 14px;
+}
+.register{
+    color: #3b99fc;
+}
+.forget{
+    color: #999999;
+}
+/*提示词*/
+#login_part4{
+    padding: 10px 20px 15px;
+    font-size: 13px;
+    color: #666;
+    border-top: 1px solid #DEDEDE;
+}
+/*提示词*/
+/*#login_part4 {*/
+/*    padding-top: 5px;*/
+/*    width: 380px;*/
+/*    height: 79px;*/
+/*}*/
+/*#login_part4 p{*/
+/*    display: inline-block;*/
+/*    margin-left: 20px;*/
+/*    width: 340px;*/
+/*    font-size: 13px;*/
+/*    color: #666666;*/
+/*}*/

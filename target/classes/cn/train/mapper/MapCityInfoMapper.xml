@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.train.mapper.MapCityInfoMapper">
+  <resultMap id="MapCityInfoResultMap" type="cn.train.enity.MapCityInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cityid1" jdbcType="INTEGER" property="cityid1" />
+    <result column="cityid2" jdbcType="INTEGER" property="cityid2" />
+    <result column="distance" jdbcType="INTEGER" property="distance" />
+    <result column="price" jdbcType="REAL" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cityid1, cityid2, distance, price
+  </sql>
+
+  <select id="getPriceByCityid" parameterType="cn.train.enity.MapCityInfo" resultType="java.lang.Float">
+    select max(price) from MapCityInfo where (cityid1 = #{cityid1,jdbcType=INTEGER} and cityid2 = #{cityid2,jdbcType=INTEGER}) or (cityid2 = #{cityid1,jdbcType=INTEGER} and cityid1 = #{cityid2,jdbcType=INTEGER})
+  </select>
+  <select id="getAll" resultMap="MapCityInfoResultMap">
+    select * from MapCityInfo;
+  </select>
+
+
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="MapCityInfoResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MapCityInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from MapCityInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.train.enity.MapCityInfo">
+    insert into MapCityInfo (id, cityid1, cityid2, 
+      distance, price)
+    values (#{id,jdbcType=INTEGER}, #{cityid1,jdbcType=INTEGER}, #{cityid2,jdbcType=INTEGER}, 
+      #{distance,jdbcType=INTEGER}, #{price,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.train.enity.MapCityInfo">
+    insert into MapCityInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cityid1 != null">
+        cityid1,
+      </if>
+      <if test="cityid2 != null">
+        cityid2,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cityid1 != null">
+        #{cityid1,jdbcType=INTEGER},
+      </if>
+      <if test="cityid2 != null">
+        #{cityid2,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.train.enity.MapCityInfo">
+    update MapCityInfo
+    <set>
+      <if test="cityid1 != null">
+        cityid1 = #{cityid1,jdbcType=INTEGER},
+      </if>
+      <if test="cityid2 != null">
+        cityid2 = #{cityid2,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.train.enity.MapCityInfo">
+    update MapCityInfo
+    set cityid1 = #{cityid1,jdbcType=INTEGER},
+      cityid2 = #{cityid2,jdbcType=INTEGER},
+      distance = #{distance,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

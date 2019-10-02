@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:v-for="http://www.w3.org/1999/xhtml" xmlns:v-blind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加</title>
+    <style type="text/css">
+        table {margin-top: 30px;width: 100% ;background-color: #b5cfd9}
+        .clear{float: right}
+        tr td {text-align: left;}
+        .add{background-color: #3b99fc}
+        body{background-color: #9ECCFE}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.js"></script>
+</head>
+<body >
+<div class="add">
+<div style="font-size: 20px" class="one"><b>添加运行图信息：</b></div>
+    <table style="width: 90%;margin-right: 5%;margin-left: 5%; "><caption><h2>列车运行信息添加:</h2></caption>
+        <tr><td>车次:</td><td><input type="text"></td>
+            <td>列车ID:</td><td><select size="1">
+                <option></option>
+                <option  v-for="train in trainList" :value="train.id">{{train.name}}</option>
+            </select></td></tr>
+        <tr>
+            <td>始发站:</td><td><select name="start_station" size="1">
+                <option></option>
+                <option v-for="city in cityList" :value="city.id">{{city.name}}</option>
+            </select></td>
+            <td>终点站:</td><td><select name="end_station" size="1">
+                <option></option>
+                <option v-for="city in cityList" :value="city.id">{{city.name}}</option>
+            </select></td>
+        </tr>
+        <tr><td>停站数：</td><td><input type="text"></td></tr>
+        <tr><td>-----------</td><td>-----------</td><td>-----------</td><td>-----------</td></tr>
+    </table>
+    <input  style="margin: 20px 10px 0px 0px ;float: right" type="button" value="确认添加" id="add_map">
+    <input style="margin: 20px 10px 0px 0px ;float: right" type="button" value="清空" class="clear">
+
+    <table style="width: 90%;margin-right: 5%;margin-left: 5%;" >
+        <caption><h2>经停城市信息添加</h2></caption>
+        <tr><td>车次名:</td><td><select size="1">
+                                <option></option>
+                                <option v-for="trainInfo in trainInfoList" :value="trainInfo.id">{{trainInfo.number}}</option>
+                                </select></td>
+            <td>经停城市：</td><td><select name="start_station" size="1">
+            <option></option>
+            <option v-for="city in cityList" :value="city.id">{{city.name}}</option>
+            </select></td></tr>
+        <tr></td> <td>到达时间：</td><td><input type="text"></td>
+            <td>停留时间：</td><td><input type="text"></td></tr>
+        <tr><td>离开时间：</td><td><input type="text"></td><td>该车次的第：</td><td><input type="text" size="1px">站</td>
+        <tr><td>检票口：</td><td><input type="text"></td></tr>
+        </table>
+    <input  style="margin: 20px 10px 0px 0px ;float: right" type="button" id="add_city"value="确认添加" >
+    <input style="margin: 20px 10px 0px 0px ;float: right" type="button" value="清空" class="clear">
+</div>
+</body>
+
+<script>
+    $(function () {
+        var getinfo=new Vue({
+            el:".add",
+            data:{
+                cityList:{},
+                trainList:{},
+                trainInfoList:{},
+            }
+        })
+        //获取城市列表
+        $.ajax({
+            url:"http://47.100.95.222:8080/api/city/getAllcity",
+            type:"post",
+            dataType:"json",
+            success:function (city) {
+                getinfo.cityList=city;
+            }
+        })
+        //获取火车列表
+        $.ajax({
+            url: "http://47.100.95.222:8080/backstage/get_trainmodel",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                getinfo.trainList = data;
+            }
+        });
+        //获取车次列表
+        $.ajax({
+            url: "http://47.100.95.222:8080/backstage/get_maptrain",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                getinfo.trainInfoList = data;
+            }
+        });
+        $(".clear").click(function () {
+            window.location.reload();
+        })
+        $("#add_map").click(function () {
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/add_running",
+                type:"post",
+                dataType:"json",
+                data:{
+                    number:$(this).prev().find("tr").eq(0).find("td").eq(1).children().val(),
+                    modelid:$(this).prev().find("tr").eq(0).find("td").eq(3).children().val(),
+                    firststation:$(this).prev().find("tr").eq(1).find("td").eq(1).children().val(),
+                    laststation:$(this).prev().find("tr").eq(1).find("td").eq(3).children().val(),
+                    stopnumber:$(this).prev().find("tr").eq(2).find("td").eq(1).children().val(),
+                }
+                ,success :function (result) {
+                    if(result==true){
+                        alert("添加成功")
+                        location.reload();
+                    }else {
+                        alert("添加失败:车次名需5字内！")
+                    }
+                }
+
+            })
+        })
+        $("#add_city").click(function () {
+           $.ajax({
+                url:"http://47.100.95.222:8080/backstage/add_stopcity",
+                type:"post",
+                dataType:"json",
+                data:{
+                    trainid:$(this).prev().find("tr").eq(0).find("td").eq(1).children().val(),
+                    cityid:$(this).prev().find("tr").eq(0).find("td").eq(3).children().val(),
+                    arrive:$(this).prev().find("tr").eq(1).find("td").eq(1).children().val(),
+                    parktime:$(this).prev().find("tr").eq(1).find("td").eq(3).children().val(),
+                    lefts:$(this).prev().find("tr").eq(2).find("td").eq(1).children().val(),
+                    number:$(this).prev().find("tr").eq(2).find("td").eq(3).children().val(),
+                    ticketgate:$(this).prev().find("tr").eq(3).find("td").eq(1).children().val(),
+                },
+                success:function (result) {
+                    if(result==true){
+                        alert("添加成功")
+                        location.reload();
+                    }else{
+                        alert("添加失败")
+                    }
+                }
+            })
+
+        })
+    })
+</script>
+</html>

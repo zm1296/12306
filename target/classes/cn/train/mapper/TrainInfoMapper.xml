@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.train.mapper.TrainInfoMapper">
+  <resultMap id="TrainInfoResultMap" type="cn.train.enity.TrainInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="day" jdbcType="VARCHAR" property="day" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="stopnumber" jdbcType="INTEGER" property="stopnumber" />
+    <result column="firststation" jdbcType="INTEGER" property="firststation" />
+    <result column="laststation" jdbcType="INTEGER" property="laststation" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="changetime" jdbcType="INTEGER" property="changetime" />
+    <result column="modelid" jdbcType="INTEGER" property="modelid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, day, number, stopnumber, firststation, laststation, status, changetime, modelid
+  </sql>
+
+  <select id="getTrainByDay" parameterType="java.lang.String" resultMap="TrainInfoResultMap">
+    select * from TrainInfo where day = #{day1, jdbcType=VARCHAR};
+  </select>
+  <select id="getAll" resultMap="TrainInfoResultMap">
+    select * from TrainInfo;
+  </select>
+  
+  <select id="getTrainidByTrainInfo" parameterType="cn.train.enity.TrainInfo" resultType="java.lang.Integer">
+    select id from TrainInfo where day = #{day,jdbcType=VARCHAR} and number = #{number,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="TrainInfoResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TrainInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from TrainInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.train.enity.TrainInfo">
+    insert into TrainInfo (id, day, number, 
+      stopnumber, firststation, laststation, 
+      status, changetime, modelid
+      )
+    values (#{id,jdbcType=INTEGER}, #{day,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
+      #{stopnumber,jdbcType=INTEGER}, #{firststation,jdbcType=INTEGER}, #{laststation,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{changetime,jdbcType=INTEGER}, #{modelid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.train.enity.TrainInfo">
+    insert into TrainInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="day != null">
+        day,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="stopnumber != null">
+        stopnumber,
+      </if>
+      <if test="firststation != null">
+        firststation,
+      </if>
+      <if test="laststation != null">
+        laststation,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="changetime != null">
+        changetime,
+      </if>
+      <if test="modelid != null">
+        modelid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="stopnumber != null">
+        #{stopnumber,jdbcType=INTEGER},
+      </if>
+      <if test="firststation != null">
+        #{firststation,jdbcType=INTEGER},
+      </if>
+      <if test="laststation != null">
+        #{laststation,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="changetime != null">
+        #{changetime,jdbcType=INTEGER},
+      </if>
+      <if test="modelid != null">
+        #{modelid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.train.enity.TrainInfo">
+    update TrainInfo
+    <set>
+      <if test="day != null">
+        day = #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="stopnumber != null">
+        stopnumber = #{stopnumber,jdbcType=INTEGER},
+      </if>
+      <if test="firststation != null">
+        firststation = #{firststation,jdbcType=INTEGER},
+      </if>
+      <if test="laststation != null">
+        laststation = #{laststation,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="changetime != null">
+        changetime = #{changetime,jdbcType=INTEGER},
+      </if>
+      <if test="modelid != null">
+        modelid = #{modelid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.train.enity.TrainInfo">
+    update TrainInfo
+    set day = #{day,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      stopnumber = #{stopnumber,jdbcType=INTEGER},
+      firststation = #{firststation,jdbcType=INTEGER},
+      laststation = #{laststation,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      changetime = #{changetime,jdbcType=INTEGER},
+      modelid = #{modelid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

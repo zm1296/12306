@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html xmlns:v-blind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        body{background-color: #b5cfd9}
+        table{background-color: wheat}
+        ul{
+            float: left;}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js">
+    </script>
+    <script src="../../js/vue.js"></script>
+    <script>
+        $(function () {
+            //先获取显示所有用户数据
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_AllUser",
+                type:"post",
+                dataType:"json",
+                data:{
+                },
+                success:function (data){
+                    var v1=new Vue({
+                        el:'.table',
+                        data: {
+                           list: data,
+                        },methods:{
+                                 //子栏中的 修改
+                            alert: function (index) {
+                                $(".alter_info").css("display","inline");
+                                al.old=v1.list[index];
+                            },   //子栏中的 删除
+                            del:function (id) {
+                                $.ajax({
+                                    url:"http://47.100.95.222:8080/backstage/del_user",
+                                    type:"post",
+                                    dataType:"json",
+                                    data:{
+                                        id:id,
+                                    },
+                                    success:function (data) {
+                                        alert(data);
+                                        window.location.reload();
+                                    },error:function (data) {
+                                        alert(data);
+                                    }
+                                })
+                            }
+                        }
+                    })
+                },
+                error:function(data ){
+                    alert(data);
+                }
+            });
+            $(function () {
+                //确认修改
+                $("input[name=submit]").click(function () {
+                    $.ajax({
+                        url:"http://47.100.95.222:8080/backstage/alter_UserInfo",
+                        type:"post",
+                        dataType:"json",
+                        data:{
+                            id:$("#alter_min").find("td").eq(0).find("input").val(),
+                            username:$("#alter_min").find("td").eq(1).find("input").val(),
+                            name:$("#alter_min").find("td").eq(2).find("input").val(),
+                            password:$("#alter_min").find("td").eq(3).find("input").val(),
+                            idnumber:$("#alter_min").find("td").eq(4).find("input").val(),
+                            email:$("#alter_min").find("td").eq(5).find("input").val(),
+                            phone:$("#alter_min").find("td").eq(6).find("input").val(),
+                            traveltype:$("#alter_min").find("td").eq(7).find("input").val(),
+                            sex:$("#alter_min").find("td").eq(8).find("input").val(),
+                            discountnumber:$("#alter_min").find("td").eq(9).find("input").val(),
+                            status:$("#alter_min").find("td").eq(10).find("input").val(),
+                        },
+                        success:function (dat) {
+                            if(dat==true){
+                                window.location.reload();
+                            }else{
+                                alert("修改未成功")
+                            }
+                        }
+                    })
+                })
+                //清空重输 按钮
+                $("input[name=clear]").click(function () {
+                    al.old="";
+                });
+            })
+
+            //查找 ID 按钮
+            $("input[value='确认查找']").click(function () {
+                $("#select").css("display","inline");
+                $.ajax({
+                    url:"http://47.100.95.222:8080/backstage/select_contact",
+                    type:"post",
+                    dataType:"json",
+                    data:{
+                        id:$("input[name=sel]").val(),
+                    },
+                    success:function (dat) {
+                        v2.contact=dat;
+                    }
+
+                })
+            })
+            var v2=new Vue({
+                el:'#select',
+                data:{
+                    contact:{},
+                }
+            });
+            var al=new Vue({
+                el:".alter_info",
+                data:{
+                    old:{},
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div >
+<div >
+<table border="1" align="center" width="100%" class="table">
+    <caption><h2>用户信息表</h2></caption>
+<tr>
+<th>ID</th><th>登录名</th><th>密码</th><th>姓名</th><th>身份证号</th><th>电子邮箱</th><th>电话</th><th>乘客类型</th><th>性别</th><th>学生优惠卡卡号</th><th>账户状态</th><th>操作</th>
+</tr>
+    <tr v-for="(user,index) in list" >
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.idnumber}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.traveltype}}</td>
+        <td>{{user.sex}}</td>
+        <td>{{user.discountnumber}}</td>
+        <td>{{user.status}}</td>
+        <td><a href="#" v-on:click="alert(index)">修改</a> | <a href="#" v-on:click="del(user.id)">删除</a></td>
+    </tr>
+</table>
+<!--    <tr>-->
+<!--        <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
+<!--    </tr>-->
+<!--<p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>-->
+    <ul>用户常用联系人管理</ul>
+    <ul>请输入查找用户的 ID: <input type="text" size="2px" name="sel"> <input type="button" value="确认查找"></ul>
+</div>
+</div>
+<!--常用联系人 模块-->
+<div style="display: none" id="select">
+    <table style="width: 100% ;" border="1">
+        <th>常用联系人ID</th><th>用户ID</th><th>用户姓名</th><th>身份证号</th><th>性别</th><th>电话</th><th>电子邮件</th><th>乘客类型</th><th>学生优惠卡卡号</th>
+        <tr v-for="person in contact"><td>{{person.id}}</td><td>{{person.userid}}</td><td>{{person.name}}</td><td>{{person.idnumber}}</td><td>{{person.sex}}</td> <td>{{person.phone}}</td>  <td>{{person.email}}</td><td>{{person.traveltype}}</td><td>{{person.discountcard}}</td></tr>
+    </table>
+</div>
+<!--修改模块-->
+<div style="display:none ; margin-top: 20px;" class="alter_info">
+    <table style="width: 100%">
+        <title style="font-size: 17px">请输入要修改的行信息：</title>
+<tr>
+    <th>ID</th><th>登录名</th><th>密码</th><th>姓名</th><th>身份证号</th><th>电子邮箱</th><th>电话</th><th>乘客类型</th><th>性别</th><th>学生优惠卡卡号</th><th>账户状态</th>
+</tr>
+    <tr id="alter_min">
+        <td><input type="text" size="1px"v-bind:value="old.id"></td><td><input type="text"size="5px"   v-bind:value="old.username"></td><td><input type="password"size="5px"v-bind:value="old.password"></td>
+        <td><input type="text" size="5px"v-bind:value="old.name"></td><td><input type="text"size="10px"v-bind:value="old.idnumber"></td><td><input type="email"size="10px"v-bind:value="old.email"></td>
+        <td><input type="text" size="5px"v-bind:value="old.phone"></td><td><input type="text"size="2px"v-bind:value="old.traveltype"></td> <td><input type="text" size="5px"v-bind:value="old.sex"></td>
+        <td><input type="text" size="5px"v-bind:value="old.discountcard"></td></td><td><input type="text" size="5px"v-bind:value="old.status"></td>
+    </tr>
+    </table>
+    <div style="float: right; margin-top: 20px ;margin-right: 10px"><input type="button" name="clear" value="清空重输"></div>
+    <div style="float: right ;margin-top: 20px"><input type="button" name="submit" value="确认修改"></div>
+</div>
+</body>
+<script >
+</script>
+</html>

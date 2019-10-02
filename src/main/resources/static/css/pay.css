@@ -1,0 +1,119 @@
+html{
+    background-color: #DEDEDE;
+}
+/*整体大盒子*/
+#allContent{
+    margin: 0 auto;
+    width: 960px;
+    height: 678px;
+    background-color:#ffffff;
+}
+/*顶部图片部分*/
+#images {
+    margin: 0 auto;
+    width: 963px;
+    height: 151px;
+}
+
+.images_1 {
+    float: left;
+    width: 186px;
+    height: 151px;
+}
+
+.images_2 {
+    float: left;
+    width: 456px;
+    height: 151px;
+}
+
+.images_3 {
+    float: left;
+    width: 321px;
+    height: 151px;
+}
+
+/*支付方式选择部分*/
+#pay_select_content {
+    position: relative;
+    margin: 0 auto;
+    width: 960px;
+    height: 310px;
+}
+
+/*付款金额部分*/
+#pay_money {
+    margin: 0 10px;
+    padding-top: 20px;
+    width: 960px;
+    height: 30px;
+}
+
+.text {
+    color: #000000;
+    font-size: 14px;
+}
+
+.money {
+    color: #dc2408;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*选择支付方式部分*/
+#pay_select {
+    padding-left: 10px;
+    border-top: 1px dashed #666666;
+    border-bottom: 1px dashed #666666;
+    width: 950px;
+    height: 260px;
+}
+
+#pay_select_inner {
+    width: 800px;
+    height: 260px;
+}
+
+/*每种支付方式盒子*/
+.pay_select_div {
+    float: left;
+    width: 130px;
+    height: 52px;
+    padding-top: 8px;
+    margin: 8px 46px 8px 16px;
+}
+
+/*提示词部分*/
+#text {
+    width: 914px;
+    height: 100px;
+    border-bottom: 1px dashed #666666;
+    background: #f3f3f3;
+    padding: 10px 0 10px 46px;
+}
+
+#text_inner {
+    width: 730px;
+    height: 100px;
+
+}
+#text li {
+    line-height: 20px;
+    color: #666666;
+    font-size: 12px;
+    list-style: disc;
+}
+/*底部*/
+#footer {
+    width: 960px;
+    height: 64px;
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+}
+
+#footer a {
+    font-size: 12px;
+    color: #666666;
+}

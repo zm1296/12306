@@ -1,0 +1,351 @@
+/*宣传栏*/
+/*轮播图*/
+.banner{
+	width: 1920px;
+	height: 450px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+@keyframes swicth{
+	0%{
+		left: 0;
+	}
+	40%{
+		left: 0;
+	}
+	50%{
+		left: -1920px;
+	}
+	90%{
+		left: -1920px;
+	}
+	100%{
+		left: -3840px;
+	}
+}
+.banner .picBox{
+	width: 5760px;
+	height: 450px;
+	position: absolute;
+	animation: swicth 6s infinite;
+}
+.banner .picBox > img{
+	float: left;
+}
+/*内嵌查询框*/
+.queryBox{
+	width: 510px;
+	height: 350px;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -40%;
+	background: #fff;
+}
+.queryBox ul.queryMenu{
+	width: 100px;
+	height: 350px;
+	float: left;
+}
+.queryBox ul.queryMenu li{
+	box-sizing: border-box;
+	height: 116px;
+	background-color: #3b99fc;
+	text-align: left;
+}
+.queryBox ul.queryMenu li > a{
+	display: block;
+	height: 115px;
+	line-height: 115px;
+	font-size: 16px;
+	color: #fff;
+	border-left: 3px solid #3b99fc;
+	border-bottom: 1px solid #86bffb;
+}
+.queryBox ul.queryMenu li:first-child > a{
+	background: #fff;
+	color: #3b99fc;
+}
+#fff
+{
+	background: #3b99fc;
+	color: #fff;
+}
+.queryBox ul.queryMenu li > a > i{
+	font-size: 22px;
+	margin: 0 3px;
+}
+
+.queryContent{
+	box-sizing: border-box;
+	width: 410px;
+	height: 350px;
+	float: right;
+	padding: 32px 25px 0 25px;
+}
+.queryContent ul.head li{
+	width: 90px;
+	float: left;
+	text-align: center;
+	border-bottom: 2px solid #dedede;
+}
+.queryContent ul.head li:first-child{
+	border-bottom: 2px solid #3b99fc;
+}
+.queryContent ul.head::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.queryContent ul.head li > a{
+	display: block;
+	line-height: 32px;
+	color: #999;
+}
+.queryContent ul.head li:first-child > a{
+	color: #3b99fc;
+}
+.queryContent ul.head li > a > i{
+	margin-right: 5px;
+}
+
+.queryContent form{
+	margin-top: 26px;
+	text-align: right;
+	font-size: 16px;
+	margin-right: 10px;/*为切换图标占位*/
+}
+.queryContent form > div.info{
+	display: inline-block;
+	width: 265px;
+	height: 30px;
+	border: 1px solid #dedede;
+	position: relative;
+}
+.queryContent form > div.info > input{
+	width: 225px;
+	height: 20px;
+	border: none;
+	padding: 0;
+	margin: 5px 30px 5px 10px;
+}
+.queryContent form > div > i{
+	width: 30px;
+	line-height: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+	font-size: 18px;
+	color: #dcdcdc;
+	cursor: pointer;
+}
+.queryContent form > div.choice{
+	width: 360px;
+	line-height: 30px;
+	margin: 10px 0;
+	text-align: center;
+}
+.queryContent form > input[type="submit"]{
+	width: 100%;
+	line-height: 30px;
+	background-color: #ff8201;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+}
+
+/*网站服务*/
+.websiteServ{
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -170px;
+	font-size: 14px;
+}
+.websiteServ ul li{
+	width: 50px;
+	background-color: #efefef;
+	padding: 10px 0;
+	margin-bottom: 5px;
+	text-align: center;
+}
+.websiteServ ul li > a{
+	color: #666;
+}
+.websiteServ ul li > a > i{
+	display: block;
+	font-size: 24px;
+}
+.websiteServ ul li:last-child{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+}
+
+/*常用菜单*/
+.frequentlyMenu ul li{
+	width: 170px;
+	padding: 35px 0;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+}
+.frequentlyMenu ul::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.frequentlyMenu ul li i{
+	display: block;
+	margin-bottom: 7px;
+	font-size: 36px;
+	color: #3b99fc;
+	border-right: 1px solid #3b99fc;
+}
+.frequentlyMenu ul li:last-child i{
+	border-right: none;
+}
+
+/*便捷服务*/
+.convenientServ ul li{
+	width: 590px;
+	height: 160px;
+	float: left;
+	margin: 0 10px 20px 0;
+}
+
+/*铁路旅游*/
+.tourism .title{
+	line-height: 38px;
+	border-bottom: 2px solid #dedede;
+}
+.tourism .title div{
+	display: inline-block;
+	line-height: 38px;
+	font-size: 16px;
+	color: #3b99fc;
+	border-bottom: 2px solid #3b99fc;
+}
+.tourism .title a{
+	float: right;
+	font-size: 12px;
+	color: #999;
+}
+.tourism .title a:hover{
+	color: #3b99fc;
+}
+
+.tourism ul li{
+	box-sizing: border-box;
+	width: 290px;
+	float: left;
+	margin: 10px 10px 0 0;
+	font-size: 14px;
+	border: 1px solid #dedede;
+}
+.tourism ul li > a > p{
+	line-height: 32px;
+}
+.tourism ul li > a:hover > p{
+	color: #3b99fc;
+}
+.tourism ul li > a > div{
+	padding: 0 10px 10px;
+	font-size: 20px;
+	color: #ff8201;
+}
+.tourism ul li i.rmb{
+	font-size: 14px;
+}
+
+/*公告栏*/
+.announcement{
+	margin: 40px 0;
+}
+.announcement ul.announcetype li{
+	float: left;
+	margin-right: 10px;
+}
+.announcement ul.announcetype::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.announcement ul.announcetype li > a{
+	display: block;
+	width: 390px;
+	line-height: 40px;
+	background-color: #efeff4;
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+}
+.announcement ul.announcetype li:first-child > a{
+	background-color: #3b99fc;
+	color: #fff;
+}
+
+.annouceContent{
+	box-sizing: border-box;
+	padding: 20px;
+	border: 1px solid #dedede;
+}
+.annouceContent ul.newPub li{
+	width: 544px;
+	height: 36px;
+	line-height: 36px;
+	float: left;
+	margin-right: 60px;
+}
+.annouceContent ul.newPub::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.annouceContent ul.newPub li::before{	
+	content: "";
+	width: 6px;
+	height: 6px;
+	background-color: #3b99fc;
+	float: left;
+	margin: 15px 20px 0 0;
+}
+.annouceContent ul.newPub li > a{
+	line-height: 36px;
+	max-width: 70%;
+	float: left;
+	overflow: hidden;/*隐藏公告多出部分*/
+	text-overflow: ellipsis;/*省略号代替公告标题多出部分*/
+	white-space: nowrap;/*段落文本不换行*/
+}
+.annouceContent ul.newPub li > span{
+	float: right;
+	color: #999;
+	font-size: 12px;
+}
+.annouceContent > p{
+	line-height: 36px;
+	text-align: right;
+}
+.annouceContent > p > a{
+	font-size: 14px;
+	color: #999;
+}
+.annouceContent > p > a:hover{
+	color: #3b99fc;
+}
+div#aaa input {
+	font-size: 1em;
+	font-family: 仿宋, serif;
+	width: 60%;
+	display: block;
+	margin-left: 10%;
+	opacity: 0.8;
+	padding: 0.2em;
+	color: #000000;
+	border-radius: 10px;
+	background-color: #bed8df;
+}
+

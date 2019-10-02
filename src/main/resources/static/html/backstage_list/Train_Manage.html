@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-blind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        body{background-color: #b5cfd9}
+        .a_ch{color: red}
+        table{background-color: wheat}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+   <script src="../../js/vue.js"></script>
+    <script>
+        $(function () {
+            //绑定 修改按下后 获取下拉复选的选项
+            var getInfo = new Vue({
+                el: "#alter_train",
+                data: {
+                    cityList: {},   //城市的集合
+                    train_model: {}, //火车的集合
+                    init: {},  //当前的车次 对象信息
+                },
+            } );
+            //显示 获取的所有车次信息
+            var traininfo = new Vue({
+                el: "#trainInf",
+                data: {
+                    train:{},
+                },
+                methods: {
+                    //删除
+                    delet : function (index) {
+                        $.ajax({
+                            url: "http://47.100.95.222:8080/backstage/del_trainInfo",
+                            type: "post",
+                            dataType: "json",
+                            data:{
+                                id:traininfo.train[index].id,
+                            },
+                            success: function (data) {
+                                if(data==true){
+                                    alert("删除成功");
+                                    location.reload();
+                                }else{
+                                    alert("系统错误");
+                                }
+                            }
+                        })
+                    },
+                     //修改：
+                    alter: function (index) {
+                        getInfo.init = traininfo.train[index];
+                        //获取城市列表
+                        $.ajax({
+                            url: "http://47.100.95.222:8080/api/city/getAllcity",
+                            type: "post",
+                            dataType: "json",
+                            success: function (city) {
+                                getInfo.cityList = city;
+                            }
+                        }),
+                            //获取火车列表
+                        $.ajax({
+                                url: "http://47.100.95.222:8080/backstage/get_trainmodel",
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    getInfo.train_model = data;
+                                }
+                        });
+                        $(".alter_info").css("display", "inline");
+                    },
+                }
+            });
+            //请求获取所有车次信息数据
+            $.ajax({
+                url: "http://47.100.95.222:8080/backstage/get_trainInfo",
+                type: 'post',
+                dataType: "json",
+                success: function (list) {
+                    traininfo.train = list;
+                }
+            })
+
+            //按下 确认修改
+            $(".submit").click(function () {
+                $.ajax({
+                    url: "http://47.100.95.222:8080/backstage/alter_trainInfo",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        id: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(0).children().val(),
+                        number: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(1).children().val(),
+                        day: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(2).children().val(),
+                        stopnumber: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(3).children().val(),
+                        firststation: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(4).children().val(),
+                        laststation: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(5).children().val(),
+                        status: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(6).children().val(),
+                        changetime: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(7).children().val(),
+                        // modelid: $(this).parent().prev().prev().find("tr").eq(1).find("td").eq(8).children().val(),
+                    }, success: function (result) {
+                        if (result == true) {
+                            alert("修改成功")
+                            location.reload();
+                        } else {
+                            alert("修改失败")
+                        }
+                    }
+                })
+            });
+            //按下 退出修改
+            $(".clear").click(function () {
+                window.location.reload();
+            })
+        })
+    </script>
+</head>
+<body>
+<div >
+    <div >
+        <table border="1" align="center" width="100%" id="trainInf">
+            <caption><h2>车次信息</h2></caption>
+            <tr>
+                <th>ID</th><th>列车车次</th><th>时间</th><th>停站数</th><th>起点站</th><th>终点站</th><th>运行状态</th><th>延迟时间</th><th>操作</th>
+            </tr>
+            <tr v-for="(t,index) in train">
+                <td>{{t.id}}</td>
+                <td>{{t.number}}</td>
+                <td>{{t.day}}</td>
+                <td>{{t.stopnumber}}</td>
+                <td>{{t.cityInfo1.name}}</td>
+                <td>{{t.cityInfo2.name}}</td>
+                <td>{{t.status}}</td>
+                <td>{{t.changetime}}</td>
+<!--                <td>{{t.modelid}}</td>-->
+                <td><a href="#"  class="alter a_ch" v-on:click="alter(index)">修改</a> | <a href="#" class="delete a_ch" v-on:click="delet(index)">删除</a></td>
+            </tr>
+        </table>
+<!--        <tr>-->
+<!--            <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
+<!--        </tr>-->
+<!--        <p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>-->
+    </div>
+</div>
+<div style="display:none ;width: 100%" class="alter_info">
+    <table id="alter_train" style="width: 100%">
+        <caption>修改车次信息：</caption>
+        <tr>
+            <th>ID</th><th>列车车次</th><th>时间</th><th>停站数</th><th>起点站</th><th>终点站</th><th>运行状态</th><th>延迟时间</th><th>列车ID</th>
+        </tr>
+        <tr>
+            <td><input type="text" :value="init.id" size="1"></td>
+            <td><input type="text" :value="init.number" size="3"></td>
+            <td><input type="date" :value="init.day"></td>
+            <td><input type="text" :value="init.stopnumber" size="1"></td>
+            <td><select name="start_station" size="1" :value="init.firststation">
+                <option v-for="(city,index) in cityList" :value="city.id">{{city.name}}</option>
+               </select></td>
+            <td><select name="end_station" size="1" :value="init.laststation" >
+                <option v-for="city in cityList" :value="city.id">{{city.name}}</option>
+                </select></td>
+            <td><select name="later" :value="init.status">
+                <option ></option>
+                <option value=1>正点</option>
+                <option value=2>晚点</option>
+                <option value=3>取消</option>
+                </select></td>
+            <td><input type="text" size="1" :value="init.changetime"></td>
+            <td><select :value="init.modelid">
+                <option v-for="train_ in train_model">{{train_.id}}</option>
+                </select></td>
+        </tr>
+    </table>
+    <div style="float: right; margin-top: 20px ;margin-right: 20px"><input type="button" class="clear" value="退出修改"></div>
+    <div style="float: right ;margin-top: 20px"><input type="button" class="submit" value="确认修改"></div>
+</div>
+</body>
+</html>

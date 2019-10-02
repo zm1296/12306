@@ -1,0 +1,49 @@
+/*位置信息*/
+.localPosition{
+	line-height: 50px;
+	color: #666;
+}
+.localPosition span{
+	color: #3b99fc;
+}
+
+/*服务中心列表*/
+.serviceCenter{
+	padding: 20px 0 20px 20px;
+	margin-bottom: 40px;
+	border: 1px solid #dedede;
+}
+.serviceCenter h1{
+	line-height: 36px;
+	padding: 10px;
+	margin: 0 0 15px 0;
+	font-weight: 400;
+	text-align: center;
+}
+.serviceCenter ul.servPhone li{
+	box-sizing: border-box;
+	width: 370px;
+	line-height: 20px;
+	float: left;
+	padding: 23px 20px 17px 20px;
+	margin: 20px 20px 0 0;
+	border: 1px solid #dedede;
+	font-size: 18px;
+	color: #3b99fc;
+}
+.serviceCenter ul.servPhone::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.serviceCenter ul.servPhone li > p{
+	line-height: 22px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666;
+}
+.serviceCenter ul.servPhone li > p > i{
+	font-size: 13px;
+	color: #999;
+	margin-right: 10px;
+}

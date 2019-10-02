@@ -1,0 +1,171 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*主体内容小标题*/
+.content >.header{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*内容*/
+.content > .nav{
+	width: 1200px;
+	height: 1470px;
+	margin: 0 auto;
+	border: 2px solid #ededed;
+}
+/*标题*/
+.nav >.one> .title{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 40px;
+}
+/*单程返程*/
+.nav >.one>.label{
+	width: 1120px;
+	height: 35px;
+	border-bottom: 3.5px solid #ededed;
+}
+.nav >.one>.label >ul{
+	margin-top: 50px;
+}
+.nav >.one>.label >ul >li{
+	float: left;
+}
+.nav >.one>.label >ul >li:nth-child(1){
+	border-bottom: 3.5px solid #3b99fc;
+	color: #3b99fc;
+	height: 35px;
+	width: 30px;
+	text-align: center;
+}
+.nav >.one >.label>ul >li:nth-child(2){
+	margin-left: 50px;
+}
+/*第一部分*/
+.content > .nav >.one{
+	width: 1120px;
+	margin: 0 auto;
+	line-height: 2em;
+}
+.content >.nav > .one > .tag{
+	margin-top: 20px;
+}
+.content >.nav > .one >.tally>ul>li{
+	float: left;
+	margin-left: 15px;
+}
+.content >.nav > .one >.tally>ul>li:nth-child(1){
+    margin-left: 0;
+}
+.content >.nav > .one >.tally>ul>li>span{
+	font-weight: bold;
+}
+/*时刻表*/
+.one>table{
+	width: 1020px;
+	margin-top: 30px;
+	border-collapse:collapse;  
+}
+.one>table>tbody>tr>td{
+	padding-left: 10px;
+	height: 30px;
+}
+.one>table>tbody>tr:nth-child(2n+1){
+    background-color: #f7f8fa;
+}
+.one>table>tbody>tr:nth-child(1){
+	background-color: #3b99fc;
+}
+/*第二部分*/
+/*标题*/
+.nav >.two> .title{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 40px;
+}
+/*单程返程*/
+.nav >.two>.label{
+	width: 1120px;
+	height: 35px;
+	border-bottom: 3.5px solid #ededed;
+}
+.nav >.two>.label >ul{
+	margin-top: 50px;
+}
+.nav >.two>.label >ul >li{
+	float: left;
+}
+.nav >.two>.label >ul >li:nth-child(1){
+	border-bottom: 3.5px solid #3b99fc;
+	color: #3b99fc;
+	height: 35px;
+	width: 30px;
+	text-align: center;
+}
+.nav >.two >.label>ul >li:nth-child(2){
+	margin-left: 50px;
+}
+.content > .nav >.two{
+	width: 1120px;
+	margin: 0 auto;
+	line-height: 2em;
+}
+.content >.nav > .two > .tag{
+	margin-top: 20px;
+}
+.content >.nav > .two >.tally>ul>li{
+	float: left;
+	margin-left: 15px;
+}
+.content >.nav > .two >.tally>ul>li:nth-child(1){
+    margin-left: 0;
+}
+.content >.nav > .two >.tally>ul>li>span{
+	font-weight: bold;
+}
+/*时刻表*/
+.two>table{
+	width: 1120px;
+	margin-top: 30px;
+	border-collapse:collapse;  
+}
+.two>table>tbody>tr>td{
+	padding-left: 10px;
+	height: 30px;
+}
+.two>table>tbody>tr:nth-child(2n+1){
+    background-color: #f7f8fa;
+}
+.two>table>tbody>tr:nth-child(1){
+	background-color: #3b99fc;
+}
+/*第三部分*/
+.content>.nav>.three{
+	width: 1120px;
+	height: 200px;
+	margin-top: 50px;
+	margin-left: 35px;
+	background-color: #f9fbff;
+	border: 2px solid #d5e3ff;
+}
+.three>.title{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 40px;
+}
+.three >ul{
+	margin-left: 50px;
+	margin-top: 50px;
+}
+.three>ul:after{
+	content: "";
+	clear: both;
+	display: block;
+
+}
+.three >ul>li{
+	float: left;
+	margin-left: 20px;
+}

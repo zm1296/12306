@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机核验</title>
+    <link rel="stylesheet" href="../../css/own_check.css">
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script src="../../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div class="content_tit">
+        <div>手机核验</div>
+    </div>
+    <div class="content_view1">
+        <div class="con_view_rows">
+            <div class="view_rows_l">
+                <span>*</span>
+                原手机号：
+            </div>
+            <div class="view_rows_r">
+                {{phone}} <span class="span4">已通过核验</span>
+            </div>
+        </div>
+        <div class="con_view_rows">
+            <div class="view_rows_l">
+                <span>*</span>
+                新手机号：
+            </div>
+            <div class="view_rows_r">
+                <input class="new_phone" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="content_view2">
+        <div class="con_view_rows">
+            <div class="view_rows_l">
+                <span>*</span>
+                登录密码：
+            </div>
+            <div class="view_rows_r">
+                <input class="password" type="password"> <span class="span5">正确输入密码才能修改密保</span>
+            </div>
+        </div>
+    </div>
+    <div class="content_view3">
+        <div class="con_view_rows">
+            <a class="first_a" href="javascript:;">取消</a>
+            <a class="second_a" data-toggle="modal" data-target="#otherModal">确认</a>
+        </div>
+    </div>
+
+    <!-- 提示信息 -->
+    <div class="modal fade" id="otherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content up-box w664">
+                <div class="up-box-hd" id="up-box-hd_id">
+                    手机双向绑定
+                </div>
+                <div class="up-box-bd">
+                    <div class="modal-bd">
+                        <div>为了保护您的信息安全，便于今后为您服务，请按以下程序进行手机双向核验:</div>
+                        <div>
+                            第一步：请您用手机
+                            <span class="changephone">{{phone}}</span>
+                            发送短信999至12306，以便确认您的手机可以联络。
+                        </div>
+                        <div>
+                            第二步：12306接到您的短信后将给您的手机回复六位数字短信，请您在十分钟内将六位数字短信填写在下方空白框中，并点击“核验”按钮。现在先请您发送999短信，并稍候我们的回复。
+                        </div>
+                        <div class="form-list">
+                            <div class="form-item">
+                                <div class="form-label">
+                                    <span class="required">*</span>
+                                    您当前的手机号码是：
+                                </div>
+                                <div class="form-bd">
+                                    <div class="nowphone">{{changeTl(phone)}}</div>
+                                    <a class="btn_change" href="javascript:;">修改手机号</a>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="form-label">
+                                    <span class="required">*</span>
+                                    验证码
+                                </div>
+                                <div class="form-bd">
+                                    <input class="input_change" type="text">
+                                </div>
+                            </div>
+                            <div class="form_btn">
+                                <a class="btn_last1" style="background-color: #ff8f16">核验</a>
+                                <a class="btn_last2" href="own_check.html">取消</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-tip">
+                    <p>使用说明：</p>
+                    <p>1.一个用户一天可以获取三次手机核验的短信验证码。</p>
+                    <p>2.手机核验通过的用户方能在12306.cn网站办理邮箱修改、密码修改等业务。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../js/vue.min.js"></script>
+<script>
+    $(function () {
+        var code;
+        //缓存用户读取cookie
+        var userid;
+        var username;
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        if (getCookie("cookie_userid") != null) {
+            userid = getCookie("cookie_userid");
+        }
+        if (getCookie("cookie_username") != null) {
+            username = getCookie("cookie_username");
+        }
+
+        //1.ajax部分：获取用户的手机号和密码
+        var j = new Object();
+        j.id = userid;
+        $.ajax({
+            url: "http://localhost:8080/api/user/getInfo",
+            type: "post",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify(j),
+            success: function (data) {
+                // alert(data.phone);
+                vm.phone = data.phone;
+            }
+        })
+
+        //1.vue部分：绑定用户手机号
+        var vm = new Vue({
+            el: "#content",
+            data: {
+                phone: {}
+            },
+            methods: {
+                changeTl: function (phone) {
+                    if (phone.length == 11) {
+                        return phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+                    }
+                }
+            }
+        })
+
+        //2.ajax部分：第一次获取验证码
+        $(".second_a").click(function () {
+            var k = new Object();
+            k.id = userid;
+            k.password = $(".password").val();
+            k.phone = $(".new_phone").val();
+            k.status = 0;
+            $.ajax({
+                url: "http://localhost:8080/api/user/changePhone",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify(k),
+                success: function (data) {
+                    alert(data);
+                    code = data;
+                    // if ($(".input_change").val() == code){
+                    //     $(".btn_last1").click(function () {
+                    //         // alert("1");
+                    //         if ($(".input_change").val() == code)
+                    //         var l = new Object();
+                    //         l.id = userid;
+                    //         l.password = $(".password").val();
+                    //         l.phone = $(".new_phone").val();
+                    //         l.status = 1;
+                    //         $.ajax({
+                    //             url: "http://localhost:8080/api/user/changePhone",
+                    //             type: "post",
+                    //             dataType: "json",
+                    //             contentType: "application/json;charset=UTF-8",
+                    //             data: JSON.stringify(l),
+                    //             success: function (data) {
+                    //                 alert("修改手机号成功");
+                    //             },
+                    //             error: function () {
+                    //                 alert("修改手机失败");
+                    //             }
+                    //         })
+                    //     })
+                    // }
+                },
+                error: function () {
+                    alert("出现错误");
+                }
+            })
+        })
+
+        // 3.ajax部分：第二次修改手机号
+        $(".btn_last1").click(function () {
+            if ($(".input_change").val() == code){
+                var l = new Object();
+                l.id = userid;
+                l.password = $(".password").val();
+                l.phone = $(".new_phone").val();
+                l.status = 1;
+                $.ajax({
+                    url: "http://localhost:8080/api/user/changePhone",
+                    type: "post",
+                    dataType: "json",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(l),
+                    success: function (data) {
+                        alert("修改手机号成功");
+                    },
+                    error: function () {
+                        alert("修改手机号成功");
+                    }
+                })
+            }
+
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        a :hover{ color: red}
+        body{background-color: #b5cfd9}
+        table{background-color: wheat}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.min.js"></script>
+    <script>
+        $(function () {
+            var getInfo=new Vue({
+                el:'#sold',
+                data:{
+                    soldList:{},
+                }
+            })
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_soldticket",
+                type:"post",
+                dataType:"json",
+                success:function (soldList) {
+                        getInfo.soldList=soldList;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div >
+    <div >
+        <table border="1" align="center" width="100%" id="sold">
+            <caption><h2>已售出车票信息</h2></caption>
+            <tr>
+                <th>售出的车票ID</th><th>车次名</th><th>起始站名</th><th>终止站名</th><th>价格</th><th>座位种类</th><th>座位号</th><th>行号</th><th>车厢号</th><th>联系人姓名</th><th>订单ID</th>
+            </tr>
+            <tr v-for="ticket in soldList">
+                <td>{{ticket.id}}</td>
+                <td>{{ticket.trainInfo.number}}</td>
+                <td>{{ticket.fromstop.cityInfo.name}}</td>
+                <td>{{ticket.tostop.cityInfo.name}}</td>
+                <td>{{ticket.price}}</td>
+                <td>{{ticket.seatlevel}}</td>
+                <td>{{ticket.seatnumber}}</td>
+                <td>{{ticket.rownumber}}</td>
+                <td>{{ticket.carnumber}}</td>
+                <td>{{ticket.contactInfo.name}}</td>
+                <td>{{ticket.orderid}}</td>
+            </tr>
+        </table>
+<!--        <tr>-->
+<!--            <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
+<!--        </tr>-->
+<!--        <p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>-->
+    </div>
+</div>
+</body>
+</html>

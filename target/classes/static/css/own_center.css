@@ -1,0 +1,107 @@
+/*右侧主体部分盒子*/
+#insurance_right {
+    width: 968px;
+    height: 640px;
+    /*position: absolute;*/
+    /*left: 160px;*/
+    /*top: 45px;*/
+    border: 1px solid #DEDEDE;
+    border-top: 2px solid #3B99FC;
+    padding: 20px 30px 30px 30px;
+    box-shadow: 0 0 5px #E5E5E5;
+    background: #FAFDFF;
+}
+
+/*欢迎词部分*/
+.welcome {
+    position: relative;
+    width: 100%;
+    height: 65px;
+}
+
+.welcome .span1 {
+    position: absolute;
+    bottom: 15px;
+    margin-left: 20px;
+    margin-right: 15px;
+    font-size: 24px;
+    color: #333333;
+}
+
+.welcome .span2 {
+    position: absolute;
+    bottom: 15px;
+    left: 190px;
+    font-size: 18px;
+    color: #333333;
+}
+
+/*提示词部分*/
+#text {
+    margin-top: 20px;
+    width: 966px;
+    height: 180px;
+    border: 1px dashed #9ECCFE;
+}
+
+
+#text p {
+    color: #333333;
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+    margin: 15px 20px 10px 20px;
+}
+
+/*二维码区域*/
+#scan {
+    width: 968px;
+    height: 176px;
+    margin: 40px 0 30px;
+}
+
+.scan_div {
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 230px;
+    height: 176px;
+    margin: 0 10px 0 0;
+}
+
+.scan_div_image {
+    margin: 0 auto;
+    width: 124px;
+    height: 120px;
+    border: 1px solid #00aecd;
+    /*text-align: center;*/
+}
+
+#scan div image {
+    vertical-align: middle;
+}
+
+.scan_div_text {
+    color: #333333;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0px;
+}
+
+/*底部提示词部分*/
+#text2 {
+    border: 2px solid #ffddba;
+    background: #fffbf8;
+    padding: 10px 20px 10px 20px;
+    line-height: 22px;
+    width: 924px;
+    height: 90px;
+}
+
+#text2 span {
+    font-size: 14px;
+    color: #333333;
+}

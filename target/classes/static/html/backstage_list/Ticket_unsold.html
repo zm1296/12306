@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        .red{ color: red}
+        body{background-color: #b5cfd9}
+        table{background-color: wheat}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.min.js"></script>
+    <script>
+        $(function () {
+            var pageNumber=1;
+            var pageSize=20;
+            var getInfo=new Vue({
+                el:'#unsold',
+                data:{
+                    unsoldList:{},
+                    all_pageNumber:{},
+                    now_page:pageNumber,
+                }
+            });
+                $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_pageN_unsold",
+                type: "post",
+                dataType: "json",
+                success:function (number) {
+                    getInfo.all_pageNumber=number;
+                }
+            });
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_unsoldticket",
+                type:"post",
+                dataType:"json",
+                data:{
+                    pageNumber:pageNumber,
+                    pageSize:pageSize,
+                },
+                success:function (unsoldList) {
+                    getInfo.unsoldList=unsoldList;
+                }
+            })
+            $("#prev").click(function () {
+                if(getInfo.now_page<=1){
+                }else {
+                    pageNumber--;
+                    getInfo.now_page=pageNumber;
+                    getpage_Info();
+                }
+            })
+            $("#next").click(function () {
+                if(getInfo.now_page>=getInfo.all_pageNumber){
+
+                }else {
+                    pageNumber++;
+                    getInfo.now_page=pageNumber;
+                    getpage_Info();
+                }
+            })
+            $("#last").click(function () {
+                pageNumber=getInfo.all_pageNumber;
+                getInfo.now_page=pageNumber;
+                getpage_Info();
+            })
+            function getpage_Info() {
+                $.ajax({
+                    url: "http://47.100.95.222:8080/backstage/get_unsoldticket",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        pageNumber: pageNumber,
+                        pageSize: pageSize,
+                    },
+                    success: function (unsoldList) {
+                        getInfo.unsoldList = unsoldList;
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+<div >
+    <div id="unsold">
+        <table border="1" align="center" width="100%" >
+            <caption><h2>未售出车票信息</h2></caption>
+            <tr>
+                <th>未售出的车票ID</th><th>车次名</th><th>起始站名</th><th>终止站名</th><th>价格</th><th>座位种类</th><th>座位号</th><th>行号</th><th>车厢号</th>
+            </tr>
+            <tr v-for="ticket in unsoldList">
+                <td>{{ticket.id}}</td>
+                <td>{{ticket.trainInfo.number}}</td>
+                <td>{{ticket.fromstop.cityInfo.name}}</td>
+                <td>{{ticket.tostop.cityInfo.name}}</td>
+                <td>{{ticket.price}}</td>
+                <td>{{ticket.seatlevel}}</td>
+                <td>{{ticket.seatnumber}}</td>
+                <td>{{ticket.rownumber}}</td>
+                <td>{{ticket.carnumber}}</td>
+            </tr>
+        </table>
+        <tr>
+            <td colspan="8"><div >当前第：<b style="color: black">{{now_page}}</b> 页</div><div class="pagelist"> <a id="prev" class="red">上一页</a>|<a id="next"  class="red">下一页</a>|<a id="last"  class="red">尾页</a> </div></td>
+        </tr>
+        <p class="msg">共找到: <a  class="red"> {{all_pageNumber}} </a>页，每页仅显示<b>20</b>条车票信息</p>
+    </div>
+</div>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/*代售点查询*/
+.agencySearch{
+	width: 980px;
+	height: 80px;
+	padding: 10px 0;
+	margin: 40px auto 10px;
+	background: #eef1f8;
+	border: 1px solid #298cce;
+	border-radius: 3px;
+	font-size: 14px;
+	color: #333;
+}
+.agencySearch form span{
+	color: red;
+	margin: 5px 5px 5px 20px;
+}
+.agencySearch form select{
+	width: 150px;
+	height: 30px;
+}
+.agencySearch form > input{
+	width: 122px;
+	height: 30px;
+	margin-left: 40px;
+	background-color: #ff8201;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+.agencySearch form ul{
+	margin: 10px 20px;
+}
+.agencySearch form ul li{
+	float: left;
+}
+.agencySearch form ul li > input{
+	width: 120px;
+	height: 17px;
+	padding-left: 5px;
+	font-size: 12px;
+}
+.agencySearch form ul li > div{
+	width: 20px;
+	height: 20px;
+	background-color: #6b97d9;
+	color: #fff;
+	text-align: center;
+}
+
+/*代售点信息*/
+.agencyInfo{
+	width: 980px;
+	margin: 10px auto 600px;
+}
+.agencyInfo table{
+	border-collapse: collapse;
+}
+.agencyInfo table thead tr{
+	line-height: 50px;
+	background-color: #2c90cf;
+	font-size: 12px;
+	color: #fff;
+}
+.agencyInfo table thead tr td{
+	border-right: 1px solid #333;
+	font-weight: bold;
+	text-align: center;
+}
+.agencyInfo table thead tr td:first-child{
+	width: 97px;
+}
+.agencyInfo table thead tr td:nth-child(2),
+.agencyInfo table thead tr td:nth-child(3){
+	width: 307px;
+}
+.agencyInfo table thead tr td:nth-child(4),
+.agencyInfo table thead tr td:last-child{
+	width: 133px;
+}

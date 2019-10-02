@@ -1,0 +1,178 @@
+/*公共顶部*/
+/*主体部分*/
+.wrapper::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.header{
+	background-color: #fff;
+	padding: 15px 0;
+}
+
+.header .logo{
+	width: 200px;
+	height: 50px;
+	float: left;
+}
+
+.header-right{
+	width: 890px;
+	float: right;
+}
+.header-right .trainbg{
+	background-color: #f8f8f8;
+	margin: 5px 0;
+	padding: 5px 0 5px 100px;
+	border-top-left-radius: 40px;
+}
+
+.header-right ul.mine{
+	float: right;
+}
+.header-right ul.mine li{
+	float: left;
+	line-height: 30px;
+	margin-right: 5px;
+	position: relative;
+}
+.header-right ul.mine li > a{
+	padding: 0 5px;
+	color: #3b99fc;
+	border-right: 1px solid #533375;
+}
+.header-right ul.mine li:last-child > a{
+	color: #000;
+	border-right: none;
+}
+.header-right ul.mine li:hover > .horn,
+.header-right ul.mine li:hover > ul{
+	display: block;
+}
+.header-right ul.mine li > .horn{
+	width: 8px;
+	height: 8px;
+	background-color: #fff;
+	border-left: 1px solid #dedede;
+	border-top: 1px solid #dedede;
+	position: absolute;
+	left: 50%;
+	margin-left: -4px;
+	bottom: -3px;
+	transform: rotate(45deg);
+	z-index: 10;
+	display: none;
+}
+.header-right ul.mine li > ul{
+	width: 120px;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+	text-align: left;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 9;
+	display: none;
+}
+.header-right ul.mine li > ul > li{
+	width: 100px;
+	line-height: 26px;
+	cursor: pointer;
+}
+.header-right ul.mine li > ul > li:nth-child(3),
+.header-right ul.mine li > ul > li:nth-child(6),
+.header-right ul.mine li > ul > li:nth-child(8),
+.header-right ul.mine li > ul > li:nth-child(10){
+	border-bottom: 2px dashed #ededed;
+}
+
+.header-right ul.search::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.header-right ul.search{
+	width: 470px;
+}
+.header-right ul.search li{
+	float: left;
+}
+.header-right ul.search li:first-child > input{
+	width: 420px;
+	height: 27px;
+	border: 1px solid #c8c8c8;
+	color: #c8c8c8;
+}
+.header-right ul.search li:last-child{
+	width: 30px;
+	line-height: 30px;
+	background-color: #3b99fc;
+	color: #fff;
+	text-align: center;
+}
+
+/*公共导航栏*/
+.navigation{
+	background-color: #3b99fc;
+}
+.navigation ul li{
+	float: left;
+	width: 150px;
+	line-height: 40px;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+.navigation ul li > a{
+	color: #fff;
+}
+.navigation ul::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.navigation ul li > i{
+	margin-left: 5px;
+}
+/*.navigation ul li:hover > i{
+	transform: rotate(360deg);
+	transition: all 0.5s linear;
+}*/
+.navigation ul li:first-child{
+	background-color: #2676e3;
+}
+.navigation ul li:hover{
+	background-color: #2676e3;
+}
+.navigation ul{
+	position: relative;
+}
+.navigation ul > li > table{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #acd1f9;
+	border-collapse: collapse;
+	z-index: 8;
+	display: none;
+}
+.navigation ul > li:hover > table{
+	display: block;
+}
+.navigation ul table thead td{
+	color: #3b99fc;
+}
+.navigation ul table tbody td{
+	width: 200px;
+	border-right: 1px solid #acd1f9;
+}
+.navigation ul table tbody td a{
+	color: #666;
+}
+.navigation ul table tbody td a:hover{
+	color: #3b99fc;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用联系人</title>
+    <link rel="stylesheet" href="../../css/own-contact.css">
+</head>
+<body>
+<!--整个大盒子-->
+<div id="allContent">
+    <!--搜索部分-->
+    <div class="search_box">
+        <input v-model="message" class="input_txt" type="text" placeholder="请输入乘客姓名">
+        <i @click="empty"><img src="../../images/own/icon-del2.png"></i>
+        <a href="javascript:void(0);">查询</a>
+    </div>
+    <!--   标题栏  -->
+    <div id="title_box">
+        <table>
+            <tbody>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>证件类型</th>
+                <th>证件号码</th>
+                <th>手机／电话</th>
+                <th>旅客类型</th>
+                <th>核验状态</th>
+                <th>操作</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="order_item">
+        <div class="order_item_hd">
+            <a href="javascript:void(0);"><i><img src="../../images/own/icon-del.png"></i>批量删除</a>
+            <a href="javascript:void(0);"><i><img src="../../images/own/icon-add.png"></i>添加</a>
+        </div>
+        <div class="order_item_bd">
+            <table class="order_item_table">
+                <tbody>
+                <!--   显示所有联系人  -->
+                <tr class="show_tr" v-for="(people,index) in peopleList" style="display:block">
+                    <td class="td1">
+                        <div><input name="checks" type="checkbox"><span style="display:none">&nbsp{{people.id}}</span></div>
+                    </td>
+                    <td class="td2">
+                        <div>{{people.name}}</div>
+                    </td>
+                    <td class="td3">
+                        <div>中国居民身份证</div>
+                    </td>
+                    <td class="td4">
+                        <div>{{people.idnumber}}</div>
+                    </td>
+                    <td class="td5">
+                        <div>{{people.phone}}</div>
+                    </td>
+                    <td class="td6">
+                        <div><span>{{changeType(people.traveltype)}}</span></div>
+                    </td>
+                    <td class="td7">
+                        <div style="color: #00cc0c">已通过</div>
+                    </td>
+                    <td class="td8">
+                        <div>
+                            <a href="javascript:void(0);"><i @click="dele(index)"><img
+                                    src="../../images/own/icon-del.png"></i></a>
+                            <a class="edict" href="javascript:void(0);"><i><img
+                                    src="../../images/own/icon-edit.png"></i></a>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script>
+    $(function () {
+        //缓存用户
+        var userid;
+        var username;
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        if (getCookie("cookie_userid") != null) {
+            userid = getCookie("cookie_userid");
+        }
+        if (getCookie("cookie_username") != null) {
+            username = getCookie("cookie_username");
+        }
+
+        //1.ajax部分：展示所有联系人
+        var c = new Object();
+        c.id = userid;
+        $.ajax({
+            url: "http://localhost:8080/api/user/getCotactByUserid",
+            type: "post",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify(c),
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    vm.peopleList = data;
+                }
+            }
+        })
+
+
+        //1.Vue部分:显示所有联系人
+        var vm = new Vue({
+            el: "#allContent",
+            data: {
+                message: "",
+                peopleList: []
+            },
+            methods: {
+                //删除单个联系人
+                dele: function (index) {
+                    // var abcd = this.peopleList[index].id;     //测试获得删除按钮同一行的联系人id
+                    // alert(abcd);
+                    //2.ajax部分：删除单个联系人信息
+                    //删除部分vue1那边有定义可能有冲突
+                        var d = new Object();
+                        d.id = this.peopleList[index].id;                //传删除按钮对应行的联系人id
+                        $.ajax({
+                            url: "http://localhost:8080/api/user/deleteContactByUserid",
+                            type: "post",
+                            dataType: "json",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify(d),
+                            success: function (data) {
+                                alert("删除成功！");
+                            },
+                            error:function () {
+                                alert("错误");
+                            }
+                        })
+                    this.peopleList.splice(index, 1);
+                },
+                //清空搜索文本框
+                empty: function () {
+                    $(".input_txt").val('');
+                    // $(this).prev().val("");
+                },
+                //改变乘客类型
+                changeType:function (index) {
+                    var types = index;
+                    // alert(abcd);
+                    if (types == 1){
+                        return types = "成人" ;
+                    }else if (types == 2){
+                        return types = "学生" ;
+                    }else if (types == 3){
+                        return types = "儿童" ;
+                    }else{
+                        return types = "残疾军人、伤残人民警察" ;
+                    }
+                }
+            }
+        })
+
+
+        //jQuery部分
+        //    鼠标移到批量删除和添加部分变色
+        $(".order_item_hd a").hover(function () {
+            $(this).css("color", "#9eccfe")
+        }, function () {
+            $(this).css("color", "#333333")
+        })
+        //    鼠标移到查询变色效果
+        $(".search_box a").hover(function () {
+            $(this).css({"color": "#ff8000", "borderColor": "#ff8000"})
+        }, function () {
+            $(this).css({"color": "#333333", "borderColor": "#dedede"})
+        })
+        //    实现批量删除操作
+        $(".order_item_hd>a:first").click(function () {
+            $("input[name='checks']:checked").each(function () {
+                var n = $(this).parents("tr").index();
+                $("table.order_item_table").find("tr:eq(" + n + ")").remove();
+            })
+        })
+
+        // 搜素框点击删除 清空文本框内容
+        // $(".search_box i").click(function () {
+        //     $(this).prev().val("");
+        // })
+
+        //点击搜索显示对应联系人信息
+    })
+
+</script>
+</body>
+</html>

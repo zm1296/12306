@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>火车票订单</title>
+    <link rel="stylesheet" href="../../Common/commonGeneral.css">
+    <!--    <link rel="stylesheet" href="css/commonTop.css">-->
+    <!--    <link rel="stylesheet" href="css/commonBottom.css">-->
+    <!--    <link rel="stylesheet" type="text/css" href="css/commonLeft.css">-->
+    <link rel="stylesheet" type="text/css" href="../../css/own_orders.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1344458_mkhjlnf7wn.css">
+</head>
+<body>
+<!-- 右侧栏 -->
+<div class="right">
+    <!-- 菜单 -->
+    <div class="menu">
+        <ul>
+            <li><p>未完成订单</p></li>
+            <li><p>未出行订单</p></li>
+            <li><p>历史订单</p></li>
+        </ul>
+    </div>
+    <!-- 主体1  未完成订单-->
+    <div class="main1" style="display:block;">
+        <div class="content">
+            <div class="details1" style="display: block">
+                <div class="title_box">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>车次信息</th>
+                            <th>旅客信息</th>
+                            <th>席位信息</th>
+                            <th>票价</th>
+                            <th>车票状态</th>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="order_box" v-for="(item,index) in items">
+                    <div class="order_box_hd">
+                        <i></i>
+                        <div class="order_hd_info1">
+                            <span class="hd_span1">订票日期：</span>
+                            <!--                            <span class="hd_span2">{{undoneOrders[0].createdate}}</span>-->
+<!--                            <span class="hd_span2">{{createdate}}</span>-->
+                            <span class="hd_span2">{{item.createdate}}</span>
+                        </div>
+                        <div class="order_hd_info2">
+                            <span class="hd_span1">订单号：</span>
+                            <!--                            <span class="hd_span2">EJ{{undoneOrders[0].id}}</span>-->
+                            <span class="hd_span2"> EJ{{item.id}}</span>
+                        </div>
+                        <div class="order_hd_info3">
+                            <span>候补兑现订单</span>
+                        </div>
+                    </div>
+                    <div class="order_box_bd">
+                        <table>
+                            <tbody>
+                            <tr class="first_tr">
+                                <td class="tr1_td1">
+                                    <div class="tr1_td1_div1">
+                                        <!--                                        {{undoneOrders[0].tickets[0].fromstop.cityInfo.name}}→{{undoneOrders[0].tickets[0].tostop.cityInfo.name}} {{undoneOrders[0].tickets[0].trainInfo.number}}-->
+<!--                                        {{city1}}→{{city2}} {{train}}-->
+                                        {{item.tickets[0].fromstop.cityInfo.name}}→{{item.tickets[0].tostop.cityInfo.name}} {{item.tickets[0].trainInfo.number}}
+                                    </div>
+                                    <div class="tr1_td1_div2">
+                                        <!--                                        {{undoneOrders[0].tickets[0].trainInfo.day}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{undoneOrders[0].tickets[0].fromstop.cityInfo.saletime}} 开-->
+<!--                                        {{day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{saletime}} 开-->
+                                        {{item.tickets[0].trainInfo.day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{item.tickets[0].fromstop.cityInfo.saletime}} 开
+                                    </div>
+                                </td>
+                                <td class="tr1_td2">
+                                    <!--                                    <div>{{undoneOrders[0].tickets[0].contactInfo.name}}</div>-->
+<!--                                    <div>{{name}}</div>-->
+                                    <div>{{item.tickets[0].contactInfo.name}}</div>
+                                    <div>中国居民身份证</div>
+                                </td>
+                                <td class="tr1_td3">
+                                    <!--                                    <div>{{changeSl(undoneOrders[0].tickets[0].seatlevel)}}</div>-->
+<!--                                    <div>{{changeSl(seatlevel)}}</div>-->
+                                    <div>{{changeSl(item.tickets[0].seatlevel)}}</div>
+                                    <!--                                    <div>{{undoneOrders[0].tickets[0].carnumber}}车{{undoneOrders[0].tickets[0].rownumber}}{{undoneOrders[0].tickets[0].seatnumber}}号</div>-->
+<!--                                    <div>{{carnumber}}车{{rownumber}}{{seatnumber}}号</div>-->
+                                    <div>{{item.tickets[0].carnumber}}车{{item.tickets[0].rownumber}}{{item.tickets[0].seatnumber}}号</div>
+                                </td>
+                                <td class="tr1_td4">
+                                    <!--                                    <div>{{changeTl(undoneOrders[0].tickets[0].contactInfo.traveltype)}}票</div>-->
+<!--                                    <div>{{changeTl(traveltype)}}</div>-->
+                                    <div>{{changeTl(item.tickets[0].contactInfo.traveltype)}}</div>
+                                    <!--                                    <div><span>{{undoneOrders[0].tickets[0].price}}</span>元</div>-->
+<!--                                    <div><span>{{price}}</span>元</div>-->
+                                    <div><span>{{item.tickets[0].price}}</span>元</div>
+                                </td>
+                                <td class="tr1_td5">
+                                    <!--                                    <div>{{changeSt(undoneOrders[0].tickets[0].trainInfo.status)}}</div>-->
+<!--                                    <div>{{changeSt(status)}}</div>-->
+                                    <div>{{changeSt(item.status)}}</div>
+                                    <div><a href="">退票</a></div>
+                                </td>
+                            </tr>
+                            <tr class="second_tr">
+                                <td class="tr2_td1"></td>
+                                <td colspan="6" class="tr2_td2">
+                                    <div class="btn_right">
+                                        <a class="bt_r_a1" href="" style="background-color:#ff8201;color:#fff;">订单详情</a>
+                                        <a class="bt_r_a2" href="">购/赠/退保险</a>
+                                        <a class="bt_r_a3" href="">改签</a>
+                                        <a class="bt_r_a4" href="">变更到站</a>
+                                        <a class="bt_r_a5" href="">餐饮•特产</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  分页部分          -->
+                <div class="page_part">
+                    <div class="total_page">
+                        共<span>1</span>页
+                    </div>
+                    <div class="total_page_a">
+                        <a href="">1</a>
+                    </div>
+                    <div class="jump_page">
+                        到<input type="text">页
+                    </div>
+                    <div class="btn">
+                        <a href="">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!--    没票的时候的页面        -->
+            <div class="details_no" style="display:none">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main1_txt">
+            <h4>温馨提示</h4>
+            <p>1.席位已锁定，请在指定时间内完成网上支付。</p>
+            <p>2.逾期未支付，系统将取消本次交易。</p>
+            <p>3.在完成支付或取消本订单之前，您将无法购买其他车票。</p>
+            <p>4.未尽事宜详见《铁路旅客运输规程》等有关规定和车站公告。</p>
+        </div>
+    </div>
+    <!-- 主体2  未出行订单-->
+    <div class="main2" style="display:none;">
+        <div delay="false" class="select">
+            <select name="" id="">
+                <option value="time">按订票日期查询</option>
+                <option value="X">按乘车日期查询</option>
+            </select>
+            <input class="search_date" type="date">
+            -
+            <input class="search_date" type="date">
+
+            <input class="search_text" type="text" placeholder="订单号/车次/姓名">
+            <a href="">查询</a>
+        </div>
+        <div delay="false" class="nav">
+            <ul>
+                <li style="background-color: #3b99fc;color: #ffffff">全部</li>
+                <li>可改签</li>
+                <li>可变更到站</li>
+                <li>可退票</li>
+            </ul>
+        </div>
+        <!-- 全部 -->
+        <div class="details1" style="display: block">
+            <!--   没票时候显示的内容         -->
+            <div class="details_no" style="display:none">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+            <!--  标题栏  -->
+            <div class="title_box">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>车次信息</th>
+                        <th>旅客信息</th>
+                        <th>席位信息</th>
+                        <th>票价</th>
+                        <th>车票状态</th>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!--循环内容 -->
+            <div class="order_box" v-for="(item1,index) in items1">
+                <div class="order_box_hd">
+                    <i></i>
+                    <div class="order_hd_info1">
+                        <span class="hd_span1">订票日期：</span>
+                        <!--                            <span class="hd_span2">{{undoneOrders[0].createdate}}</span>-->
+                        <!--                            <span class="hd_span2">{{createdate}}</span>-->
+                        <span class="hd_span2">{{item1.createdate}}</span>
+                    </div>
+                    <div class="order_hd_info2">
+                        <span class="hd_span1">订单号：</span>
+                        <!--                            <span class="hd_span2">EJ{{undoneOrders[0].id}}</span>-->
+                        <span class="hd_span2"> EJ{{item1.id}}</span>
+                    </div>
+                    <div class="order_hd_info3">
+                        <span>候补兑现订单</span>
+                    </div>
+                </div>
+                <div class="order_box_bd">
+                    <table>
+                        <tbody>
+                        <tr class="first_tr">
+                            <td class="tr1_td1">
+                                <div class="tr1_td1_div1">
+                                    <!--                                        {{undoneOrders[0].tickets[0].fromstop.cityInfo.name}}→{{undoneOrders[0].tickets[0].tostop.cityInfo.name}} {{undoneOrders[0].tickets[0].trainInfo.number}}-->
+                                    <!--                                        {{city1}}→{{city2}} {{train}}-->
+                                    {{item1.tickets[0].fromstop.cityInfo.name}}→{{item1.tickets[0].tostop.cityInfo.name}} {{item1.tickets[0].trainInfo.number}}
+                                </div>
+                                <div class="tr1_td1_div2">
+                                    <!--                                        {{undoneOrders[0].tickets[0].trainInfo.day}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{undoneOrders[0].tickets[0].fromstop.cityInfo.saletime}} 开-->
+                                    <!--                                        {{day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{saletime}} 开-->
+                                    {{item1.tickets[0].trainInfo.day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{item1.tickets[0].fromstop.cityInfo.saletime}} 开
+                                </div>
+                            </td>
+                            <td class="tr1_td2">
+                                <!--                                    <div>{{undoneOrders[0].tickets[0].contactInfo.name}}</div>-->
+                                <!--                                    <div>{{name}}</div>-->
+                                <div>{{item1.tickets[0].contactInfo.name}}</div>
+                                <div>中国居民身份证</div>
+                            </td>
+                            <td class="tr1_td3">
+                                <!--                                    <div>{{changeSl(undoneOrders[0].tickets[0].seatlevel)}}</div>-->
+                                <!--                                    <div>{{changeSl(seatlevel)}}</div>-->
+                                <div>{{changeSl(item1.tickets[0].seatlevel)}}</div>
+                                <!--                                    <div>{{undoneOrders[0].tickets[0].carnumber}}车{{undoneOrders[0].tickets[0].rownumber}}{{undoneOrders[0].tickets[0].seatnumber}}号</div>-->
+                                <!--                                    <div>{{carnumber}}车{{rownumber}}{{seatnumber}}号</div>-->
+                                <div>{{item1.tickets[0].carnumber}}车{{item1.tickets[0].rownumber}}{{item1.tickets[0].seatnumber}}号</div>
+                            </td>
+                            <td class="tr1_td4">
+                                <!--                                    <div>{{changeTl(undoneOrders[0].tickets[0].contactInfo.traveltype)}}票</div>-->
+                                <!--                                    <div>{{changeTl(traveltype)}}</div>-->
+                                <div>{{changeTl(item1.tickets[0].contactInfo.traveltype)}}</div>
+                                <!--                                    <div><span>{{undoneOrders[0].tickets[0].price}}</span>元</div>-->
+                                <!--                                    <div><span>{{price}}</span>元</div>-->
+                                <div><span>{{item1.tickets[0].price}}</span>元</div>
+                            </td>
+                            <td class="tr1_td5">
+                                <!--                                    <div>{{changeSt(undoneOrders[0].tickets[0].trainInfo.status)}}</div>-->
+                                <!--                                    <div>{{changeSt(status)}}</div>-->
+                                <div>{{changeSt(item1.status)}}</div>
+                                <div><a href="">退票</a></div>
+                            </td>
+                        </tr>
+                        <tr class="second_tr">
+                            <td class="tr2_td1"></td>
+                            <td colspan="6" class="tr2_td2">
+                                <div class="btn_right">
+                                    <a class="bt_r_a1" href="" style="background-color:#ff8201;color:#fff;">订单详情</a>
+                                    <a class="bt_r_a2" href="">购/赠/退保险</a>
+                                    <a class="bt_r_a3" href="">改签</a>
+                                    <a class="bt_r_a4" href="">变更到站</a>
+                                    <a class="bt_r_a5" href="">餐饮•特产</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--  分页部分          -->
+            <div class="page_part">
+                <div class="total_page">
+                    共<span>1</span>页
+                </div>
+                <div class="total_page_a">
+                    <a href="">1</a>
+                </div>
+                <div class="jump_page">
+                    到<input type="text">页
+                </div>
+                <div class="btn">
+                    <a href="">确定</a>
+                </div>
+            </div>
+        </div>
+        <!-- 可改签 -->
+        <div class="details2" style="display:none">
+            <div class="details_no">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 可变更到站 -->
+        <div class="details3" style="display: none">
+            <div class="details_no">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 可退票 -->
+        <div class="details4" style="display:none;">
+            <div class="details_no">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div delay="false" class="footer">
+            <p class="first_p">温馨提示</p>
+            <p> 1.订单信息在本网站保存明限为30日。</p>
+            <p>2.在本网站购票后， 没有换取纸质车票的，可不晚于开车前25分钟在本网站办理改签、退票业务，或不晚于开车前48小时在本网站办理 变更到站业务。</p>
+            <p>3.在本网站办理退票，只明逐次单张办理。</p>
+            <p>4.车票改签、变更到站构只能办理一次已经改签或变更到站的车票不再办理改签;对已改签车票团体票暂不提供变"更到站"服务。</p>
+            <p>5。退票改签、变更到站后如有应退票款，按购票时所使用的在线支付工具相关规定，将在规定时间内退还至原在线支付工具账户，请及时有询，如有疑问，请致电12306人工客服查询。</p>
+            <p>6.如需取消或直看车票快递状态，请点击快递详情。</p>
+            <p>7.投保退保或查看电子保单状态,请点击我的保险”或购增退保险。</p>
+            <p>8.未尽事宜详见《铁路旅客运输规程》等有关规定和车站公告。</p>
+        </div>
+    </div>
+    <!-- 主体3  历史订单-->
+    <div class="main3" style="display:none">
+        <div class="select">
+            <span>乘车日期</span>
+            <input class="search_date" type="date">
+            -
+            <input class="search_date" type="date">
+            <input class="search_text" type="text" placeholder="订单号/车次/姓名">
+            <a href="">查询</a>
+        </div>
+        <div class="main3_content">
+            <div class="details1" style="display: block">
+                <div class="title_box">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>车次信息</th>
+                            <th>旅客信息</th>
+                            <th>席位信息</th>
+                            <th>票价</th>
+                            <th>车票状态</th>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="order_box" v-for="(item2,index) in items2">
+                    <div class="order_box_hd">
+                        <i></i>
+                        <div class="order_hd_info1">
+                            <span class="hd_span1">订票日期：</span>
+                            <!--                            <span class="hd_span2">{{undoneOrders[0].createdate}}</span>-->
+                            <!--                            <span class="hd_span2">{{createdate}}</span>-->
+                            <span class="hd_span2">{{item2.createdate}}</span>
+                        </div>
+                        <div class="order_hd_info2">
+                            <span class="hd_span1">订单号：</span>
+                            <!--                            <span class="hd_span2">EJ{{undoneOrders[0].id}}</span>-->
+                            <span class="hd_span2"> EJ{{item2.id}}</span>
+                        </div>
+                        <div class="order_hd_info3">
+                            <span>候补兑现订单</span>
+                        </div>
+                    </div>
+                    <div class="order_box_bd">
+                        <table>
+                            <tbody>
+                            <tr class="first_tr">
+                                <td class="tr1_td1">
+                                    <div class="tr1_td1_div1">
+                                        <!--                                        {{undoneOrders[0].tickets[0].fromstop.cityInfo.name}}→{{undoneOrders[0].tickets[0].tostop.cityInfo.name}} {{undoneOrders[0].tickets[0].trainInfo.number}}-->
+                                        <!--                                        {{city1}}→{{city2}} {{train}}-->
+                                        {{item2.tickets[0].fromstop.cityInfo.name}}→{{item2.tickets[0].tostop.cityInfo.name}} {{item2.tickets[0].trainInfo.number}}
+                                    </div>
+                                    <div class="tr1_td1_div2">
+                                        <!--                                        {{undoneOrders[0].tickets[0].trainInfo.day}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{undoneOrders[0].tickets[0].fromstop.cityInfo.saletime}} 开-->
+                                        <!--                                        {{day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{saletime}} 开-->
+                                        {{item2.tickets[0].trainInfo.day}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{item2.tickets[0].fromstop.cityInfo.saletime}} 开
+                                    </div>
+                                </td>
+                                <td class="tr1_td2">
+                                    <!--                                    <div>{{undoneOrders[0].tickets[0].contactInfo.name}}</div>-->
+                                    <!--                                    <div>{{name}}</div>-->
+                                    <div>{{item2.tickets[0].contactInfo.name}}</div>
+                                    <div>中国居民身份证</div>
+                                </td>
+                                <td class="tr1_td3">
+                                    <!--                                    <div>{{changeSl(undoneOrders[0].tickets[0].seatlevel)}}</div>-->
+                                    <!--                                    <div>{{changeSl(seatlevel)}}</div>-->
+                                    <div>{{changeSl(item2.tickets[0].seatlevel)}}</div>
+                                    <!--                                    <div>{{undoneOrders[0].tickets[0].carnumber}}车{{undoneOrders[0].tickets[0].rownumber}}{{undoneOrders[0].tickets[0].seatnumber}}号</div>-->
+                                    <!--                                    <div>{{carnumber}}车{{rownumber}}{{seatnumber}}号</div>-->
+                                    <div>{{item2.tickets[0].carnumber}}车{{item2.tickets[0].rownumber}}{{item2.tickets[0].seatnumber}}号</div>
+                                </td>
+                                <td class="tr1_td4">
+                                    <!--                                    <div>{{changeTl(undoneOrders[0].tickets[0].contactInfo.traveltype)}}票</div>-->
+                                    <!--                                    <div>{{changeTl(traveltype)}}</div>-->
+                                    <div>{{changeTl(item2.tickets[0].contactInfo.traveltype)}}</div>
+                                    <!--                                    <div><span>{{undoneOrders[0].tickets[0].price}}</span>元</div>-->
+                                    <!--                                    <div><span>{{price}}</span>元</div>-->
+                                    <div><span>{{item2.tickets[0].price}}</span>元</div>
+                                </td>
+                                <td class="tr1_td5">
+                                    <!--                                    <div>{{changeSt(undoneOrders[0].tickets[0].trainInfo.status)}}</div>-->
+                                    <!--                                    <div>{{changeSt(status)}}</div>-->
+                                    <div>{{changeSt(item2.status)}}</div>
+                                    <div><a href="">退票</a></div>
+                                </td>
+                            </tr>
+                            <tr class="second_tr">
+                                <td class="tr2_td1"></td>
+                                <td colspan="6" class="tr2_td2">
+                                    <div class="btn_right">
+                                        <a class="bt_r_a1" href="" style="background-color:#ff8201;color:#fff;">订单详情</a>
+                                        <a class="bt_r_a2" href="">购/赠/退保险</a>
+                                        <a class="bt_r_a3" href="">改签</a>
+                                        <a class="bt_r_a4" href="">变更到站</a>
+                                        <a class="bt_r_a5" href="">餐饮•特产</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  分页部分          -->
+                <div class="page_part">
+                    <div class="total_page">
+                        共<span>1</span>页
+                    </div>
+                    <div class="total_page_a">
+                        <a href="">1</a>
+                    </div>
+                    <div class="jump_page">
+                        到<input type="text">页
+                    </div>
+                    <div class="btn">
+                        <a href="">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!--    没票的时候的页面        -->
+            <div class="details_no" style="display:none">
+                <div class="details_img"><img src="../../images/own/logo.png" alt=""></div>
+                <div class="details_txt">
+                    <p>您没有对应的订单内容哦～</p>
+                    <p>
+                        您可以通过
+                        <a href="https://kyfw.12306.cn/otn/leftTicket/init">车票预订</a>
+                        功能，来制定出行计划。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div delay="false" class="footer">
+            <p class="first_p">温馨提示</p>
+            <p> 1.订单信息在本网站保存明限为30日。</p>
+            <p>2.在本网站购票后， 没有换取纸质车票的，可不晚于开车前25分钟在本网站办理改签、退票业务，或不晚于开车前48小时在本网站办理 变更到站业务。</p>
+            <p>3.在本网站办理退票，只明逐次单张办理。</p>
+            <p>4.车票改签、变更到站构只能办理一次已经改签或变更到站的车票不再办理改签;对已改签车票团体票暂不提供变"更到站"服务。</p>
+            <p>5。退票改签、变更到站后如有应退票款，按购票时所使用的在线支付工具相关规定，将在规定时间内退还至原在线支付工具账户，请及时有询，如有疑问，请致电12306人工客服查询。</p>
+            <p>6.如需取消或直看车票快递状态，请点击快递详情。</p>
+            <p>7.投保退保或查看电子保单状态,请点击我的保险”或购增退保险。</p>
+            <p>8.未尽事宜详见《铁路旅客运输规程》等有关规定和车站公告。</p>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script>
+    $(function () {
+
+        //缓存用户读取cookie
+        var userid;
+        var username;
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        if (getCookie("cookie_userid") != null) {
+            userid = getCookie("cookie_userid");
+        }
+        if (getCookie("cookie_username") != null) {
+            username = getCookie("cookie_username");
+        }
+
+
+        //1.ajax部分：获取未完成订单
+        var e = new Object();
+        e.userid = userid;
+        $.ajax({
+            url: "http://localhost:8080/api/order/getUndoneOrder",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(e),
+            success: function (data) {
+                // alert(data);
+                console.log(data);
+                vm.items = data;
+                // vm.createdate = data[0].createdate;
+                // vm.id = data[0].id;
+                // vm.city1 = data[0].tickets[0].fromstop.cityInfo.name;
+                // vm.city2 = data[0].tickets[0].tostop.cityInfo.name;
+                // vm.train = data[0].tickets[0].trainInfo.number;
+                // vm.day = data[0].tickets[0].trainInfo.day;
+                // vm.saletime = data[0].tickets[0].fromstop.cityInfo.saletime;
+                // vm.name = data[0].tickets[0].contactInfo.name;
+                // vm.seatlevel = data[0].tickets[0].seatlevel;
+                // vm.carnumber = data[0].tickets[0].carnumber;
+                // vm.rownumber = data[0].tickets[0].rownumber;
+                // vm.seatnumber = data[0].tickets[0].seatnumber;
+                // vm.traveltype = data[0].tickets[0].contactInfo.traveltype;
+                // vm.price = data[0].tickets[0].price;
+                // vm.status = data[0].tickets[0].trainInfo.status;
+            },
+            error: function () {
+                alert("出现错误");
+            }
+        })
+
+        //1.Vue部分：绑定未完成订单数据
+        var vm = new Vue({
+            el: ".main1",
+            data: {
+                items:[]
+                // createdate: {},
+                // id: {},
+                // city1: {},
+                // city2: {},
+                // train: {},
+                // day: {},
+                // saletime: {},
+                // name: {},
+                // seatlevel: {},
+                // carnumber: {},
+                // rownumber: {},
+                // seatnumber: {},
+                // traveltype: {},
+                // price: {},
+                // status: {}
+            },
+            methods: {
+                //改变座位等级显示
+                changeSl: function (Sl) {
+                    var seat = Sl;
+                    if (seat == 1) {
+                        return seat = "商务座";
+                    } else if (seat == 2) {
+                        return seat = "一等座";
+                    } else {
+                        return seat = "二等座";
+                    }
+                },
+                //改变乘客类型
+                changeTl: function (Tl) {
+                    var travl = Tl;
+                    if (travl == 1) {
+                        return travl = "成人";
+                    } else if (travl == 2) {
+                        return travl = "学生";
+                    } else {
+                        return travl = "儿童";
+                    }
+                },
+                //改变车票状态
+                changeSt: function (St) {
+                    var stus = St;
+                    if (stus == 1) {
+                        return stus = "未支付";
+                    } else if (stus == 2) {
+                        return stus = "已支付";
+                    } else if (stus == 3) {
+                        return stus = "已取消";
+                    } else if (stus == 4) {
+                        return stus = "已改签";
+                    } else {
+                        return stus = "已退票";
+                    }
+                }
+            }
+        });
+
+        //2.ajax部分：获取未出行订单
+        var f = new Object();
+        f.userid = userid;
+        $.ajax({
+            url: "http://localhost:8080/api/order/getUnusedOrder",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(f),
+            success: function (data) {
+                // va.unusedOrder = data;
+                console.log(data);
+                va.items1 = data;
+                // console.log(va.unusedOrder[0].createdate);
+                // va.createdate = data[0].createdate;
+                // va.id = data[0].id;
+                // va.city1 = data[0].tickets[0].fromstop.cityInfo.name;
+                // va.city2 = data[0].tickets[0].tostop.cityInfo.name;
+                // va.train = data[0].tickets[0].trainInfo.number;
+                // va.day = data[0].tickets[0].trainInfo.day;
+                // va.saletime = data[0].tickets[0].fromstop.cityInfo.saletime;
+                // va.name = data[0].tickets[0].contactInfo.name;
+                // va.seatlevel = data[0].tickets[0].seatlevel;
+                // va.carnumber = data[0].tickets[0].carnumber;
+                // va.rownumber = data[0].tickets[0].rownumber;
+                // va.seatnumber = data[0].tickets[0].seatnumber;
+                // va.traveltype = data[0].tickets[0].contactInfo.traveltype;
+                // va.price = data[0].tickets[0].price;
+                // va.status = data[0].tickets[0].trainInfo.status;
+            },
+            error: function () {
+                alert("出现错误");
+            }
+        })
+
+        //2.Vue部分：绑定未出行订单数据
+        var va = new Vue({
+            el: ".main2",
+            data: {
+                items1:[]
+                // unusedOrder:[]
+                // createdate: {},
+                // id: {},
+                // city1: {},
+                // city2: {},
+                // train: {},
+                // day: {},
+                // saletime: {},
+                // name: {},
+                // seatlevel: {},
+                // carnumber: {},
+                // rownumber: {},
+                // seatnumber: {},
+                // traveltype: {},
+                // price: {},
+                // status: {}
+            },
+            methods: {
+                //改变座位等级显示
+                changeSl: function (Sl) {
+                    var seat = Sl;
+                    if (seat == 1) {
+                        return seat = "商务座";
+                    } else if (seat == 2) {
+                        return seat = "一等座";
+                    } else {
+                        return seat = "二等座";
+                    }
+                },
+                //改变乘客类型
+                changeTl: function (Tl) {
+                    var travl = Tl;
+                    if (travl == 1) {
+                        return travl = "成人";
+                    } else if (travl == 2) {
+                        return travl = "学生";
+                    } else {
+                        return travl = "儿童";
+                    }
+                },
+                //改变车票状态
+                changeSt: function (St) {
+                    var stus = St;
+                    if (stus == 1) {
+                        return stus = "未支付";
+                    } else if (stus == 2) {
+                        return stus = "已支付";
+                    } else if (stus == 3) {
+                        return stus = "已取消";
+                    } else if (stus == 4) {
+                        return stus = "已改签";
+                    } else {
+                        return stus = "已退票";
+                    }
+                }
+            }
+        })
+
+
+        //3.ajax部分：获取历史订单
+        var g = new Object();
+        g.userid = userid;
+        $.ajax({
+            url: "http://localhost:8080/api/order/getHistoryOrder",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(g),
+            success: function (data) {
+                // console.log(data);
+                // vb.historyOrder = data;
+                console.log(data);
+                vb.items2 = data;
+                // vb.createdate = data[0].createdate;
+                // vb.id = data[0].id;
+                // vb.city1 = data[0].tickets[0].fromstop.cityInfo.name;
+                // vb.city2 = data[0].tickets[0].tostop.cityInfo.name;
+                // vb.train = data[0].tickets[0].trainInfo.number;
+                // vb.day = data[0].tickets[0].trainInfo.day;
+                // vb.saletime = data[0].tickets[0].fromstop.cityInfo.saletime;
+                // vb.name = data[0].tickets[0].contactInfo.name;
+                // vb.seatlevel = data[0].tickets[0].seatlevel;
+                // vb.carnumber = data[0].tickets[0].carnumber;
+                // vb.rownumber = data[0].tickets[0].rownumber;
+                // vb.seatnumber = data[0].tickets[0].seatnumber;
+                // vb.traveltype = data[0].tickets[0].contactInfo.traveltype;
+                // vb.price = data[0].tickets[0].price;
+                // vb.status = data[0].tickets[0].trainInfo.status;
+            },
+            error: function () {
+                alert("历史订单出现错误");
+            }
+        })
+
+
+        //3.Vue部分：绑定历史订单数据
+        var vb = new Vue({
+            el: ".main3",
+            data: {
+                items2:[]
+                // historyOrder:[]
+                // createdate: {},
+                // id: {},
+                // city1: {},
+                // city2: {},
+                // train: {},
+                // day: {},
+                // saletime: {},
+                // name: {},
+                // seatlevel: {},
+                // carnumber: {},
+                // rownumber: {},
+                // seatnumber: {},
+                // traveltype: {},
+                // price: {},
+                // status: {}
+            },
+            methods: {
+                //改变座位等级显示
+                changeSl: function (Sl) {
+                    var seat = Sl;
+                    if (seat == 1) {
+                        return seat = "商务座";
+                    } else if (seat == 2) {
+                        return seat = "一等座";
+                    } else {
+                        return seat = "二等座";
+                    }
+                },
+                //改变乘客类型
+                changeTl: function (Tl) {
+                    var travl = Tl;
+                    if (travl == 1) {
+                        return travl = "成人";
+                    } else if (travl == 2) {
+                        return travl = "学生";
+                    } else {
+                        return travl = "儿童";
+                    }
+                },
+                //改变车票状态
+                changeSt: function (St) {
+                    var stus = St;
+                    if (stus == 1) {
+                        return stus = "未支付";
+                    } else if (stus == 2) {
+                        return stus = "已支付";
+                    } else if (stus == 3) {
+                        return stus = "已取消";
+                    } else if (stus == 4) {
+                        return stus = "已改签";
+                    } else {
+                        return stus = "已退票";
+                    }
+                }
+            }
+        })
+
+        //jQuery特效部分
+        // 鼠标移到未出行订单状态中实现变色和变小手效果
+        var $lis = $(".nav>ul>li");
+        $lis.mouseenter(function () {
+            $(this).css({"color": "#3b99fc", "cursor": "pointer"});
+        }).mouseleave(function () {
+            $(this).css({"color": "#333333", "cursor": "none"})
+        })
+
+
+        //未出行 未完成 历史订单切换特效
+        var $lis4 = $(".menu>ul>li");
+        var $divs = $(".right>div:not(:first)");
+        $lis4.click(function () {
+            $divs.hide();
+            var index2 = $(this).index();
+            $divs[index2].style.display = 'block';
+            $(".menu>ul>li").children().css("color", "#333333");
+            $(this).children().css("color", "#3b99fc");
+        })
+
+
+        //鼠标移到到未完成 未出行 历史订单改变颜色和光标样式
+        var $lis3 = $(".menu>ul>li");
+        $lis3.mouseenter(function () {
+            $(this).css({"color": "#3b99fc", "cursor": "pointer"});
+        }).mouseleave(function () {
+            $(this).css({"color": "#333333", "cursor": "none"})
+        })
+
+
+        //未出行订单中四个状态切换特效   全部 可改签 可变更到站 可退票
+        var $lis = $(".nav>ul>li");
+        var $contents = $(".main2>div:not([delay='false'])");
+        $lis.click(function () {
+            // alert("1");
+            $contents.hide();
+            var index = $(this).index();
+            $contents[index].style.display = 'block';
+            $(".nav>ul>li").css({"backgroundColor": "#ffffff", "color": "#333333"});
+            $(this).css({"backgroundColor": "#3b99fc", "color": "#fff"});
+        })
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/*正晚点查询*/
+.isLateSearch{
+	width: 980px;
+	padding: 20px 0 8px 0;
+	margin: 40px auto 10px;
+	background: #eef1f8;
+	border: 1px solid #298cce;
+	color: #333;
+}
+.isLateSearch .search{
+	width: 250px;
+	margin: 0 auto;
+	font-size: 14px;
+	text-align:center;
+}
+.isLateSearch form span{
+	color: red;
+	margin-right: 5px;
+}
+.isLateSearch form input[type="radio"]{
+	margin-left: 20px;
+}
+.isLateSearch form input[type="text"]{
+	width: 150px;
+	line-height: 18px;
+	padding: 5px 0 5px 5px;
+	border: 1px solid #cfcdc7;
+	font-size: 12px;
+	color: #999;
+}
+.isLateSearch form input[type="submit"]{
+	width: 122px;
+	height: 30px;
+	padding: 0;
+	background-color: #ff8201;
+	border-radius: 6px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+/*使用说明*/
+.usePlain{
+	box-sizing: border-box;
+	width: 980px;
+	padding: 5px;
+	margin: 0 auto 600px;
+	background: #fffbe5;
+	border: 1px solid #fbd800;
+}
+.usePlain p.title{
+	font-size: 14px;
+}
+.usePlain p{
+	line-height: 20px;
+	color: #666;
+}

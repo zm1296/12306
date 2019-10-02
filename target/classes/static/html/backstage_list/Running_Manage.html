@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        body{background-color: #b5cfd9}
+        .blue{color: red}
+        table{background-color: wheat}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.min.js"></script>
+    <script>
+        $(function () {
+            var getInfo=new Vue({
+                el:"#run_train",
+                data:{
+                    runList:{},
+                    mapstopList:{},
+                    init:{},
+                },
+                methods:{
+                    delete_:function (id) {
+                        $.ajax({
+                            url:"http://47.100.95.222:8080/backstage/del_running",
+                            type:'post',
+                            dataType:"json",
+                            data:{
+                                id:id,
+                            },
+                            success:function (result) {
+                                if(result==true){
+                                    alert("删除成功")
+                                    location.reload();
+                                }else{
+                                    alert("删除失败")
+                                }
+                            }
+                        })
+                    },
+                    alter_: function (index) {
+                        getInfo.init=getInfo.runList[index];
+                    }
+                }
+            });
+            $.ajax({
+                url:"http://47.100.95.222:8080/api/train/getAllTrainInfo",
+                type:'post',
+                dataType:"json",
+                success:function (runlist) {
+                    getInfo.runList=runlist;
+                }
+            });
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_mapstopInfo",
+                type:'post',
+                dataType:"json",
+                success:function (mapstoplist) {
+                    getInfo.mapstopList=mapstoplist;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="run_train">
+    <div >
+        <table border="1" align="center" width="100%" style="border-collapse: collapse">
+            <caption><h2>运行车次信息</h2></caption>
+            <tr>
+                <th>ID</th><th>车次名</th><th>火车类型</th><th>始发站</th><th>终点站</th><th>停站数</th><th>操作</th>
+            </tr>
+            <tr v-for="run in runList">
+                <td>{{run.id}}</td>
+                <td>{{run.number}}</td>
+                <td>{{run.trainModel.name}}</td>
+                <td>{{run.firstcity.name}}</td>
+                <td>{{run.lastcity.name}}</td>
+                <td>{{run.stopnumber}}</td>
+                <td><a  @click="alter_(run.id)" class="blue">修改</a> | <a  @click="delete_(run.id)" class="blue">删除</a></td>
+            </tr>
+        </table>
+<!--        <tr>-->
+<!--            <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
+<!--        </tr>-->
+        </div>
+
+        <table border="1" align="center" width="100%" style="border-collapse: collapse" >
+            <caption><h2>城市停站信息</h2></caption>
+            <tr>
+                <th>ID</th><th>车次名</th><th>到达城市</th><th>到达时间</th><th>停留时间</th><th>离开时间</th><th>该线路的第（）站</th><th>检票口</th><th>操作</th>
+            </tr>
+            <tr v-for="stop in mapstopList">
+                <td>{{stop.id}}</td>
+                <td>{{stop.trainInfo.number}}</td>
+                <td>{{stop.cityInfo.name}}</td>
+                <td>{{stop.arrive}}</td>
+                <td>{{stop.parktime}}</td>
+                <td>{{stop.lefts}}</td>
+                <td>{{stop.number}}</td>
+                <td>{{stop.ticketgate}}</td>
+                <td><a href="#"  class="alter blue" >修改</a> | <a href="#" class="delete blue">删除</a></td>
+            </tr>
+        </table>
+<!--        <p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>-->
+    </div>
+</div>
+<div style="display:none" class="alter_info">
+    <table style="width: 100%">
+        <tr>
+            <th>ID</th><th>登录名</th><th>密码</th><th>姓名</th><th>身份证号</th><th>电子邮箱</th><th>电话</th><th>乘客类型</th>
+        </tr>
+        <tr>
+            <td><input type="text" size="1px" name="unluck"></td><td><input type="text"size="5px"></td><td><input type="password"size="5px"></td>
+            <td><input type="text" size="5px"></td><td><input type="text"size="10px"></td><td><input type="email"size="10px"></td>
+            <td><input type="text" size="5px"></td><td><input type="text"size="2px"></td>
+        </tr>
+    </table>
+    <div style="float: right; margin-top: 20px ;margin-right: 10px"><input type="button" class="clear" value="清空重输"></div>
+    <div style="float: right ;margin-top: 20px"><input type="button" class="submit" value="确认修改"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:v-for="http://www.w3.org/1999/xhtml" xmlns:v-blind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加</title>
+    <style type="text/css">
+        table {margin-top: 30px;width: 100% ;background-color: #b5cfd9}
+        .clear{float: right}
+        tr td {text-align: left;}
+        body{background-color: #3b99fc}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.js"></script>
+
+    <script>
+        $(function () {
+            var getinfo=new Vue({
+                el:".add",
+                data:{
+                    cityList:{},
+                }
+            })
+            //获取城市列表
+            $.ajax({
+                url:"http://47.100.95.222:8080/api/city/getAllcity",
+                type:"post",
+                dataType:"json",
+                success:function (city) {
+                    getinfo.cityList=city;
+                }
+            })
+
+            $(".clear").click(function () {
+                window.location.reload();
+            })
+            $("#add_mapcity").click(function () {
+                $.ajax({
+                    url:"http://47.100.95.222:8080/backstage/add_mapcity",
+                    type:"post",
+                    dataType:"json",
+                    data:{
+                        city1:$(this).prev().find("tr").eq(0).find("td").eq(1).children().val(),
+                        city2:$(this).prev().find("tr").eq(0).find("td").eq(3).children().val(),
+                        distance:$(this).prev().find("tr").eq(1).find("td").eq(1).children().val(),
+                        price:$(this).prev().find("tr").eq(1).find("td").eq(3).children().val(),
+                    }
+                    ,success :function (result) {
+                        if(result==true){
+                            alert("添加成功")
+                            location.reload();
+                        }else {
+                            alert("添加失败")
+                        }
+                    },error :function (data) {
+                        alert("输入信息有误，无法添加！请确认重新输入！")
+                    }
+
+                })
+            })
+        })
+    </script>
+</head>
+<body  >
+<div class="add">
+    <div style="font-size: 20px" class="one"><b>添加路线图信息：</b></div>
+    <table style="width: 90%;margin-right: 5%;margin-left: 5%; "><caption><h2>列车运行信息添加:</h2></caption>
+        <tr><td>起始城市：</td><td><select size="1">
+            <option></option>
+            <option  v-for="city in cityList" :value="city.id">{{city.name}}</option>
+        </select></td>
+            <td>目的城市：</td><td><select size="1">
+                <option></option>
+                <option  v-for="city in cityList" :value="city.id">{{city.name}}</option>
+            </select></td></tr>
+        <tr>
+            <td>距离:</td><td><input type="text"></td>
+            <td>价格：</td><td><input type="text"></td></tr>
+        <tr><td>-----------</td><td>-----------</td><td>-----------</td><td>-----------</td></tr>
+    </table>
+    <input  style="margin: 20px 10px 0px 0px ;float: right" type="button" value="确认添加" id="add_mapcity">
+    <input style="margin: 20px 10px 0px 0px ;float: right" type="button" value="清空" class="clear">
+</div>
+</body>
+</html>

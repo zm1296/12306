@@ -1,0 +1,426 @@
+/*右侧*/
+.right {
+    width: 1030px;
+    height: 750px;
+}
+
+/*右侧栏菜单*/
+.right > .menu {
+    width: 390px;
+    height: 42px;
+}
+.right > .menu >ul{
+    display: flex;
+}
+.right > .menu > ul >li{
+    flex: 1;
+    text-align: center;
+    line-height: 3em;
+    border:1px solid #ededed;
+    font-size: 14px;
+    color: #333333;
+}
+
+.right > .menu > ul >li:nth-child(1)>p{
+    color: #3b99fc;
+}
+
+
+/*右侧主体1 未完成订单*/
+.right > .main1{
+    width: 95%;
+    height: 660px;
+    padding: 20px;
+    border: 1px solid #ededed;
+}
+.right > .main1 >.content{
+    /*height: 352px;*/
+    width: 100%;
+    border: 1px solid #acd1f9;
+}
+.right > .main1 >.main1_txt{
+    width: 96%;
+    margin-top: 20px;
+    height: 150px;
+    border: 2px solid #ffddba;
+    background: #fffbf8;
+    padding: 10px 20px 10px 20px;
+    line-height: 20px;
+}
+.right > .main1 >.main1_txt p{
+    font-size: 12px;
+    color: #333333;
+    margin: 4px 0px 0px;
+}
+
+/*右侧主体2 未出行订单*/
+.right > .main2{
+    /*width: 95%;*/
+    width: 95%;
+    height: 660px;
+    padding: 20px;
+    border: 1px solid #ededed;
+}
+.select{
+    width: 100%;
+    height: 30px;
+}
+/*搜索部分各种表单元素设置*/
+.right > .main2 >.select select{
+    display: inline-block;
+    width: 148px;
+    height: 28px;
+    border: 1px solid #dedede;
+}
+.select >.search_date{
+    display: inline-block;
+    width: 146px;
+    height: 28px;
+    border: 1px solid #dedede;
+}
+.select >.search_text{
+    display: inline-block;
+    padding: 4px 10px;
+    width: 136px;
+    height: 20px;
+    border: 1px solid #dedede;
+}
+.select >a{
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: 78px;
+    height: 20px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background: #ffffff;
+}
+.right >.main2 >.nav >ul{
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #3b99fc;
+}
+
+.right >.main2 >.nav >ul>li{
+    float: left;
+    width: 100px;
+    text-align: center;
+    line-height: 2.2em;
+    margin-top: 19px;
+    font-size: 14px;
+    color: #333333;
+}
+/*右侧主体未出行订单 包括全部 改签 可变更到站 可退票4部分*/
+.right > .main2 > .details1{
+    /*box-sizing: border-box;*/
+    position: relative;
+    width: 100%;
+    /*height: 320px;*/
+    margin-top: 15px;
+}
+/*标题栏部分*/
+.title_box{
+    width: 100%;
+    margin-top: 15px;
+}
+.title_box table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 40px;
+}
+.title_box tr th{
+    background-color: #F8F8F8;
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+}
+/*车票信息部分*/
+.order_box{
+    width: 100%;
+    height: 209px;
+    border: 1px solid #acd1f9;
+}
+/*车票信息头部*/
+.order_box_hd{
+    position: relative;
+    width: 96%;
+    height: 40px;
+    line-height: 40px;
+    background: #F0F8FF;
+    padding: 0 20px;
+    overflow: hidden;
+}
+.order_hd_info1{
+    position: absolute;
+    font-size: 14px;
+    left: 40px;
+    width:145px;
+    height: 40px;
+    margin: 0 20px 0 0;
+}
+.hd_span1{
+    color: #666666;
+}
+.hd_span2{
+    color: #333333;
+    font-size: 12px;
+}
+.order_hd_info2{
+    position: absolute;
+    font-size: 14px;
+    left: 190px;
+    width:145px;
+    height: 40px;
+    margin: 0 20px 0 0;
+}
+.order_hd_info3{
+    position: absolute;
+    font-size: 12px;
+    left: 335px;
+    width:84px;
+    height: 40px;
+    margin: 0 20px 0 0;
+}
+.order_hd_info3 span{
+    border: 1px solid #ffb5b5;
+    color: #ff4646;
+}
+/*车票信息主体部分*/
+.order_box_bd{
+    width: 100%;
+    height:166px ;
+    text-align: center;
+}
+.order_box_bd>table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+/*表格主体部分第一行*/
+.first_tr td{
+    font-size: 14px;
+    color: #333333;
+    height: 65px;
+    padding: 15px 10px;
+    border-top: 1px solid #DEDEDE;
+    border-right: 1px solid #DEDEDE;
+    line-height: 22px;
+}
+.tr1_td1{
+    width: 25%;
+}
+.tr1_td1_div1{
+    font-size: 16px;
+    font-weight: bold;
+}
+.tr1_td1_div2{
+    font-size: 14px;
+}
+.tr1_td2{
+    width: 23%;
+}
+.tr1_td3{
+    width: 17%;
+}
+.tr1_td4{
+    width: 18%;
+}
+.tr1_td4 span{
+    color: #ff8000;
+}
+.tr1_td5{
+    width: 17%;
+}
+.tr1_td5 a{
+    color: #3b99fc;
+}
+/*表格主体部分第二行*/
+.second_tr td{
+    height: 70px;
+    border-top:1px solid #DEDEDE;
+}
+.btn_right{
+    height: 30px;
+    font-size: 14px;
+    position: relative;
+}
+
+.bt_r_a1{
+    position: absolute;
+    right: 390px;
+    display: inline-block;
+    height: 22px;
+    width: 60px;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+.bt_r_a2{
+    position: absolute;
+    right: 280px;
+    display: inline-block;
+    height: 22px;
+    width: 90px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    border: 1px solid #DEDEDE;
+}
+.bt_r_a3{
+    position: absolute;
+    right: 190px;
+    display: inline-block;
+    height: 22px;
+    width: 60px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #DEDEDE;
+}
+.bt_r_a4{
+    position: absolute;
+    right: 100px;
+    display: inline-block;
+    height: 22px;
+    width: 60px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #DEDEDE;
+}
+.bt_r_a5{
+    position: absolute;
+    right: 5px;
+    display: inline-block;
+    height: 22px;
+    width: 65px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #DEDEDE;
+}
+/*分页部分*/
+.page_part{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+}
+.total_page{
+    float: left;
+    width:50px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    right: 180px;
+}
+.total_page_a{
+    position: absolute;
+    right: 140px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    color:#ffffff;
+    text-align: center;
+    line-height: 30px;
+    background-color: #3b99fc;
+}
+.jump_page{
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    float: left;
+    position: absolute;
+    right: 60px;
+    width: 78px;
+    height: 30px;
+}
+.jump_page input{
+    margin-right: 1px;
+    margin-left: 1px;
+    width: 24px;
+    height: 24px;
+}
+.btn{
+   float: left;
+    position: absolute;
+    right: 0px;
+    width: 30px;
+    height: 20px;
+    padding: 4px 10px ;
+    font-size: 14px;
+    border: 1px solid #DEDEDE;
+    background-color: #f8f8f8;
+}
+.right > .main2 > .details2{
+    /*box-sizing: border-box;*/
+    position: relative;
+    width: 100%;
+    height: 330px;
+}
+.right > .main2 > .details3{
+    /*box-sizing: border-box;*/
+    position: relative;
+    width: 100%;
+    height: 330px;
+}
+.right > .main2 > .details4{
+    /*box-sizing: border-box;*/
+    position: relative;
+    width: 100%;
+    height: 330px;
+}
+.details_no{
+    height: 100px;
+    position: absolute;
+    left: 250px;
+    top: 130px;
+}
+.details_no >.details_img{
+    float: left;
+}
+.details_no >.details_txt{
+    float: left;
+    font-size: 14px;
+    color: #999999;
+    padding-top: 30px;
+}
+.details_txt a{
+    color: #3b99fc;
+}
+/*右侧主体底部*/
+.footer{
+    font-size: 12px;
+    /*box-sizing: border-box;*/
+    width: 97%;
+    height: 250px;
+    background-color: #fffbf8;
+    border: 2px solid #ffddba;
+    padding-left: 20px;
+    padding-top: 10px;
+    line-height: 2em;
+}
+.footer >.first_p{
+    font-weight: bold;
+    font-size: 14px;
+    height: 30px;
+}
+
+
+/*右侧主体3  历史订单*/
+.right > .main3{
+    width: 95%;
+    height: 660px;
+    padding: 20px;
+    border: 1px solid #ededed;
+}
+.right > .main3 > .main3_content {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    margin-bottom: 20px;
+}
+.select span{
+    font-size: 14px;
+    margin-right: 6px;
+}

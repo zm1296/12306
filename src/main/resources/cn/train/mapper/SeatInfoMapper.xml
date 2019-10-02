@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.train.mapper.SeatInfoMapper">
+  <resultMap id="SeatInfoResultMap" type="cn.train.enity.SeatInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modelid" jdbcType="INTEGER" property="modelid" />
+    <result column="seatlevel" jdbcType="INTEGER" property="seatlevel" />
+    <result column="carnumber" jdbcType="VARCHAR" property="carnumber" />
+    <result column="rownumber" jdbcType="VARCHAR" property="rownumber" />
+    <result column="seatnumber" jdbcType="VARCHAR" property="seatnumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modelid, seatlevel, carnumber, rownumber, seatnumber
+  </sql>
+
+  <select id="getSeatInfoByModelid" parameterType="java.lang.Integer" resultMap="SeatInfoResultMap">
+    select * from SeatInfo where modelid = #{modelid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="SeatInfoResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SeatInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SeatInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.train.enity.SeatInfo">
+    insert into SeatInfo (id, modelid, seatlevel, 
+      carnumber, rownumber, seatnumber
+      )
+    values (#{id,jdbcType=INTEGER}, #{modelid,jdbcType=INTEGER}, #{seatlevel,jdbcType=INTEGER}, 
+      #{carnumber,jdbcType=VARCHAR}, #{rownumber,jdbcType=VARCHAR}, #{seatnumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.train.enity.SeatInfo">
+    insert into SeatInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modelid != null">
+        modelid,
+      </if>
+      <if test="seatlevel != null">
+        seatlevel,
+      </if>
+      <if test="carnumber != null">
+        carnumber,
+      </if>
+      <if test="rownumber != null">
+        rownumber,
+      </if>
+      <if test="seatnumber != null">
+        seatnumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modelid != null">
+        #{modelid,jdbcType=INTEGER},
+      </if>
+      <if test="seatlevel != null">
+        #{seatlevel,jdbcType=INTEGER},
+      </if>
+      <if test="carnumber != null">
+        #{carnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rownumber != null">
+        #{rownumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumber != null">
+        #{seatnumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.train.enity.SeatInfo">
+    update SeatInfo
+    <set>
+      <if test="modelid != null">
+        modelid = #{modelid,jdbcType=INTEGER},
+      </if>
+      <if test="seatlevel != null">
+        seatlevel = #{seatlevel,jdbcType=INTEGER},
+      </if>
+      <if test="carnumber != null">
+        carnumber = #{carnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rownumber != null">
+        rownumber = #{rownumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumber != null">
+        seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.train.enity.SeatInfo">
+    update SeatInfo
+    set modelid = #{modelid,jdbcType=INTEGER},
+      seatlevel = #{seatlevel,jdbcType=INTEGER},
+      carnumber = #{carnumber,jdbcType=VARCHAR},
+      rownumber = #{rownumber,jdbcType=VARCHAR},
+      seatnumber = #{seatnumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

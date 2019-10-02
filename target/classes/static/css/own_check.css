@@ -1,0 +1,228 @@
+#content{
+    width: 970px;
+    height: 680px;
+    border: 1px solid #DEDEDE;
+    padding: 20px;
+}
+#content input{
+    background-color: #e8f0fe;
+    width: 176px;
+    /*height: 18px;*/
+    padding: 4px 10px;
+    border: 1px solid #DEDEDE
+}
+/*标题部分*/
+.content_tit{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+/*标题文字小盒子*/
+.content_tit div:first-child{
+    color: #333333;
+    font-weight: bold;
+    width: 56px;
+    height: 100%;
+}
+/*每行信息的盒子*/
+.con_view_rows{
+    font-size: 14px;
+    color: #333333;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+/*每行信息盒子里的左边部分*/
+.view_rows_l{
+    color: #666666;
+    text-align: right;
+    float: left;
+    width: 37%;
+    height: 20px;
+    padding: 5px 5px 5px 0;
+}
+.view_rows_l span{
+    color: red;
+}
+/*每行信息盒子里的右边部分*/
+.view_rows_r{
+    height: 20px;
+    padding: 5px 0;
+}
+.content_view2{
+    margin-top: 80px;
+}
+.content_view3{
+    height: 30px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+.first_a{
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+    color: #333333;
+    position: absolute;
+    left:410px ;
+    display: inline-block;
+    /*height: 20px;*/
+    width: 60px;
+    padding: 4px 10px;
+    margin: 0px 5px;
+}
+.second_a{
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+    color: #ffffff;
+    position: absolute;
+    left:500px ;
+    display: inline-block;
+    /*height: 20px;*/
+    width: 60px;
+    padding: 4px 10px;
+    margin: 0px 5px;
+    background-color: #ff8000;
+}
+.span4{
+    font-size: 14px;
+    color: #3b99fc;
+}
+.span5{
+    margin-left: 10px;
+    color: #999999;
+    font-size: 12px;
+}
+/*信息核对*/
+.up-box-hd {
+    height: 37px;
+    line-height: 35px;
+    position: relative;
+    background-position: 0 -350px;
+    border-radius: 5px 5px 0 0;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #e5f8ff;
+    background-color: #2386C8;
+    font-family: Tahoma,"宋体";
+}
+.up-box-bd {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    line-height: 25px;
+}
+.up-box {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    line-height: 25px;
+    width: 550px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9100;
+}
+.form-item{
+    position: relative;
+    margin-bottom: 10px;
+    min-height: 30px;
+}
+.form-label{
+    width: 200px;
+    padding: 5px 5px 5px 0;
+    line-height: 20px;
+    font-weight: 400;
+    color: #666;
+    text-align: right;
+}
+.form-bd{
+    position: absolute;
+    bottom: 0px;
+    margin-left: 200px;
+    min-height: 30px;
+}
+.required{
+    color: #f00;
+    font-weight: 400;
+}
+.nowphone{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+.btn_change{
+    display: inline-block;
+    font-size: 14px;
+    color: #333;
+    min-width: 80px;
+    height: 30px;
+    line-height: 20px;
+    padding: 4px 10px;
+    border: 1px solid #DEDEDE;
+    border-radius: 6px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 50px;
+    text-decoration: none;
+}
+.input_change{
+    width: 200px;
+    height: 30px;
+    padding: 4px 10px;
+    background-color: #ffffff;
+    border: 1px solid #DEDEDE;
+    color: #333333;
+    font-size: 14px;
+}
+.form_btn{
+    margin-top: 30px;
+    height: 50px;
+    padding: 0px 20px 20px;
+}
+.btn_last1{
+    margin-left: 150px;
+    display: inline-block;
+    font-size: 14px;
+    color: #333;
+    min-width: 80px;
+    height: 30px;
+    line-height: 20px;
+    padding: 4px 10px;
+    border: 1px solid #DEDEDE;
+    border-radius: 6px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn_last2{
+    display: inline-block;
+    font-size: 14px;
+    color: #333;
+    min-width: 80px;
+    height: 30px;
+    line-height: 20px;
+    padding: 4px 10px;
+    border: 1px solid #DEDEDE;
+    border-radius: 6px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.form-tip{
+    width: 100%;
+    padding: 15px 20px;
+    background: #F8F8F8;
+}
+.form-tip p{
+    margin-bottom: 0px;
+}
+

@@ -1,0 +1,50 @@
+body{
+    background: #fff;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.alipay{
+    border: 1px solid #1678be;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    background-position: 0 -400px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+.f_pay{
+    margin-left: 300px;
+
+}
+.lay-hd {
+    height: 32px;
+    line-height: 30px;
+    color: #e5f8ff;
+    padding-left: 20px;
+    font-size: 14px;
+    position: relative;
+    background-color: #2386C8;
+}
+.lay-bd {
+    background: #eef1f8;
+    padding: 0 10px 0;
+    border-top: 0;
+}
+.f_in{
+    margin-top: 10px;
+}
+.f_on{
+    margin-top: 10px;
+    margin-left: 100px;
+}

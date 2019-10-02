@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加</title>
+  <style type="text/css">
+    table {margin-top: 30px;width: 80%;margin-left:10%;margin-right:10%;background-color: whitesmoke}
+    .submit {float: right}
+    .clear{float: right}
+    tr td {text-align: center;}
+    body{background-color: #9ECCFE}
+    /*tr td { background-color: #08bbe1}*/
+  </style>
+  <script src="../../js/jquery-3.4.1.min.js">
+  </script>
+</head>
+<body>
+  <div style="font-size: 20px" class="one"><b>添加用户信息：</b></div>
+<form >
+  <table  >
+    <th>属性</th><th>请填写信息</th><th>属性</th><th>请填写信息</th>
+    <tr><td>ID:</td><td ><input type="text"></td><td >姓名:</td><td><input type="text"></td></tr>
+    <tr><td>登陆名:</td><td ><input type="text"></td><td >密码:</td><td><input type="password"></td></tr>
+    <tr><td>身份证号码:</td><td ><input type="text"></td><td >电子邮箱:</td><td><input type="email"></td></tr>
+    <tr><td >电话号码:</td><td ><input type="text"></td><td>乘客类型:</td><td><input type="text"></td></tr>
+    <tr><td >性别:</td><td><input type="text"></td><td >学生优惠卡号:</td><td><input type="text"></td></tr>
+    <tr><td>用户状态:</td><td><input type="text"></td></tr>
+  </table>
+  <input  style="margin: 20px 10px 0px 0px ;float: right" type="button" value="确认添加" class="submit">
+  <input style="margin: 20px 10px 0px 0px ;float: right" type="button" value="清空" class="clear">
+</form>
+</body>
+
+<script>
+  $(function () {
+    $(".clear").click(function () {
+      for(var i=1;i<=5;i++) {
+              $(this).prev().prev().find("tr").eq(i).find("td").eq(1).find("input").val("");
+              $(this).prev().prev().find("tr").eq(i).find("td").eq(3).find("input").val("");
+      }
+      $(this).prev().prev().find("tr").eq(6).find("td").eq(1).find("input").val("");
+    })
+    $(".submit").click(function () {
+      $.ajax({
+        url:"http://47.100.95.222:8080/backstage/add_UserInfo",
+        type:"post",
+        dataType:"json",
+        data:{
+          id: $(this).prev().find("tr").eq(1).find("td").eq(1).find("input").val(),
+          name:$(this).prev().find("tr").eq(1).find("td").eq(3).find("input").val(),
+          username:$(this).prev().find("tr").eq(2).find("td").eq(1).find("input").val(),
+          password:$(this).prev().find("tr").eq(2).find("td").eq(3).find("input").val(),
+          idnumber:$(this).prev().find("tr").eq(3).find("td").eq(1).find("input").val(),
+          email:$(this).prev().find("tr").eq(3).find("td").eq(3).find("input").val(),
+          phone:$(this).prev().find("tr").eq(4).find("td").eq(1).find("input").val(),
+          traveltype:$(this).prev().find("tr").eq(4).find("td").eq(3).find("input").val(),
+          sex:$(this).prev().find("tr").eq(5).find("td").eq(1).find("input").val(),
+          discountnumber:$(this).prev().find("tr").eq(5).find("td").eq(3).find("input").val(),
+          status:$(this).prev().find("tr").eq(6).find("td").eq(1).find("input").val(),
+        },
+        success:function (data) {
+          if(data==-1){
+            alert("用户已经被注册！！")
+          }else if(data==-2){
+        alert("联系人信息插入出现错误！")
+          }else{
+              alert("添加成功！！");
+            }
+          }
+      })
+    })
+  })
+</script>
+</html>

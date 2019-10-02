@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-for="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>结算</title>
+    <link rel="stylesheet" href="../css/settlement.css">
+    <link rel="stylesheet" href="../Common/commonGeneral.css">
+    <link rel="stylesheet" href="../Common/commonTop.css">
+    <link rel="stylesheet" href="../Common/commonBottom.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1344458_mkhjlnf7wn.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!-- 公共顶部 -->
+<div class="header" id="ggdb">
+    <div class="wrapper">
+        <div class="logo">
+            <img src="../Common/Railway12306logo.jpg" alt="抱歉，图片走丢了......">
+        </div>
+        <div class="header-right">
+            <div class="trainbg">
+                <ul class="mine">
+                    <li>
+                        <a href="http://47.100.95.222:8080/html/own/own_index.html">我的12306<i class="iconfont icon-arrowdropdown"></i></a>
+                        <div class="horn"></div>
+                        <ul class="mymenu">
+                            <li>火车票订单</li>
+                            <li>候补订单</li>
+                            <li>我的行程</li>
+                            <li>我的餐饮·特产</li>
+                            <li>我的保险</li>
+                            <li>我的会员</li>
+                            <li>查看个人信息车票</li>
+                            <li>账户安全</li>
+                            <li>常用联系人</li>
+                            <li>快递地址</li>
+                            <li>温馨服务查询</li>
+                        </ul>
+                    </li>
+                    <li>您好,<span href="" id="users_name">{{users_name}}</span></li>
+                    <li><a href="">退出</a></li>
+                </ul>
+                <ul class="search">
+                    <li><input type="text" placeholder="搜索车票/餐饮/常旅客/相关章程"></li>
+                    <li><i class="iconfont icon-search"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 公共导航栏 -->
+<div class="navigation">
+    <div class="wrapper">
+        <ul>
+            <li style="background-color:#3b99fc;"><a href="../Index/index.html">首页</a></li>
+            <li style="background-color:#2676e3;">
+                车票<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>购买</td>
+                        <td></td>
+                        <td>变更</td>
+                        <td></td>
+                        <td>更多</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="../Tickets/single.html">单程</a></td>
+                        <td><a href="../Tickets/return.html">往返</a></td>
+                        <td><a href="../Tickets/refund.html">退票</a></td>
+                        <td><a href="../Tickets/altered.html">改签</a></td>
+                        <td><a href="../Tickets/ChinaRailwayBankCard.html">中铁银通卡</a></td>
+                        <td><a href="../Tickets/Guang-KowThroughTrain.html">广九直通车</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../Tickets/transfer.html">接续换乘</a></td>
+                        <td></td>
+                        <td><a href="../Tickets/changeStation.html">变更到站</a></td>
+                        <td></td>
+                        <td><a href="../Tickets/RER.html">市郊快速铁路</a></td>
+                        <td><a href="../Tickets/internationalTrain.html">国际列车</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                团购服务<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="../GroupPurchase/worker.html">务工人员</a></td>
+                        <td><a href="../GroupPurchase/student.html">学生团队</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                会员服务<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="../VIP/VIPmanage.html">会员管理</a></td>
+                        <td><a href="../VIP/VIPaccount.html">积分账户</a></td>
+                        <td><a href="../VIP/exchange.html">积分兑换</a></td>
+                        <td><a href="../VIP/VIPexclusive.html">会员专享</a></td>
+                        <td><a href="../VIP/VIPcenter.html">会员中心</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                站车服务<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="../Station/keyPassengerReservation.html">重点旅客预约</a></td>
+                        <td><a href="../Station/consign.html">便民托运</a></td>
+                        <td><a href="../Station/car-sharing.html">共享汽车</a></td>
+                        <td><a href="../Station/stationGuide.html">车站引导</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../Station/lostSearch.html">遗失物品查找</a></td>
+                        <td><a href="../Station/EMUintroduction.html">动车组介绍</a></td>
+                        <td><a href="../Station/seat-in-coach.html">定制接送</a></td>
+                        <td><a href="../Station/stationStyle.html">站车风采</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                商旅服务<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="../BusinessTrip/foodSpecialty.html">餐饮·特产</a></td>
+                        <td><a href="../BusinessTrip/travel.html">旅游</a></td>
+                        <td><a href="../BusinessTrip/insurance.html">保险</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                出行指南<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>常见问题</td>
+                        <td></td>
+                        <td>旅客须知</td>
+                        <td></td>
+                        <td>相关章程</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="../TravelGuide/ticketPro.html">车票</a></td>
+                        <td><a href="../TravelGuide/ticketPurchasePro.html">购票</a></td>
+                        <td><a href="../TravelGuide/electronicRailwayTicket.html">铁路电子客票</a></td>
+                        <td><a href="../TravelGuide/identityCheck.html">身份核验</a></td>
+                        <td><a href="../TravelGuide/relatedRegulations.html">铁路互联网售票暂行方法</a></td>
+                        <td><a href="../TravelGuide/relatedRegulations.html">铁路旅客运输规程</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../TravelGuide/alterChangePro.html">改签、变更到站</a></td>
+                        <td><a href="../TravelGuide/refundPro.html">退票</a></td>
+                        <td><a href="../TravelGuide/fMorePro.html">更多>></a></td>
+                        <td></td>
+                        <td><a href="../TravelGuide/relatedRegulations.html">铁路进站乘车禁止和限...</a></td>
+                        <td><a href="../TravelGuide/relatedRegulations.html">广深港高速铁路跨境旅客...</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../TravelGuide/fMorePro.html">更多>></a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="../TravelGuide/fMorePro.html">更多>></a></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li >
+                信息查询<i class="iconfont icon-xiala-copy"></i>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>常见问题</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="../Information/isLate.html">正晚点</a></td>
+                        <td><a href="../Information/schedule.html">时刻表</a></td>
+                        <td><a href="../Information/publishedFare.html">公布票价</a></td>
+                        <td><a href="../Information/wicket.html">检票口</a></td>
+                        <td><a href="../Information/saleStartingTime.html">起售时间</a></td>
+                        <td><a href="../Index/index.html">最新发布</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.weather.com.cn/">天气</a></td>
+                        <td><a href="../Information/transportEnquiry.html">交通查询</a></td>
+                        <td><a href="../Information/saleAgency.html">代售点</a></td>
+                        <td><a href="../Information/servicePhone.html">客服电话</a></td>
+                        <td></td>
+                        <td><a href="../Information/creditInformation.html">信用信息</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--页面主体-->
+<div class="content">
+    <!--列车信息-->
+    <div class="layout t-info" id="ticket_info">
+        <div class="lay-hd">
+            列车信息
+            <span class="small">（以下余票信息仅供参考）</span>
+        </div>
+        <div class="lay-bd">
+            <p class="t-tit" id="ticket_tit_id">
+                <strong class="mr5">{{day}}</strong>
+                <strong class="ml5">{{Trained}}</strong>
+                次
+                <strong class="ml5">{{Fromstopid}}</strong>
+                站
+                <strong>（{{lefts}}开）—{{Tostopid}}</strong>
+                站（{{Arrive}}到）
+            </p>
+            <p class="t-con" id="ticket_con_id">
+                <span id="ticket_status_id" class="s1">
+                    商务座（
+                    <span class="colorA">{{sprice}}</span>
+                    ）{{seatinfo[0]}}张票
+                </span>
+                <span class="s1">
+                    二等座（
+                    <span class="colorA">{{price}}</span>
+                    ）{{seatinfo[1]}}张票
+                </span>
+                <span class="s1">
+                    一等座（
+                    <span class="colorA">{{fprice}}</span>
+                    ）{{seatinfo[2]}}张票
+                </span>
+
+            </p>
+            <p style="color: #3177BF;">
+                *显示的卧铺票价均为上铺票价，供您参考。具体票价以您确认支付时实际购买的铺别票价为准。
+            </p>
+        </div>
+    </div>
+
+    <!--乘客信息-->
+    <div class="layout person" id="layout_person">
+        <div class="lay-hd">
+            乘客信息
+            <span class="small" id="psInfo">（填写说明）</span>
+            <div class="s-box">
+                <input id="quickQueryPassenger_id" type="text" value="输入乘客姓名" class="txt">
+                <input id="submit_quickQueryPassenger" type="submit" class="sub">
+            </div>
+        </div>
+        <div class="lay-bd">
+            <div class="per-sel">
+                <div class="item clearfix">
+                    <img class="cy" id="normal_passenger_image_id" title="常用联系人" src="../images/icon0.png"></img>
+                    <div class="near_on">
+                        <input totaltimes="99" typeflag="1" id="normalPassenger_0" type="checkbox" class="check fpeople"><label class="label-name">{{name}}</label>
+                        <ul id="normal_often_id" class="ofpeople" v-for="(vp,index) in oftenUser">
+                            <li>
+                                <input totaltimes="99" typeflag="1"  type="checkbox" class="check"><label class="label-name">{{vp.name}}</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <table class="per-ticket">
+                <tbody>
+                <tr>
+                    <th width="28" rowspan="1" colspan="1">序号</th>
+                    <th rowspan="1" colspan="1">票种</th>
+                    <th rowspan="1" colspan="1">席别</th>
+                    <th rowspan="1" colspan="1">姓名</th>
+                    <th rowspan="1" colspan="1">证件类型</th>
+                    <th rowspan="1" colspan="1">证件号码</th>
+                    <th rowspan="1" colspan="1">手机号码</th>
+                    <th width="70" rowspan="1" colspan="1"></th>
+                    <th width="70" rowspan="1" colspan="1"></th>
+                </tr>
+                </tbody>
+                <tbody id="ticketInfo_id">
+                <tr id="tr_id_1">
+                    <td align="center">1</td>
+                    <td><select id="ticketType_1" name="confirmTicketType">
+                        <option name="ticket_type_option" selected="selected" value="成人票">成人票</option>
+                        <option value="学生票">学生票 </option>
+                    </select>
+                    </td>
+                    <td>
+                        <select id="seatType_1">
+                            <option selected="selected" value="二等座">二等座</option>
+                            <option value="一等座">一等座</option>
+                            <option value="商务座">商务座</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="pos-rel">
+                            <input id="passenger_name_1" type="hidden" class="inptxt w110" v-bind:value="name" size="12" maxlength="20" disabled="" style="color:#999999" title="不允许修改乘车人信息" readonly="">
+                            <div class="w110-focus" id="passenger_name_1_notice"></div>
+                        </div>
+                    </td>
+                    <td><select id="passenger_id_type_1" disabled="disabled" style="color:#999999" title="不允许修改乘车人信息">
+                        <option value="1" selected="selected"> 中国居民身份证 </option>
+                        <option value="C">港澳居民来往内地通行证</option>
+                        <option value="G">台湾居民来往大陆通行证</option>
+                        <option value="B">护照</option>
+                        <option value="H">外国人永久居留身份证</option>
+                    </select>
+                    </td>
+                    <td><div class="pos-rel"><input  id="passenger_id_no_1" type="hidden" class="inptxt w160" v-bind:value="hideId(idnumber)" disabled="disabled" title="不允许修改乘车人信息" size="20" maxlength="35" style="color:#999999"><div class="w160-focus" id="passenger_id_no_1_notice"></div></div>
+                    </td>
+                    <td><div class="pos-rel"><input  id="phone_no_1" type="hidden" class="inptxt w110" v-bind:value="hideTel(phone)" title="不允许修改乘车人信息" disabled="disabled" size="11" maxlength="20" style="color:#999999"><div class="w160-focus" id="phone_no_1_notice"></div></div>
+                    </td>
+                    <td style="width:40px;">
+                        <a href="javascript:" id="addchild_1" name="addchild_default_0"></a>
+                    </td>
+                    <td title="删除常用联系人">
+                        <span class="i-del" id="del_1_default_0"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div><img src="../images/ins_ad2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!--提交订单-->
+    <div class="lay-btn">
+        <a id="preStep_id" class="btn92" href="http://47.100.95.222:8080/html/search.html">上一步</a>
+        <a id="submitOrder_id" class="btn92s" data-toggle="modal" data-target="">提交订单</a>
+    </div>
+
+    <!--温馨提示-->
+    <div class="tips-txt"><h2>温馨提示：</h2>
+        <p>1. 一张有效身份证件同一乘车日期同一车次只能购买一张车票，高铁动卧列车除外。</p>
+        <p>2. 购票时可使用的有效身份证件包括：中华人民共和国居民身份证、港澳居民来往内地通行证、台湾居民来往大陆通行证和按规定可使用的有效护照。</p>
+        <p>3. 购买儿童票时，乘车儿童有有效身份证件的，请填写本人有效身份证件信息。乘车儿童没有有效身份证件的，应使用同行成年人的有效身份证件信息；购票时不受第一条限制，但购票后、开车前须办理换票手续方可进站乘车。</p>
+        <p>
+            4. 购买学生票时，须在<a href="../view/passengers.html" shape="rect">我的常用联系人</a>
+            中登记乘车人的学生详细信息。学生票乘车时间限为每年的暑假6月1日至9月30日、寒假12月1日至3月31日。购票后、开车前，须办理换票手续方可进站乘车。换票时，新生凭录取通知书，毕业生凭学校书面证明，其他凭学生优惠卡。
+        </p>
+        <p>5.
+            购买残疾军人（伤残警察）优待票的，须在购票后、开车前办理换票手续方可进站乘车。换票时，不符合规定的减价优待条件，没有有效"中华人民共和国残疾军人证"或"中华人民共和国伤残人民警察证"的，不予换票，所购车票按规定办理退票手续。</p>
+        <p><strong>6.购买铁路乘意险的注册用户年龄须在18周岁以上，使用非中国居民身份证注册的用户如购买铁路乘意险，须在<a href="http://47.100.95.222:8080/html/own/own_index.html" shape="rect">我的12306——个人信息</a>
+            如实填写“出生日期”。</strong>
+        </p>
+        <p><strong>7.父母为未成年子女投保，须在<a href="http://47.100.95.222:8080/html/own/own_contact.html" shape="rect">我的常用联系人</a>
+            登记未成年子女的有效身份证件信息。</strong>
+        </p>
+        <p>8.未尽事宜详见《铁路旅客运输规程》等有关规定和车站公告。</p>
+    </div>
+</div>
+
+<!-- 公共友情链c接 -->
+<div class="links">
+    <div class="wrapper">
+        <div class="links-left">
+            <p>友情链接</p>
+            <ul>
+                <li><a href="http://www.china-railway.com.cn/" target="_blank"><img src="../Common/Railway12306Link1.jpg" alt="抱歉，图片走丢了......"></a></li>
+                <li><a href="http://www.china-ric.com/" target="_blank"><img src="../Common/Railway12306Link2.jpg" alt="抱歉，图片走丢了......"></a></li>
+                <li><a href="http://www.95306.cn/" target="_blank"><img src="../Common/Railway12306Link3.jpg" alt="抱歉，图片走丢了......"></a></li>
+                <li><a href="http://www.cre.cn/" target="_blank"><img src="../Common/Railway12306Link4.jpg" alt="抱歉，图片走丢了......"></a></li>
+            </ul>
+        </div>
+        <div class="links-right">
+            <ul>
+                <li>
+                    <p>中国铁路官方微信</p>
+                    <img src="../Common/Railway12306code1.jpg" alt="抱歉，图片走丢了......">
+                </li>
+                <li>
+                    <p>中国铁路官方微博</p>
+                    <img src="../Common/Railway12306code2.jpg" alt="抱歉，图片走丢了......">
+                </li>
+                <li>
+                    <p>12306 公众号</p>
+                    <img src="../Common/Railway12306code3.jpg" alt="抱歉，图片走丢了......">
+                </li>
+                <li>
+
+                    <p>铁路12306</p>
+                    <img src="../Common/Railway12306code4.jpg" alt="抱歉，图片走丢了......">
+                    <div class="tip">
+                        <div class="horn"></div>
+                        官方APP下载，目前铁路未授权其他网站或APP开展类似服务内容，敬请广大用户注意。
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 公共底部 -->
+<div class="footer">
+    <div class="wrapper">
+        <p>
+            <span>版权所有©2008-2019</span>
+            <span>中国铁道科学研究院集团有限公司</span>
+        </p>
+        <p>
+            <span>京ICP备05020493号-4</span>
+            <span>|</span>
+            <span>京ICP证150437号</span>
+        </p>
+    </div>
+</div>
+
+<!-- 核对信息 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content up-box w664" id="modal_content_check">
+            <div class="modal-header up-box-hd">
+                请核对以下信息
+            </div>
+            <div id="form_data" class="up-box-bd ticket-check">
+                <div class="info2" id="check_ticket_tit_id">
+                    <strong class="mr5">{{day}}</strong><strong class="ml5">{{Trained}}</strong>次<strong class="ml5">{{Fromstopid}}</strong>站<strong>（{{lefts}}开）—{{Tostopid}}</strong>站（{{Arrive}}到）
+                </div>
+                <table class="table-a" id="check_ticket_info">
+                    <tbody>
+                    <tr>
+                        <th width="28" rowspan="1" colspan="1">序号</th>
+                        <th rowspan="1" colspan="1">席别</th>
+                        <th id="bed_show" style="display: none;" rowspan="1" colspan="1">铺别</th>
+                        <th rowspan="1" colspan="1">票种</th>
+                        <th rowspan="1" colspan="1">姓名</th>
+                        <th rowspan="1" colspan="1">证件类型</th>
+                        <th rowspan="1" colspan="1">证件号码</th>
+                        <th rowspan="1" colspan="1">手机号码</th>
+                    </tr>
+                    </tbody>
+                    <tbody id="check_ticketInfo_id">
+                    <tr>
+                        <td align="center">1</td>
+                        <td>{{seat_level}}</td>
+                        <td>{{ticket_class}}</td>
+                        <td title="">{{name}}</td>
+                        <td> 中国居民身份证 </td>
+                        <td>{{hideId(idnumber)}}</td>
+                        <td>{{hideTel(phone)}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p style="color: #3177BF;" id="notice_1_id">*如果本次列车剩余席位无法满足您的选座需求，系统将自动为您分配席位。</p>
+                <div class="seat-sel seat-sel-round" id="id-seat-sel" style="display: block;">
+                    <div class="seat-sel-hd" id="sel-selectNo">
+                        <div class="tips-xz">选座喽</div>
+                        已选座
+                        <span id="selectNo">0/1</span>
+                    </div>
+                    <div class="seat-sel-bd">
+                        <div class="sel-item">
+                            <div class="txt">窗</div>
+                            <ul class="seat-list">
+                                <li><a shape="rect" id="a">A</a></li>
+                                <li><a shape="rect" id="b">B</a></li>
+                                <li><a shape="rect" id="c">C</a></li>
+                                <div class="txt">过道</div>
+                                <li><a shape="rect" id="e">E</a></li>
+                                <li><a shape="rect" id="f">F</a></li>
+                                <div class="txt txt-last">窗</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p id="sy_ticket_num_id">欢迎乘坐本次列车，祝您旅途愉快</p>
+                <div class="lay-btn" id="confirmDiv" style="padding: 10px 0px;">
+                    <a id="back_edit_id" href="http://47.100.95.222:8080/html/settlement.html" class="btn92" shape="rect">返回修改</a>
+                    <a href="#" class="btn92s" id="qr_submit_id" shape="rect">确认</a>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+
+<!-- 提示信息 -->
+<div class="modal fade" id="otherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content up-box w664">
+            <div class="up-box-hd" id="up-box-hd_id">
+                提示
+            </div>
+            <div class="up-box-bd">
+                <div class="up-con clearfix">
+                    <span class="icon i-warn" id="iamge_status_id"></span>
+                    <div class="r-txt" id="orderResultInfo_id">
+                        <div class="tit">
+                            <span class="colorC">出票失败!</span>
+                        </div>
+                        <p>原因： 余票不足！</p>
+                    </div>
+                </div>
+                <div class="lay-btn" id="lay-btn_id">
+                    <a href="settlement.html" id="qr_closeTranforDialog_id" class="btn92s">确认</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--script-->
+<script>
+    $(function () {
+        //缓存用户
+        var userid;
+        var username;
+        var startPoint;//出发城市
+        var endPoint;//到达城市
+        var city_fid;//出发城市id
+        var city_tid;//到达城市id
+        var startDate;//出发日期
+        var train_num;//列车号
+        var f_time;//出发时间
+        var t_time;//到达时间
+        var train_id;//列车id
+        var t_price;//车票价格
+        var city_id1;//出发经停id
+        var city_id2;//	终到经停id
+        function getCookie(cname)
+        {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++)
+            {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+        if (getCookie("cookie_userid") !=null){
+            userid = getCookie("cookie_userid");
+        }
+        if (getCookie("cookie_username") !=null){
+            username = getCookie("cookie_username");
+        }
+        if (getCookie("cookie_startPoint") !=null){
+            startPoint = getCookie("cookie_startPoint");
+        }if (getCookie("cookie_endPoint") !=null){
+            endPoint = getCookie("cookie_endPoint");
+        }if (getCookie("cookie_city_fid") !=null){
+            city_fid = getCookie("cookie_city_fid");
+        }if (getCookie("cookie_city_tid") !=null){
+            city_tid = getCookie("cookie_city_tid");
+        }if (getCookie("cookie_startDate") !=null){
+            startDate = getCookie("cookie_startDate");
+        }if (getCookie("cookie_train_num") !=null){
+            train_num = getCookie("cookie_train_num");
+        }if (getCookie("cookie_train_f_time") !=null){
+            f_time = getCookie("cookie_train_f_time");
+        }if (getCookie("cookie_train_t_time") !=null){
+            t_time = getCookie("cookie_train_t_time");
+        }if (getCookie("cookie_train_id") !=null){
+            train_id = getCookie("cookie_train_id");
+        }if (getCookie("cookie_train_price") !=null){
+            t_price = getCookie("cookie_train_price");
+        }if (getCookie("cookie_from_cityid") !=null){
+            city_id1 = getCookie("cookie_from_cityid");
+        }if (getCookie("cookie_to_cityid") !=null){
+            city_id2 = getCookie("cookie_to_cityid");
+        }
+        var vms = new Vue({
+            el:'#users_name',
+            data:{users_name:{}},
+            created:function () {
+                this.users_name = username;
+            }
+        })
+        //获取乘客信息
+        var a = new Object();
+        a.id = userid;
+        $.ajax({
+            url:"http://47.100.95.222:8080/api/user/getInfo",
+            dataType:"json",
+            type:"post",
+            contentType:"application/json;charset=UTF-8",
+            data:JSON.stringify(a),
+            success:function (data) {
+                va.name = data.name;
+                va.idnumber = data.idnumber;
+                va.phone = data.phone;
+                vp.name = data.name;
+                vp.idnumber = data.idnumber;
+                vp.phone = data.phone;
+            }
+            ,error:function (error) {
+                alert("请先登陆！")
+            }
+        })
+        var va = new Vue({
+            el:"#layout_person",
+            data: {
+                name:{},
+                idnumber: {},
+                phone:{},
+                oftenUser:[],
+            },
+            methods:{
+                hideId:function (idnumber) {
+                    if(idnumber.length == 18){
+                        return idnumber.replace(/(\d{4})\d{11}(\d{3})/,"$1***********$2");
+                    }
+                },
+                hideTel:function (phone) {
+                    if(phone.length == 11){
+                        return phone.replace(/(\d{3})\d{4}(\d{4})/,"$1****$2");
+                    }
+                }
+            }
+        });
+
+        //常用联系人
+        var contentId;
+        var ao = new Object();
+        ao.id = userid;
+        $.ajax({
+            url:"http://47.100.95.222:8080/api/user/getCotactByUserid",
+            dataType:"json",
+            type:"post",
+            contentType:"application/json;charset=UTF-8",
+            data:JSON.stringify(ao),
+            success:function (data) {
+                va.oftenUser = data;
+                contentId = data[0].id;
+            }
+            ,error:function (error) {
+                alert('请先登陆！');
+            }
+        })
+        // 获取列车信息
+        var vb = new Vue({
+            el:"#ticket_tit_id",
+            data: {
+                day:startDate,
+                Trained: train_num,
+                Fromstopid:startPoint,
+                lefts:f_time,
+                Tostopid:endPoint,
+                Arrive:t_time,
+            }
+        });
+
+
+        //获取列车座位量
+        var c = new Object();
+        c.cityid1 = city_id1;
+        c.cityid2 = city_id2;
+        c.trainid = train_id;
+        $.ajax({
+            url:"http://47.100.95.222:8080/api/ticket/getUnsoldTicketNum",
+            dataType:"json",
+            type:"post",
+            contentType:"application/json;charset=UTF-8",
+            data:JSON.stringify(c),
+            success:function (data) {
+                vc.seatinfo = data;
+            }
+            ,error:function (e) {
+                alert("请先登陆！");
+            }
+        })
+        var f_price = t_price * 2;
+        var s_price = t_price * 4;
+        var vc = new Vue({
+            el:"#ticket_con_id",
+            data: {
+                seatinfo:[],
+                price:t_price,
+                fprice:f_price,
+                sprice:s_price,
+            },
+        });
+
+
+        //选择用户
+        $("#normalPassenger_0").click(function () {
+            if ($("#normalPassenger_0").is(':checked')) {
+                $("#passenger_name_1").attr('type',"text");
+                $("#passenger_id_no_1").attr('type',"text");
+                $("#phone_no_1").attr('type',"text");
+            }else {
+                $("#passenger_name_1").attr('type',"hidden");
+                $("#passenger_id_no_1").attr('type',"hidden");
+                $("#phone_no_1").attr('type',"hidden");
+            }
+        })
+
+        //提交订单
+        var vp = new Vue({
+            el:"#modal_content_check",
+            data:{
+                name:{},
+                idnumber: {},
+                phone:{},
+                day:startDate,
+                Trained: train_num,
+                Fromstopid:startPoint,
+                lefts:f_time,
+                Tostopid:endPoint,
+                Arrive:t_time,
+                ticket_class:{},
+                seat_level:{},
+            },
+            methods:{
+                hideId:function (idnumber) {
+                    if(idnumber.length == 18){
+                        return idnumber.replace(/(\d{4})\d{11}(\d{3})/,"$1***********$2");
+                    }
+                },
+                hideTel:function (phone) {
+                    if(phone.length == 11){
+                        return phone.replace(/(\d{3})\d{4}(\d{4})/,"$1****$2");
+                    }
+                }
+            }
+        })
+        $("#submitOrder_id").click(function () {
+            vp.seat_level = $("#seatType_1 option:selected").val();
+            vp.ticket_class = $("#ticketType_1 option:selected").val();
+            if ($("#normalPassenger_0").is(':checked')){
+                $(this).attr('data-target',"#myModal");
+            }else {
+                $(this).attr('data-target',"#otherModal");
+            }
+            //选座
+
+            var fid = null ;
+            $(".seat-list li a").click(function () {
+                if(fid == $(this).attr('id')){
+                    $(".seat-list li a").attr('style',"background-position:-80px 0");
+                    $(this).attr('style',"background-position:-80px 0");
+                    fid=null;
+                    $("#selectNo").html("0/1");
+                }else{
+                    $(".seat-list li a").attr('style',"background-position:-80px 0");
+                    $(this).attr('style',"background-position:-40px 0");
+                    fid=$(this).attr('id');
+                    $("#selectNo").html("1/1");
+                    seatNo = $(this).html();
+                }
+            })
+
+        })
+
+
+        //确认订单
+        var seatNo = null;
+        var seatNumber;
+        $("#qr_submit_id").click(function () {
+            if(vp.seat_level == "一等座"){
+                seatNumber = 2;
+            }if(vp.seat_level == "二等座"){
+                seatNumber = 3;
+            }if(vp.seat_level == "商务座"){
+                seatNumber = 1;
+            }
+            document.cookie = "cookie_seat_number = " + seatNo+ "; path=/html/";
+            document.cookie = "cookie_seat_level = " + seatNumber+ "; path=/html/";
+            document.cookie = "cookie_contentid = " + contentId+ "; path=/html/";
+            location.href="http://47.100.95.222:8080/html/payOrder.html"
+        })
+
+    })
+</script>
+
+</body>
+</html>

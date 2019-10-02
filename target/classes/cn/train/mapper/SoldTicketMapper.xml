@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.train.mapper.SoldTicketMapper">
+  <resultMap id="SoldTicketResultMap" type="cn.train.enity.SoldTicket">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="trainid" jdbcType="INTEGER" property="trainid" />
+    <result column="fromstopid" jdbcType="INTEGER" property="fromstopid" />
+    <result column="tostopid" jdbcType="INTEGER" property="tostopid" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="seatnumber" jdbcType="VARCHAR" property="seatnumber" />
+    <result column="rownumber" jdbcType="VARCHAR" property="rownumber" />
+    <result column="carnumber" jdbcType="VARCHAR" property="carnumber" />
+    <result column="seatlevel" jdbcType="INTEGER" property="seatlevel" />
+    <result column="contactid" jdbcType="INTEGER" property="contactid" />
+    <result column="orderid" jdbcType="INTEGER" property="orderid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, trainid, fromstopid, tostopid, price, seatnumber, rownumber, carnumber, seatlevel, 
+    contactid, orderid
+  </sql>
+
+  <select id="selectByOrderid" parameterType="java.lang.Integer" resultMap="SoldTicketResultMap">
+    select * from SoldTicket where orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+
+  <select id="getAll" resultMap="SoldTicketResultMap">
+    SELECT  * from SoldTicket;
+  </select>
+
+
+  <select id="getIdBySoldTicket" parameterType="cn.train.enity.SoldTicket" resultType="java.lang.Integer">
+    select * from SoldTicket where contactid = #{contactid,jdbcType=INTEGER} and orderid = #{orderid,jdbcType=INTEGER};
+  </select>
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="SoldTicketResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SoldTicket
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SoldTicket
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.train.enity.SoldTicket">
+    insert into SoldTicket (id, trainid, fromstopid, 
+      tostopid, price, seatnumber, 
+      rownumber, carnumber, seatlevel, 
+      contactid, orderid)
+    values (#{id,jdbcType=INTEGER}, #{trainid,jdbcType=INTEGER}, #{fromstopid,jdbcType=INTEGER}, 
+      #{tostopid,jdbcType=INTEGER}, #{price,jdbcType=REAL}, #{seatnumber,jdbcType=VARCHAR}, 
+      #{rownumber,jdbcType=VARCHAR}, #{carnumber,jdbcType=VARCHAR}, #{seatlevel,jdbcType=INTEGER}, 
+      #{contactid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.train.enity.SoldTicket">
+    insert into SoldTicket
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="trainid != null">
+        trainid,
+      </if>
+      <if test="fromstopid != null">
+        fromstopid,
+      </if>
+      <if test="tostopid != null">
+        tostopid,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="seatnumber != null">
+        seatnumber,
+      </if>
+      <if test="rownumber != null">
+        rownumber,
+      </if>
+      <if test="carnumber != null">
+        carnumber,
+      </if>
+      <if test="seatlevel != null">
+        seatlevel,
+      </if>
+      <if test="contactid != null">
+        contactid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="trainid != null">
+        #{trainid,jdbcType=INTEGER},
+      </if>
+      <if test="fromstopid != null">
+        #{fromstopid,jdbcType=INTEGER},
+      </if>
+      <if test="tostopid != null">
+        #{tostopid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="seatnumber != null">
+        #{seatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rownumber != null">
+        #{rownumber,jdbcType=VARCHAR},
+      </if>
+      <if test="carnumber != null">
+        #{carnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatlevel != null">
+        #{seatlevel,jdbcType=INTEGER},
+      </if>
+      <if test="contactid != null">
+        #{contactid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.train.enity.SoldTicket">
+    update SoldTicket
+    <set>
+      <if test="trainid != null">
+        trainid = #{trainid,jdbcType=INTEGER},
+      </if>
+      <if test="fromstopid != null">
+        fromstopid = #{fromstopid,jdbcType=INTEGER},
+      </if>
+      <if test="tostopid != null">
+        tostopid = #{tostopid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="seatnumber != null">
+        seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rownumber != null">
+        rownumber = #{rownumber,jdbcType=VARCHAR},
+      </if>
+      <if test="carnumber != null">
+        carnumber = #{carnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatlevel != null">
+        seatlevel = #{seatlevel,jdbcType=INTEGER},
+      </if>
+      <if test="contactid != null">
+        contactid = #{contactid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        orderid = #{orderid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.train.enity.SoldTicket">
+    update SoldTicket
+    set trainid = #{trainid,jdbcType=INTEGER},
+      fromstopid = #{fromstopid,jdbcType=INTEGER},
+      tostopid = #{tostopid,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      rownumber = #{rownumber,jdbcType=VARCHAR},
+      carnumber = #{carnumber,jdbcType=VARCHAR},
+      seatlevel = #{seatlevel,jdbcType=INTEGER},
+      contactid = #{contactid,jdbcType=INTEGER},
+      orderid = #{orderid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

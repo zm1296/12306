@@ -1,0 +1,629 @@
+body{
+	/*position: relative;*/
+	margin: 0;
+	/*padding: 0;*/
+}
+a{
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.tracel_logo{
+	width: 100%;
+	height: 110px;
+	z-index: 200;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.tracel_logo>div{
+	width: 980px;
+	height: 110px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.tracel_logo>div>div{
+	background: url('images/logo2.png');
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 100px;
+	float: left;
+	/*background-color: red;*/
+	padding: 5px 0;
+	margin: 0 auto;
+	z-index: 200;
+}
+
+
+/*头部轮播图*/
+.travel_pic{
+	width: 100%;
+	height: 400px;
+	position: relative;
+	
+}
+/*视口大小*/
+.travel_pic>.travel_p{
+	z-index: 0;
+	width: 1920px;
+	height: 400px;
+	margin: 0 auto;
+	background-color: red;
+	overflow: hidden;
+	position: relative;
+}
+.travel_pic>.travel_p>ul{
+	width: 9600px;
+	height: 400px;
+	animation:picture 5s infinite;
+	position: relative;
+
+}
+.travel_pic>.travel_p>ul>li{
+	/*background-color: teal;*/
+	width: 1920px;
+	height: 400px;
+	float: left;
+}
+.travel_pic>.travel_p>ul>li>img{
+	width: 1920px;
+	height: 400px;
+}
+@keyframes picture{
+	0%{
+		margin-left: 0;
+	}
+	25%{
+		margin-left: -1920px;
+	}
+	50%{
+		margin-left: -3840px;
+	}
+	75%{
+		margin-left: -5760px;
+	}
+	100%{
+		margin-left: -7680px;
+	}
+}
+
+.travel_w{
+	background-color: #1476bd;
+	height: 32px;
+	width: 100%;
+	line-height: 32px;
+}
+.travel_w>div{
+	width: 980px;
+	height: 32px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.travel_w>div>div{
+	color: #ff9;
+	font-size: 12px;
+	float: left;
+	margin-right: 20px;
+}
+.travel_w>div>ul{
+	float: left;
+}
+.travel_w>div>ul>li{
+	background: url('images/bg06.png')left center no-repeat;
+	float: left;
+	padding: 0 18px 0 20px;
+	
+}
+.travel_w>div>ul>li>a{
+	color: #fff;
+	font-size: 14px;
+}
+.travel_w>div>ul>li>a:hover{
+	text-decoration: underline;
+}
+.travel_i{
+	width: 100%;
+	background: #3d5d7c;
+	height: 80px;
+	padding-top: 20px;
+	/*position: relative;*/
+}
+.travel_search{	
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+}
+.travel_search>.travel_p{
+	width: 980px;
+	height: 42px;
+	position: relative;
+}
+.travel_search>.travel_p>.travel_place{
+	width: 242px;
+	background-color: #fff;
+	border-radius: 3px;
+	margin-right: 18px;
+	float: left;
+}
+.travel_search>.travel_p>.travel_place>div{
+	height: 40px;
+	/*line-height: 40px;*/
+	width: 200px;
+	border: 1px solid #cdcdcd;
+	padding-left: 40px;
+	border-radius: 3px;
+}
+.travel_search>.travel_p>.travel_place i:first-child{
+	position: absolute;
+	left: 10px;
+	top: 4px;
+	font-size: 24px;
+	color: #5292cd;
+}
+.travel_search>.travel_p>.travel_place i:last-child{
+	width: 39px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin-left: 10px;
+	margin-top: 6px;
+	color: #2c7ac3;
+}
+.travel_search>.travel_p>.travel_place>div>div{
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	color: #478dcd;
+	font-weight: 700;
+	float: left;
+	font-size: 14px;
+	border-right: 1px solid #eee;
+}
+.travel_search>.travel_p>.travel_input{
+	background-color: #fff;
+	width: 470px;
+	height: 40px;
+	float: left;
+	border: 1px solid #cdcdcd;
+	border-radius: 3px;
+	/*font-size: 12px;*/
+	position: relative;
+}
+.travel_search>.travel_p>.travel_input>input{
+	width: 330px;
+	padding: 10px;
+	line-height: 20px;
+	border: none;
+	float: left;
+}
+.travel_search>.travel_p>.travel_input>button{
+	width: 121px;
+	height: 42px;
+	line-height: 42px;
+	float: left;
+	position: absolute;
+	top: -1px;
+	right: -2px;
+	border: none;
+	background-color: #63afed;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 3px;
+}
+.travel_search>.travel_city{
+	width: 980px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 4px;
+	font-size: 12px;
+	color: #cdcdcd;
+}
+.travel_search>.travel_city>a{
+	color: #cdcdcd;
+	margin-right: 20px;
+	font-size: 12px;
+}
+.travel_search>.travel_city>a:hover{
+	color: #fff;
+}
+/*主体内容*/
+.travel_main{
+	width: 980px;
+	/*background-color: red;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+/*新闻中心*/
+.travel_news{
+	margin-top: 10px;
+	position: relative;
+}
+.travel_news>.news_top{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 2px solid #f3f3f3;
+}
+.travel_news>.news_top>h2{
+	font-size: 24px;
+	color: #478dcd;
+	float: left;
+}
+h2,span{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.travel_news>.news_top>a{
+	float: left;
+	position: absolute;
+	right: 0;
+	color: #333;
+}
+.travel_news>.news_top>a:hover{
+	color: #fa7402;
+}
+.travel_news>.news_main{
+	margin-top: 10px;
+	height: 300px;
+}
+.travel_news>.news_main>ul{
+	width: 420px;
+	margin-right: 20px;
+	float: left;
+	
+}
+.travel_news>.news_main>ul>li{
+	position: relative;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+}
+.travel_news>.news_main>ul>li>div{
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.travel_news>.news_main>ul>li>span{
+	float: left;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.travel_news>.news_main>.news_pic{
+	width: 540px;
+	height: 300px;
+	background-color: pink;
+	float: left;
+	overflow: hidden;
+}
+.travel_news>.news_main>.news_pic>div{
+	/*width: 4860px;*/
+	height: 300px;
+}
+.travel_news>.news_main>.news_pic>div>ul{
+	width: 4860px;
+	height: 300px;
+	/*动画名字*/
+	animation-name: news_pi; 
+	/*动画执行时间*/
+	animation-duration: 9s;
+	/*动画执行次数*/
+	animation-iteration-count: infinite;
+	/*动画执行轨迹*/
+	/*animation-timing-function: steps(9);*/
+}
+
+.travel_news>.news_main>.news_pic>div>ul>li{
+	width: 540px;
+	height: 300px;
+	float: left;
+}
+.travel_news>.news_main>.news_pic>div>ul>li>img{
+	width: 540px;
+	height: 300px;
+}
+@keyframes news_pi{
+	0%{
+		margin-left: 0;
+	}
+	12.5%{
+		margin-left: -540px;
+	}
+	25%{
+		margin-left: -1080px;
+	}
+	37.5%{
+		margin-left: -1620px;
+	}
+	50%{
+		margin-left: -2160px;
+	}
+	62.5%{
+		margin-left: -2700px;
+	}
+	75%{
+		margin-left: -3240px;
+	}
+	87.5%{
+		margin-left: -3780px;
+	}
+	100%{
+		margin-left: -4320px;
+	}
+}
+/*旅游专列*/
+.only_one{
+	margin-top: 10px;
+}
+.only_one>.only_top{
+	width: 980px;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 2px solid #f3f3f3;
+	position: relative;
+}
+.only_one>.only_top>h2{
+	font-size: 24px;
+	color: #478dcd;
+	float: left;
+}
+.only_one>.only_top>div{
+	float: left;
+	position: absolute;
+	right: 0;
+}
+.only_one>.only_top>div>ul>li{
+	float: left;
+	width: 50px;
+	height: 40px;
+}
+.only_one>.only_top>div>ul>li>a{
+	color: #333;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+}
+.only_one>.only_top>div>ul>li>a:hover{
+	color: #fa7402;
+}
+.only_one>.only_top>div>ul>li>a>i{
+	font-size: 10px;
+}
+.only_one>.only_main{
+	width: 980px;
+	height: 370px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.only_one>.only_main>ul{
+	width: 5880px;
+	height:370px;
+	animation-name: only_pic;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+}
+.only_one>.only_main>ul>li{
+	float: left;
+}
+.only_one>.only_main>ul>li>img{
+	width: 980px;
+	height: 370px;
+}
+@keyframes only_pic{
+	0%{
+		margin-left: 0px;
+	}
+	20%{
+		margin-left: -980px;
+	}
+	40%{
+		margin-left: -1960px;
+	}
+	60%{
+		margin-left: -2940px;
+	}
+	80%{
+		margin-left: -3920px;
+	}
+	100%{
+		margin-left: -4900px;
+	}
+}
+/*精品线路*/
+.good_road{
+	margin-top: 10px;
+}
+.good_road>.road_top{
+	width: 980px;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 2px solid #f3f3f3;
+	position: relative;
+}
+.good_road>.road_top>h2{
+	font-size: 24px;
+	color: #478dcd;
+	float: left;
+}
+.good_road>.road_top>div{
+	float: left;
+	position: absolute;
+	right: 0;
+}
+.good_road>.road_top>div>ul>li{
+	float: left;
+	width: 50px;
+	height: 40px;
+}
+.good_road>.road_top>div>ul>li>a{
+	color: #333;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+}
+.good_road>.road_top>div>ul>li>a:hover{
+	color: #fa7402;
+}
+.good_road>.road_top>div>ul>li>a>i{
+	font-size: 10px;
+}
+.good_road>.road_main{
+	position: relative;
+	width: 980px;
+	height: 410px;
+}
+.good_road>.road_main>.road_pic{
+	width: 234px;
+	height: 195px;
+	/*background-color: pink;*/
+	margin: 10px 10px 0 0;
+	float: left;
+	border: 1px solid #e6e6e6;
+	/*position: absolute;*/
+}
+.good_road>.road_main>.road_pic:nth-child(4)
+,.good_road>.road_main>.road_pic:nth-child(8){
+	margin-right: 0;
+	/*background-color: teal;*/
+}
+.good_road>.road_main>.road_pic>.road_img>img{
+	width: 235px;
+	height: 157px;
+}
+.good_road>.road_main>.road_pic>.road_bot{
+	width: 215px;
+	height: 36px;
+	padding: 0 10px;
+	line-height: 36px;
+}
+.good_road>.road_main>.road_pic>.road_bot>.road_l{
+	float: left;
+	color: #999;
+}
+.good_road>.road_main>.road_pic>.road_bot>.road_r{
+	float: right;
+	color: #fa7402;
+}
+.road_main>.road_pic>.road_bot>.road_r>.txt_price{
+	font-size: 24px;
+}
+.road_main>.road_pic>.road_bot>.road_r>.txt_price>.rmb{
+	font-family:  Arial !important;
+	font-style: normal;
+}
+
+/*热门景点*/
+.hot_place{
+	margin-top: 10px;
+}
+.hot_place>.hot_top{
+	width: 980px;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 2px solid #f3f3f3;
+	position: relative;
+}
+.hot_place>.hot_top>h2{
+	font-size: 24px;
+	color: #478dcd;
+	float: left;
+}
+.hot_place>.hot_top>div{
+	float: left;
+	position: absolute;
+	right: 0;
+}
+.hot_place>.hot_top>div>ul>li{
+	float: left;
+	width: 50px;
+	height: 40px;
+}
+.hot_place>.hot_top>div>ul>li>a{
+	color: #333;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+}
+.hot_place>.hot_top>div>ul>li>a:hover{
+	color: #fa7402;
+}
+.hot_place>.hot_top>div>ul>li>a>i{
+	font-size: 10px;
+}
+.hot_main{
+	width: 980px;
+	height: 410px;
+	position: relative;
+}
+.hot_main>.hot_pic{
+	width: 235px;
+	height: 193px;
+	/*background-color: pink;*/
+	float: left;
+	margin: 10px 10px 0 0;
+
+}
+.hot_main>.hot_pic:first-child{
+	width: 235px;
+	height: 400px;
+}
+.hot_main>.hot_pic:nth-child(4)
+,.hot_main>.hot_pic:nth-child(7){
+	margin-right: 0px;
+}
+.hot_main>.hot_pic:nth-child(2)
+,.hot_main>.hot_pic:nth-child(3)
+,.hot_main>.hot_pic:nth-child(4)
+,.hot_main>.hot_pic:nth-child(5)
+,.hot_main>.hot_pic:nth-child(6)
+,.hot_main>.hot_pic:nth-child(7){
+	border: 1px solid #e6e6e6;
+}
+.hot_main>.hot_pic>img{
+	width: 237px;
+	height: 400px;
+}
+.hot_main>.hot_pic>.hot_img>img{
+	width: 235px;
+	height: 157px;
+}
+.hot_main>.hot_pic>.hot_word{
+	height: 36px;
+	line-height: 36px;
+	padding: 0 10px;
+}
+.hot_main>.hot_pic>.hot_word>div{
+	float: left;
+	color: #999;
+}
+/*旅行社推荐*/
+.selet_choose{
+	margin-top: 10px;
+}
+.selet_choose>.selet_top{
+	width: 980px;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 2px solid #f3f3f3;
+	position: relative;
+}
+.selet_choose>.selet_top>h2{
+	font-size: 24px;
+	color: #478dcd;
+	float: left;
+}
+.selet_choose>.selet_top>.selet_main{
+	width: 930px;
+	height: 190px;
+	padding: 0 25px;
+	margin-top: 25px;
+}

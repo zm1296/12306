@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html xmlns:v-blind="http://mybatis.org/schema/mybatis-mapper" xmlns:v-for="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>查看与修改</title>
+    <style type="text/css">
+        tr td{text-align: center}
+        .blue{color: #3b99fc}
+        body{background-color: #b5cfd9}
+        table{background-color: wheat}
+    </style>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script src="../../js/vue.min.js"></script>
+    <script>
+        $(function () {
+            var getInfo=new Vue({
+                el:'#map',
+                data:{
+                    mapcityList:{},
+                    cityList:{},
+                    init:{},
+                },
+                methods:{
+                    alter_:function (index) {
+                        getInfo.init=getInfo.mapcityList[index];
+                        $(".alter_info").css("display","inline");
+                    },
+                    delete_:function (index_id) {
+                        $.ajax({
+                            url:"http://47.100.95.222:8080/backstage/del_mapInfo",
+                            type:"post",
+                            dataType:"json",
+                            data:{
+                                id:index_id
+                            },success:function (result) {
+                                if(result==true){
+                                    alert("删除成功")
+                                    location.reload();
+                                }else{
+                                    alert("删除失败")
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/get_mapcity",
+                type:"post",
+                dataType:"json",
+                success:function (mapcitylist) {
+                        getInfo.mapcityList=mapcitylist;
+                }
+            }),
+                $.ajax({
+                    url:"http://47.100.95.222:8080/backstage/get_mapcity",
+                    type:"post",
+                    dataType:"json",
+                    success:function (citylist) {
+                            getInfo.cityList=citylist;
+                    }
+                })
+
+        })
+    </script>
+</head>
+<body>
+<div  id="map">
+    <div >
+
+        <table border="1" align="center" width="100%" >
+            <caption> <h2>路线图信息</h2></caption>
+            <tr>
+                <th>ID</th><th>起始城市</th><th>目的城市</th><th>距离</th><th>价格</th><th>操作</th>
+            </tr>
+            <tr v-for="(city,index) in mapcityList">
+                <td>{{city.id}}</td>
+                <td>{{city.cityInfo1.name}}</td>
+                <td>{{city.cityInfo2.name}}</td>
+                <td>{{city.distance}}</td>
+                <td>{{city.price}}</td>
+                <td><a    @click="alter_(index)" class="blue">修改</a> | <a @click="delete_(city.id)" class="blue">删除</a></td>
+            </tr>
+        </table>
+<!--        <tr>-->
+<!--            <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
+<!--        </tr>-->
+<!--        <p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>-->
+    </div>
+
+<div style="display:none" class="alter_info">
+    <table style="width: 100%;background-color: whitesmoke">
+        <tr>
+            <th>ID</th><th>起始城市</th><th>目的城市</th><th>距离</th><th>价格</th>
+        </tr>
+        <tr>
+            <td><input  type="text"  :value="init.id"></td>
+
+            <td><select id="fir" size="1"  :value="init.cityid1" >
+                <option v-for="cit1 in cityList" value="cit1.id">{{cit1.name}}</option>
+                </select>
+                </td>
+            <td><select id="sec" size="1"  :value="init.cityid2" >
+                <option v-for="cit2 in cityList" value="cit2.id">{{cit2.name}}</option>
+                </select>
+                </td>
+<!--            <td><input type="text" :value="init.cityid1"></td>-->
+<!--            <td><input type="text" :value="init.cityid2"></td>-->
+            <td><input type="text" size="5px" :value="init.distance"></td>
+            <td><input type="text" size="10px" :value="init.price"></td>
+        </tr>
+    </table>
+    <div style="float: right; margin-top: 20px ;margin-right: 10px"><input type="button" class="clear" value="取消修改"></div>
+    <div style="float: right ;margin-top: 20px"><input type="button" class="submit" value="确认修改"></div>
+</div>
+</div>
+<script>
+    $(function () {
+        $(".clear").click(function () {
+            alert("取消修改")
+            location.reload();
+        })
+        $(".submit").click(function () {
+            alert("确认修改")
+            $.ajax({
+                url:"http://47.100.95.222:8080/backstage/del_mapInfo",
+                type:'post',
+                dataType:"json",
+                data:{
+
+                },success:function (data) {
+                    alert(data)
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

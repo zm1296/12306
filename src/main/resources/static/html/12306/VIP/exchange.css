@@ -1,0 +1,201 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin:0 auto;
+}
+.one .two{
+	width: 1895px;
+	height: 425px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.one .two .inner{
+	width: 5685px;
+	height: 425px;
+	font-size: 0;
+	position: absolute;
+	animation-name: lb;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+.one .two .inner div{
+	width: 1895px;
+	height: 425px;
+	float: left;
+}
+@keyframes lb{
+	0%{
+		margin-left: 0;
+	}
+	40%{
+		margin-left: 0;
+	}	
+	50%{
+		margin-left: -1895px;
+	}
+	90%{
+		margin-left: -1895px;
+	}
+	100%{
+		margin-left: -3790px;
+	}
+}
+ul::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.aside{
+	width: 150px;
+	height: 420px;
+	position: absolute;
+	left: 50%;
+	margin-left: -40%;
+}
+.aside>ul{
+	width: 150px;
+	height: 420px;
+	background-color: #9295e6;
+}
+.aside>ul>li{
+	height: 85px;
+	line-height: 55px;
+	text-align: center;
+	position: relative;
+	background-color: rgb(0,0,0,0.01);
+}
+.aside>ul>li>a{
+	display: block;
+	width: 70px;
+	font-size: 14px;
+	height: 74px;3	font-size: 14px;
+	padding-top:10px;
+	margin: 0 auto;
+	border-bottom: 1px solid #ccc;
+}
+.aside>ul>li:hover,.aside>ul>li>a:hover{
+	background: #fff;
+	color: #a1a8f3;
+}
+.aside>ul>li:last-child>a{
+	border:0;
+}
+.aside ul >li>a>i{
+	display: block;
+	height: 20px;
+}
+.aside>ul>li>a>p{
+	height: 12px;
+}
+.aside ul >li:hover >div{
+	display: block;
+}
+.aside ul >li >div{	
+	width: 300px;
+	font-size: 14px;
+	position: absolute;
+	top: 0;
+	left: 150px;
+	display: none;
+}
+.aside ul >li:last-child >div{
+	margin-bottom: 3px;
+}
+.aside ul >li >div>a{
+	background: #b6c0f3;
+	color: #fff;
+	display: block;
+	width: 86px;
+	height: 85px;
+	float: left;
+	line-height: 80px;
+}
+.aside ul >li >div>a:hover{
+	color: #478ccd;
+}
+.one .three{
+	width: 1200px;
+	height: 200px;
+	margin:0 auto;
+	text-align: center;
+}
+.one .three>ul>li{
+	height: 160px;
+	width: 240px;
+	float: left;
+	margin-right: 80px;
+	background: #eee;
+	color: #000;
+	margin-top: 50px;
+}
+.one .three>ul>li:last-child{
+	margin-right: 0px;
+}
+.three>ul>li>i{
+	display: block;
+	margin-top: 20px;
+	font-size: 60px;
+	color: #478ccd;
+}
+.three>ul>li>p{
+	margin-top: 20px;
+	font-size: 16px;
+}
+.three>ul>li:hover{
+	background: #478ccd;
+}
+.three>ul>li:hover i{
+	color: #fff;
+}
+.three>ul>li:hover p{
+	color: #fff;
+}
+.one .four{
+	width: 1200px;
+	margin-bottom: 50px;
+}
+.one .four .left{
+	width: 500px;
+	float: left;
+}
+.one .four .right{
+	margin-top: 50px;
+	width: 500px;
+	margin-left: 700px;
+}
+.one .four .right>div{
+	width: 500px;
+	height: 56px;
+	line-height: 56px;
+}
+.four .right>div>h2{
+	float: left;
+}
+.one .four .left h2{
+	margin: 22px 0;
+}
+.four .left>h2:first-child>a:hover{
+	color: #478ccd;
+}
+.one .four p>a{
+	display: block;
+	line-height: 36px;
+	font-size: 14px;
+	background: #eee;
+	margin-top: 10px;
+}
+.one .four p>a:hover{
+	background: #478ccd;
+	color: #fff;
+}
+.four .right>div>p>a{
+	width: 80px;
+	float: right;
+	background: #fff;
+}
+.four .right>div>p>a:hover{
+	background: #fff;
+	color: #478ccd;
+}

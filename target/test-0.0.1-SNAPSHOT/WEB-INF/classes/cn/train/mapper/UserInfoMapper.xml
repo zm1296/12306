@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.train.mapper.UserInfoMapper">
+  <resultMap id="UserInfoResultMap" type="cn.train.enity.UserInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="idnumber" jdbcType="VARCHAR" property="idnumber" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="traveltype" jdbcType="INTEGER" property="traveltype" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="discountnumber" jdbcType="VARCHAR" property="discountnumber" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, name, password, idnumber, email, phone, traveltype, discountnumber,sex,status
+  </sql>
+
+  <select id="changePhoneCheck" parameterType="cn.train.enity.UserInfo" resultType="java.lang.Integer">
+    select count(*) from UserInfo where id = #{id,jdbcType=INTEGER} and password = #{password,jdbcType=INTEGER}
+  </select>
+
+  <update id="activateStatus" parameterType="java.lang.Integer" >
+    update UserInfo set status = 1 where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="checkEmail" parameterType="cn.train.enity.UserInfo" resultType="cn.train.enity.UserInfo">
+    select * from UserInfo where email = #{email,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getAlluser" resultMap="UserInfoResultMap">
+    select * from UserInfo;
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="UserInfoResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from UserInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="checkInfo" parameterType="cn.train.enity.UserInfo" resultType="java.lang.Integer">
+    select count(*) from UserInfo where username = #{username,jdbcType=VARCHAR} or idnumber = #{idnumber,jdbcType=VARCHAR} or phone = #{phone,jdbcType=VARCHAR} or email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectIdByidnumber" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select id from UserInfo where idnumber = #{idnumber,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checklogin" resultMap="UserInfoResultMap" parameterType="cn.train.enity.UserInfo">
+    select * from UserInfo where (username = #{name,jdbcType=VARCHAR} or phone = #{name,jdbcType=VARCHAR} or email = #{name,jdbcType=VARCHAR}) and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from UserInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.train.enity.UserInfo">
+    insert into UserInfo (id, username, name, 
+      password, idnumber, email, 
+      phone, traveltype, discountnumber,sex,status
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{traveltype,jdbcType=INTEGER}, #{discountnumber,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},#{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.train.enity.UserInfo">
+    insert into UserInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="idnumber != null">
+        idnumber,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="traveltype != null">
+        traveltype,
+      </if>
+      <if test="discountnumber != null">
+        discountnumber,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="traveltype != null">
+        #{traveltype,jdbcType=INTEGER},
+      </if>
+      <if test="discountnumber != null">
+        #{discountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.train.enity.UserInfo">
+    update UserInfo
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        idnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="traveltype != null">
+        traveltype = #{traveltype,jdbcType=INTEGER},
+      </if>
+      <if test="discountnumber != null">
+        discountnumber = #{discountnumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.train.enity.UserInfo">
+    update UserInfo
+    set username = #{username,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      idnumber = #{idnumber,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      traveltype = #{traveltype,jdbcType=INTEGER},
+      discountnumber = #{discountnumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

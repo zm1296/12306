@@ -1,0 +1,172 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/*整个大盒子*/
+#allContent{
+    /*width: 1030px;*/
+    height: 652px;
+    width: 988px;
+    padding: 20px;
+    border: 1px solid #DEDEDE;
+}
+/*搜索部分*/
+.search_box{
+    position: relative;
+    width:100%;
+    height: 30px;
+    margin: 0 0 20px;
+}
+/*文本框*/
+.input_txt{
+    width: 138px;
+    height: 20px;
+    padding: 4px 10px;
+    border: 1px solid #dedede;
+    background: none;
+}
+.search_box i{
+    /*float: left;*/
+    display: inline-block;
+    position: absolute;left: 140px;top: 7px;
+    width: 16px;
+    height: 16px;
+}
+/*查询按钮*/
+.search_box a{
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: 78px;
+    height: 20px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background: #ffffff;
+}
+/*标题栏部分*/
+#title_box{
+    width: 100%;
+    margin-bottom: 20px;
+}
+#title_box table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 40px;
+}
+#title_box tr th{
+    background-color: #dedede;
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+}
+/*联系人部分*/
+#order_item{
+    width: 100%;
+    /*height: 100px;*/
+    border: 1px solid #acd1f9;
+}
+/*联系人标题栏*/
+.order_item_hd{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    /*padding: 0 40px;*/
+    background-color: #f0f8ff;
+}
+.order_item_hd a{
+    display: inline-block;
+    margin: 0px 20px 0px 10px;
+    font-size:14px;
+    color: #333333;
+    text-decoration: none;
+}
+.order_item_hd i{
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+/*联系人表格*/
+.order_item_bd{
+    width: 100%;
+    text-align: center;
+}
+.order_item_table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.order_item_table tr{
+    height: 60px;
+    line-height: 60px;
+}
+.order_item_table td{
+    /*padding: 15px 10px;*/
+    font-size: 14px;
+    color: #333333;
+    border-top: 1px solid #DEDEDE;
+    /*border-right: 1px solid #DEDEDE;*/
+}
+.order_item_table td:first-child{
+    border-right: 1px solid #DEDEDE;
+}
+.order_item_table a{
+    width:16px;
+    height: 16px;
+    margin: 0px 10px;
+}
+.order_item_table i{
+    width: 16px;
+    height: 16px;
+}
+.order_item_table input{
+    width: 16px;
+    height: 16px;
+    background: #FFFFFF;
+}
+/*每行表格td中的盒子div*/
+.td1{
+    width: 70px;
+}
+.td2{
+    width: 90px;
+}
+.td3{
+    width: 150px;
+}
+.td4{
+    width: 170px;
+}
+.td5{
+    width: 150px;
+}
+.td6{
+    width: 180px;
+}
+.td6 span{
+    display: inline-block;
+    line-height: 22px;
+    width: 56px;
+    height: 22px;
+    border: 1px solid #b1d6fe;
+    color: #3B99FC;
+    font-size: 12px;
+    padding: 0 2px;
+}
+.td7{
+    width: 140px;
+}
+.td8{
+    width: 80px;
+}
+
+
+/*查询框变色效果*/
+.change_color{
+    border: 1px solid #ff8000;
+    color: #ff8000;
+}

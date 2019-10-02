@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+
+  redis:
+    database: 1 #索引（默认为0）
+    host: 101.200.52.62 #地址
+    port: 6379 #端口号
+    #password:  #连接密码（默认空）
+    timeout: 5000 #连接超时时间（毫秒）
+
+
+  mail:
+    #邮件服务器地址
+    host: smtp.163.com
+    #用户名
+    username: daining671@163.com
+    #密码
+    password: 55563DaiNing
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp.auth: true
+
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+#发件人邮箱
+mail.from: daining671@163.com
+
+

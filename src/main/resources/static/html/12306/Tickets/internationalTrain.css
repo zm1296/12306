@@ -1,0 +1,141 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*主题内容*/
+/*内容部分*/
+.content >.nav{
+	width: 1200px;
+	height: 5540px;
+	margin: 0 auto;
+	border: 2px solid #ededed;
+}
+/*标签*/
+.content >.header{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*小标题*/
+.content > .nav > .label{
+	width: 1120px;
+	height: 40px;
+    margin-left: 35px;
+    margin-top: 20px;
+    border-bottom: 3.5px solid #dedede;
+}
+.content > .nav > .label > ul{
+
+}
+.content > .nav > .label > ul >li{
+	float: left;
+	margin-right: 50px;
+	line-height: 40px;
+}
+.content > .nav > .label > ul >li:nth-child(1){
+	border-bottom: 3.5px solid #3b99fc;
+    color: #3b99fc;
+}
+/*大标题*/
+.content> .nav >.bar{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 40px;
+}
+.content > .nav > .title{
+	margin-left: 50px;
+	margin-top: 40px;
+}
+/*第一部分表格*/
+.nav > table {
+	width: 1120px;
+	margin: 0 auto;
+	border-collapse:collapse;
+}
+.nav > table >tbody> tr:nth-child(2n+1){
+	background-color: #f7f8fa;
+}
+.nav > table >tbody> tr.al{
+	background-color: #3b99fc;
+	color: #fff;
+}
+.nav > table >tbody> tr > td{
+	width: 180px;
+	height: 35px;
+	padding-left: 20px;
+} 
+
+.nav > table > tbody>tr >td:nth-child(3){
+	width: 400px;
+}
+.nav > table >tbody> tr.bl>td{
+	background-color: #d5e3ff;
+	text-align: center;
+}
+/*第二部分*/
+.nav > .two> .title {
+	width: 1060px;
+	margin: 0 auto;
+}
+/*第二部分表格*/
+.nav > .two> table{
+	width: 1120px;
+	margin: 0 auto;
+	border-collapse:collapse;
+}
+.nav >.two> table >tbody> tr:nth-child(2n){
+	background-color: #f7f8fa;
+}
+.nav >.two> table >tbody> tr.al{
+	background-color: #3b99fc;
+	color: #fff;
+}
+.nav >.two> table >tbody> tr > td{
+	width: 180px;
+	height: 35px;
+	padding-left: 20px;
+} 
+
+.nav >.two> table > tbody>tr >td:nth-child(3){
+	width: 400px;
+}
+.nav >.two> table >tbody> tr.bl{
+	background-color: #fff;
+}
+/*第三部分*/
+.nav > .three> .title {
+	width: 1060px;
+	margin: 0 auto;
+}
+/*第三部分表格*/
+.nav > .three> table{
+	width: 1120px;
+	margin: 0 auto;
+	border-collapse:collapse;
+}
+.nav >.three> table >tbody> tr:nth-child(2n){
+	background-color: #f7f8fa;
+}
+.nav >.three> table >tbody> tr.al{
+	background-color: #3b99fc;
+	color: #fff;
+}
+.nav >.three> table >tbody> tr > td{
+	width: 180px;
+	height: 35px;
+	padding-left: 20px;
+} 
+
+.nav >.three> table > tbody>tr >td:nth-child(3){
+	width: 400px;
+}
+.nav >.three> table >tbody> tr.bl{
+	background-color: #fff;
+}
+/*第四部分*/
+.nav> .four {
+	width: 1120px;
+	margin:0 auto; 
+	line-height: 1.5em;
+	text-indent: 2em;
+}

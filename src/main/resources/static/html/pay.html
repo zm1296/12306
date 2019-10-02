@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12306支付页面</title>
+    <link rel="stylesheet" href="../css/pay.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div id="allContent">
+    <!--顶部图片部分-->
+    <div id="images">
+        <div class="images_1"><img src="../images/pay/3_r1_c1.jpg"></div>
+        <div class="images_2"><img src="../images/pay/3_r1_c2.jpg"></div>
+        <div class="images_3"><img src="../images/pay/3_r1_c5.jpg"></div>
+    </div>
+    <div id="pay_select_content">
+        <div id="pay_money">
+            <span class="text">>> 应付金额：</span>
+            <span class="money">{{price}}</span>
+        </div>
+        <div id="pay_select">
+            <div id="pay_select_inner">
+                <div class="pay_select_div"><img src="../images/pay/pay_select_1.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_2.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_3.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_4.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_5.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_6.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_7.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_8.gif"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_9.gif" id="alipay"></div>
+                <div class="pay_select_div"><img src="../images/pay/pay_select_10.gif"></div>
+            </div>
+        </div>
+        <div id="text">
+            <div id="text_inner">
+                <ul>
+                    <li>
+                        请您选择支付方式。建议使用中国工商银行、中国农业银行、中国银行、中国建设银行、招商银行、中国邮政储蓄银行的银行卡，支付请直接点击相应银行的按钮；如果您使用其他银行的银行卡，请点击“中国银联”按钮；如果您使用支付宝或微信账户支付，请点击“支付宝”或“微信支付”按钮。
+                    </li>
+                    <li>
+                        如果您选择银行卡或第三方支付机构账户支付时，请遵守相关银行或第三方支付机构的规定进行操作。您在银行或第三方支付机构页面上进行的任何操作及其产生的任何法律后果，将按照您与银行或第三方支付机构之间签订的合同处理。本网站不承担任何责任。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer">
+            <br>
+            <a href="https://www.12306.cn/mormhweb/gljd/gywm/">关于我们</a>
+            |
+            <a href="https://www.12306.cn/mormhweb/gljd/wzls/">网站声明</a><br>
+            版权所有 © 2008-2018 中国铁路信息技术中心 中国铁道科学研究院<br>
+            京ICP备15003716号-3 | 京ICP证150437号
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/vue.min.js"></script>
+<script>
+    $(function () {
+        var unsoldTicket_id;
+        var t_price;
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++)
+            {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+        if (getCookie("cookie_unsoldTicket_id") !=null){
+            unsoldTicket_id = getCookie("cookie_unsoldTicket_id");
+        }if (getCookie("cookie_unsoldTicket_price") !=null){
+            t_price = getCookie("cookie_unsoldTicket_price");
+        }
+
+        var vm=new Vue({
+            el:"#pay_money",
+            data:{
+
+                price:t_price,
+
+            }
+        })
+        $("#alipay").click(function () {
+            location.href="http://47.100.95.222:8080/html/alipay.html"
+        })
+    })
+
+</script>
+
+
+
+</html>

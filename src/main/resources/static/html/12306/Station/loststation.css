@@ -1,0 +1,61 @@
+.one{
+	width: 1200px;
+	margin: 0 auto;
+}
+.insurance_header>a{
+	color: blue;
+}
+.one .two{
+	width: 1200px;
+	height: 700px;
+}
+ .one .two .insurance_content{
+	float: left;
+	width: 170px;
+}
+.one .two .station_right{
+	margin-left: 170px;
+	width: 1028px;
+	height: 670px;
+	border: 1px solid #ccc;
+}
+.one .two .station_right .station_center{
+	padding:35px;
+	border-bottom: 1px dashed #ccc;
+}
+.one .two .station_right .station_center>h2{
+	text-align: center;
+}
+.one .two .station_right .station_center>p{
+	font-size: 14px;
+	margin-top: 20px;
+}
+.two .station_right .three{
+	width: 1028px;
+	height: 39px;
+	padding-top: 30px;
+	margin-left: 50%;
+}
+.station_right .three>a{
+	width: 130px;
+	height: 26px;
+	line-height: 26px;
+	font-size: 16px;
+	float: left;
+	margin-right: 50px;
+	border: 1px solid #ccc;
+	text-align: center;
+	/*box-shadow: 5px;*/
+}
+.station_right .three>a:first-child:hover{
+	color: orange;
+	border: 1px solid orange;
+}
+.station_right .three>a:last-child{
+	color: #000;
+	border: 1px solid orange;
+	background-color: orange;
+}
+.station_right .three>a:last-child:hover{
+	color: #fff;
+}

@@ -1,0 +1,59 @@
+.one{
+	width: 960px;
+	height: 720px;
+	margin: 0 auto;
+}
+.one .two{
+	width: 220px;
+	height: 680px;
+	float: left;
+	margin-top: 20px;
+	background: #d5ecfc;
+}
+.one .two .first dt{
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	background: #86baea;
+}
+.one .two .first dd{
+	font-size: 12px;
+	font-weight: 500;
+	margin-right: 10px;
+	line-height: 28px;
+	float: left;
+}
+.one .two .first dd>a:hover{
+	color: red;
+}
+.one .three{
+	width: 710px;
+	float: right;
+	margin-top: 20px;
+}
+.one .three .first{
+	height: 36px;
+	line-height: 36px;
+	background-color: #f2f9ff;
+}
+.one .three .first>div{
+	width: 690px;
+	margin-left: 30px;
+}
+.one .three .first>div>span{
+	float: left;
+	font-size: 14px;
+	color: blue;
+}
+.three .first>div>p{
+	float: left;
+}
+.one .three .second{
+	margin-top: 10px;
+	width: 700px;
+	height: 540px;
+	border: 8px solid #f2fbff;
+}
+.one .three .second>img{
+	width: 100%;
+}

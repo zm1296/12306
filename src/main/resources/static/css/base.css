@@ -1,0 +1,50 @@
+/*全局样式控制*/
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    font: normal 12px '微软雅黑','Microsoft YaHei',serif;
+}
+body,p{
+    margin: 0;
+}
+input{
+    margin: 0;
+    padding-left: 1rem;
+}
+i, em {
+    font-style: normal;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li {
+    list-style: none;
+    float: left
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    /* color: #C81623; */
+    color: #c81623;
+}
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}

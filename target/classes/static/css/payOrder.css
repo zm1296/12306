@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.content > .nav{
+    width: 1200px;
+    height: 1000px;
+    border: 1.5px solid #ededed;
+}
+/*标签*/
+.nav > .bar >ul{
+    width: 1120px;
+    height:50px;
+    margin-left: 40px;
+    margin-top: 40px;
+    border-bottom: 3px solid #dedede;
+}
+.nav > .bar >ul>li{
+    float: left;
+    font-size: 14px;
+    margin-right: 50px;
+    line-height: 3em;
+    height: 50px;
+    width: 70px;
+    text-align: center;
+}
+.nav > .bar >ul>li:nth-child(1){
+
+    border-bottom: 3px solid #3b99fc;
+}
+.nav > .bar>ul>li:nth-child(1)>a{
+    color: #3b99fc;
+}
+.nav > .bar >ul>li:nth-child(2)>a:hover{
+    color: #3b99fc;
+}
+/*大标题*/
+.nav > .title{
+    font-size: 22px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+/*主要细节内容*/
+.nav > .details{
+    height: 750px;
+    margin-top: 30px;
+    margin-left: 40px;
+    border-left: 2px solid #dedede;
+}
+.nav > .details >p{
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 2.3em;
+}
+.nav > .details >p.al{
+    font-size: 18px;
+}
+.content .pay-tips {
+    padding: 15px 0 0 45px;
+    min-height: 75px;
+    width: 77%;
+    border-style:solid ;
+    border-width:1px;
+    border-color:#3b99fc;
+    text-align:center;
+    margin:10px auto;
+    /*font-weight: 600;*/
+    font-size:16px;
+}
+.layout {
+    border: 1px solid #1678be;
+    width: 80%;
+    margin:10px auto;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    background-position: 0 -400px;
+}
+.layout .lay-hd {
+    height: 32px;
+    line-height: 30px;
+    color: #e5f8ff;
+    padding-left: 20px;
+    font-size: 14px;
+    position: relative;
+    background-color: #3b99fc;
+}
+.b-info .info {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.table-a {
+    margin: 0 auto;
+    width: 95%;
+    border: 1px solid #999;
+    background: #eef1f8;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.info
+{
+    width: 95%;
+    margin: 10px auto;
+    min-height: 30px;
+    font: 16px Tahoma ;
+}
+.info .mr5
+{
+    margin: 0px 5px 0px 0px;
+
+}
+.info .ml5
+{
+    margin: 0px 0px 0px 5px;
+
+}
+.bx-box .bx-hd
+{
+    font: 12px Tahoma ;
+    height: 30px;
+    line-height: 30px;
+    width: 94%;
+    margin: 10px auto ;
+    border: 1px solid #BFD7E3;
+    padding-left: 10px;
+}
+.bx-box .bx-hd a {
+    color: #3b99fc;
+}
+.bx-box .bx-hd label
+{
+    margin: 0 0 0 5px;
+}
+.qp-info .hd {
+    width: 94%;
+    margin: 0 auto;
+    border: 1px solid #BFD7E3;;
+    min-height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+}
+.hd label
+{
+    color: #3b99fc;
+}
+.total-box .item {
+    width: 95%;
+    height: 24px;
+    line-height: 24px;
+    text-align: right;
+}
+.total-box .item .price {
+    display: inline-block;
+    width: 65px;
+    color: #FA7602;
+
+}
+.lay-btn  {
+    line-height: 30px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #BFD7E3;
+}
+.btn92,.btn92s
+{
+    width: 92px;
+    min-height: 30px;
+    font: 12px Tahoma ;
+}
+.tips-box {
+    background: #FFFBE5;
+    border-top: 1px dashed #9A968B;
+    padding: 5px;
+    zoom: 1;
+    overflow: hidden;
+}
+.i-lock
+{
+    width: 60px;
+    height: 50px;
+    float: left;
+    margin-left: 60px;
+    background-image: url("../images/suo.png");
+}
+
+#insurance_table
+{
+    margin: 0 auto;
+    width: 94%;
+}
+.table-c th ,tr{
+    text-align: center;
+    line-height: 40px;
+    background: #eef1f8;
+    font-weight: 400;
+    border: 1px solid #c0d7e4;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+
+}
+/*table, tfoot, thead, tr, th, td {*/
+/*    border: 0;*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/*tbody {*/
+/*    display: table-row-group;*/
+/*    vertical-align: middle;*/
+/*    border-color: inherit;*/
+/*}*/
+/*th, td {*/
+/*    border: 0;*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/*.up-box-hd {*/
+/*    position: fixed;*/
+/*    left: 0px;*/
+/*    top: 0px;*/
+/*    background: #000;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    opacity: 0.5;*/
+/*}*/
+/*.up-box*/
+/*{*/
+/*    position: relative;*/
+/*    background: #fff;*/
+/*    border-radius: 0 0 5px 5px;*/
+/*    max-height: 150px;*/
+/*    overflow-y: auto;*/
+/*    border-radius: 5px;*/
+
+/*}*/
+#detail_logistics
+{
+    width: 94%;
+margin: auto;
+}
+.up-box .padding20 {
+    padding: 20px;
+}
+ .sel-ticket li
+{
+     /*border: 2px solid #3b99fc;*/
+
+     width: 30%;
+     height: 76px;
+     margin: 10px 10px 10px 10px;
+     background: #ffdec4;
+}

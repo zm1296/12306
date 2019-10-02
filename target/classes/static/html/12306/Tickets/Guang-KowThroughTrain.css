@@ -1,0 +1,202 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/*主体部分*/
+.content {
+	width: 1200px;
+	height: 3560px;
+	margin: 0 auto;
+
+}
+/*主体部分小标签*/
+.content > .header{
+	height: 50px;
+	width: 1200px;
+	line-height: 50px;
+	/*居中*/
+	position: relative;
+	margin: 0 auto;
+	font-size: 12px;
+	color: #666666;
+	box-sizing: border-box;
+}
+.content > .header > a{
+    color: #666;
+	font-size: 12px;
+}
+/*主体内容*/
+.content >.nav {
+	width: 1200px;
+	height: 3500px;
+	border: 2px solid #dedede;
+    margin-top: 20px;
+    
+}
+/*第一部分开始*/
+/*标题*/
+.nav > .one > .title{
+	font-size: 18px;
+	margin-left: 500px;
+	margin-top: 50px;
+}
+/*时刻表*/
+.one>table{
+	width: 1160px;
+	margin-top: 50px;
+	margin-left: 20px;
+	border-collapse:collapse;  
+}
+.one>table > tbody >tr>td{
+	width: 100px;
+	height: 30px;
+	text-align: center;
+}
+.one>table > tbody >tr:nth-child(2n+1){
+	background-color: #f7f8fa;
+}
+.one>table > tbody >tr:nth-child(1){
+	background-color: #3b99fc;
+	color:#fff;
+}
+/*第一部分结束*/
+/*第二部分开始*/
+/*标题*/
+.nav > .two > .title{
+	font-size: 18px;
+	margin-left: 500px;
+	margin-top: 50px;
+}
+/*情况表*/
+.two > table{
+	width: 1160px;
+	margin-top: 50px;
+	margin-left: 20px;
+	border-collapse:collapse;
+}
+.two > table >tbody>tr >td {
+	height: 30px;
+}
+.two > table >tbody>tr >td:nth-child(1),
+.two > table >tbody>tr >td:nth-child(2),
+.two > table >tbody>tr >td:nth-child(5){
+	width: 80px;
+	text-align: center;
+}
+.two > table>tbody >tr >td:nth-child(3),
+.two > table >tbody>tr >td:nth-child(4),
+.two > table >tbody>tr >td:nth-child(6){
+	width: 200px;
+}
+.two>table > tbody >tr:nth-child(2n+1){
+	background-color: #f7f8fa;
+}
+.two>table > tbody >tr:nth-child(1){
+	background-color: #3b99fc;
+	color:#fff;
+}
+/*第二部分结束*/
+/*第三部分开始*/
+/*标题*/
+.nav > .three > .title{
+	font-size: 18px;
+	margin-left: 500px;
+	margin-top: 50px;
+}
+/*介绍*/
+.nav > .three > .detail{
+	margin: 30px;
+}
+/*票价表*/
+.three > table{
+	width: 1160px;
+	margin-top: 20px;
+	margin-left: 20px;
+	border-collapse:collapse;
+}
+.three > table > tbody >tr>td{
+	height: 30px;
+}
+.three > table > tbody >tr>td:nth-child(1),
+.three > table > tbody >tr>td:nth-child(5),
+.three > table > tbody >tr>td:nth-child(6),
+.three > table > tbody >tr>td:nth-child(7){
+	width: 200px;
+}
+.three > table > tbody >tr>td:nth-child(2),
+.three > table > tbody >tr>td:nth-child(3){
+	width: 80px;
+	text-align: center;
+}
+.three > table > tbody >tr>td:nth-child(4){
+	width: 100px;
+}
+.three>table > tbody >tr:nth-child(2n+1){
+	background-color: #f7f8fa;
+}
+.three>table > tbody >tr:nth-child(1){
+	background-color: #3b99fc;
+	color:#fff;
+}
+/*第三部分结束*/
+/*底部开始*/
+.nav > .base{
+	width: 1160px;
+	height: 800px;
+	margin-top: 60px;
+	margin-left: 20px;
+	background-color: #f9fbff;
+    border: 2px solid #d5e3ff;
+}
+.nav > .base >.title{
+	font-size: 18px;
+	text-align: center;
+	line-height: 5em;
+}
+.nav > .base >.one{
+	width: 1100px;
+	height: 115px;
+	margin-left: 30px;
+	border-bottom: 2px dashed #b2c9f8; 
+}
+.nav >.base >.one >.label{
+	line-height: 5em;
+}
+.nav > .base >.two{
+	width: 1100px;
+	height: 115px;
+	margin-left: 30px;
+	border-bottom: 2px dashed #b2c9f8; 
+}
+.nav >.base >.two >.label{
+	line-height: 5em;
+}
+.nav > .base >.three{
+	width: 1100px;
+	height: 115px;
+	margin-left: 30px;
+	border-bottom: 2px dashed #b2c9f8; 
+}
+.nav >.base >.three >.label{
+	line-height: 5em;
+}
+.nav > .base >.four{
+	width: 1100px;
+	height: 115px;
+	margin-left: 30px;
+	border-bottom: 2px dashed #b2c9f8; 
+}
+.nav >.base >.four >.label{
+	line-height: 5em;
+}
+.nav > .base >.five{
+	width: 1100px;
+	height: 205px;
+	margin-left: 30px;
+	border-bottom: 2px dashed #b2c9f8; 
+}
+.nav >.base >.five >.label{
+	line-height: 5em;
+}
+/*底部结束*/

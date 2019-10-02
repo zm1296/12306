@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../../css/own_center.css">
+    <link rel="stylesheet" href="../../Common/commonGeneral.css">
+</head>
+<body>
+<!-- 右侧主体   -->
+<div id="insurance_right">
+    <!--   欢迎词部分     -->
+    <div class="welcome">
+        <img src="../../images/own/noticepic1.png">
+        <span class="span1">{{users_name}}</span>
+        <span class="span2">先生,下午好!</span>
+    </div>
+    <!--  提示词部分      -->
+    <div id="text">
+        <p>
+            欢迎您登录中国铁路客户服务中心网站。
+            <br>
+            <span style="color: red">如果您的密码在其他网站也使用，建议您修改本网站密码。</span>
+            <br>
+            如果您要接收12306的服务邮件，请
+            <a href="" style="color: #0077FF;text-decoration: underline" >验证邮箱</a>。
+            <br>
+            点击
+            <a href="" style="color: #0077FF;text-decoration: underline" >成为会员</a>
+            <br>
+            <span style="color: red">完成手机双向核验，即可使用手机号码直接登录的新服务，解除您遗忘用户名的烦恼。</span>
+        </p>
+    </div>
+    <!--      二维码部分  -->
+    <div id="scan">
+        <div class="scan_div">
+            <div class="scan_div_image">
+                <!--                    <img style="width: 120px;height: 120px" src="https://kyfw.12306.cn/otn/index/requestWechatQr">-->
+                <img style="width: 120px;height: 120px" src="../../images/own/scan-image1.PNG">
+            </div>
+            <div class="scan_div_text">
+                使用微信扫一扫，可通过
+                <br>
+                微信公众号接收12306行程通知
+            </div>
+        </div>
+        <div class="scan_div">
+            <div class="scan_div_image">
+                <!--                    <img style="width: 120px;height: 120px" src="https://kyfw.12306.cn/otn/index/requestAliQr">-->
+                <img style="width: 120px;height: 120px" src="../../images/own/scan-image2.PNG">
+            </div>
+            <div class="scan_div_text">
+                使用支付宝扫一扫，可通过
+                <br>
+                支付宝通知提醒接收12306行程通知
+            </div>
+        </div>
+    </div>
+    <!--  提示词2部分      -->
+    <div id="text2">
+        <span>温馨提示：</span>
+        <p>
+            1.关注“铁路12306”公众号并完成微信绑定或支付宝绑定后，购票、改签、退票、购买乘意险、退乘意险的通知消息，将会通过“铁路12306”微信公众号或支付宝通知
+            <br>
+            提醒发送给您；手机号码核验、通过手机号码找回密码、列车运行调整的通知仍然通过短信发送给您。
+        </p>
+        <p>
+            2.您可通过“账号安全”中的
+            <a href="" style="color: #0077FF">“通知设置”</a>
+            修改您接收信息服务的方式。
+        </p>
+    </div>
+</div>
+<script src="../../js/vue.min.js"></script>
+<script>
+    //缓存用户
+    var userid;
+    var username;
+    function getCookie(cname)
+    {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++)
+        {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+    if (getCookie("cookie_userid") !=null){
+        userid = getCookie("cookie_userid");
+    }if (getCookie("cookie_username") !=null){
+        username = getCookie("cookie_username");
+    }
+    var vms = new Vue({
+        el:'#insurance_right',
+        data:{users_name:{}},
+        created:function () {
+            this.users_name = username;
+        }
+    })
+</script>
+</body>
+</html>

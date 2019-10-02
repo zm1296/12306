@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: B9134662f82d
+    url: jdbc:mysql://101.200.52.62:3306/12306
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:cn/train/mapper/*Mapper.xml
+  type-aliases-package: cn.train.entity
+
+#showSql
+logging:
+  level:
+    cn:
+      train:
+        mapper: debug

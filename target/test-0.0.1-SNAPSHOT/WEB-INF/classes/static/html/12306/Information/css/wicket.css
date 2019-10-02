@@ -1,0 +1,46 @@
+/*位置信息*/
+.localPosition{
+	line-height: 50px;
+	color: #666;
+}
+.localPosition span{
+	color: #3b99fc;
+}
+
+/*检票口查询*/
+.wicketContent{
+	padding: 20px 19px;
+	margin-bottom: 200px;
+	border: 1px solid #dedede;
+}
+.wicketContent .wicketSearch{
+	line-height: 70px;
+	padding-left: 20px;
+	background: #f8f8f8;
+	border: 1px solid #dedede;
+	font-size: 14px;
+	color: #333;
+}
+.wicketContent .wicketSearch form span{
+	color: red;
+}
+.wicketContent .wicketSearch form input{
+	width: 146px;
+	height: 27px;
+	margin-right: 40px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+}
+.wicketContent .wicketSearch form input[type="submit"]{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0;
+	margin-right: 0;
+	border-radius: 6px;
+	background-color: #ff8201;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}

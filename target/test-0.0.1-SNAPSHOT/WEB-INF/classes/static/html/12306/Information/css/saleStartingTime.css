@@ -1,0 +1,36 @@
+/*位置信息*/
+.localPosition{
+	line-height: 50px;
+	color: #666;
+}
+.localPosition span{
+	color: #3b99fc;
+}
+
+/*起售内容查询*/
+.saleContent{
+	height: 371px;
+	padding: 20px 19px;
+	margin-bottom: 40px;
+	border: 1px solid #dedede;
+}
+.saleContent .saleSearch{
+	line-height: 70px;
+	padding-left: 20px;
+	background: #f8f8f8;
+	border: 1px solid #dedede;
+	font-size: 14px;
+	color: #333;
+}
+.saleContent .saleSearch form span{
+	color: red;
+}
+.saleContent .saleSearch form input{
+	width: 146px;
+	height: 27px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+}
+.saleContent .contentBody{
+	text-align: center;
+}

@@ -1,0 +1,109 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/*整个大盒子*/
+#allContent{
+    width: 988px;
+    height: 703px;
+    padding: 20px;
+    border: 1px solid #DEDEDE;
+    /*background-color: yellow;*/
+}
+/*标题部分*/
+.content_tit{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+/*标题文字小盒子*/
+.content_tit div:first-child{
+    color: #333333;
+    font-weight: bold;
+    width: 56px;
+    height: 100%;
+}
+.edit1{
+    cursor: pointer;
+    text-align: center;
+    /*float: right;*/
+    position: absolute;
+    right: 0px;
+    bottom: 1px;
+    width: 80px;
+    /*height: 100%;*/
+    height: 30px;
+    line-height: 30px;
+    /*color: #ffffff;*/
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+}
+.edit2{
+    cursor: pointer;
+    text-align: center;
+    /*float: right;*/
+    position: absolute;
+    right: 0px;
+    bottom: 1px;
+    width: 80px;
+    /*height: 100%;*/
+    height: 30px;
+    line-height: 30px;
+    /*color: #ffffff;*/
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+}
+/*点击编辑后隐藏的文本框盒子*/
+.hide_input_box{
+    height: 100%;
+    padding: 5px 0;
+}
+.hide_input_box input{
+    width: 176px;
+    background: #ffffff;
+    padding: 4px 10px;
+}
+.hide_input_box2{
+    height: 100%;
+    padding: 5px 0;
+}
+.hide_input_box2 input{
+    width: 176px;
+    background: #ffffff;
+    padding: 4px 10px;
+}
+.hide_input_box2 select{
+    width: 176px;
+    height: 30px;
+    background: #ffffff;
+}
+/*每行信息的盒子*/
+.con_view_rows{
+    font-size: 14px;
+    color: #333333;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+/*每行信息盒子里的左边部分*/
+.view_rows_l{
+    text-align: right;
+    float: left;
+    width: 37%;
+    height: 20px;
+    padding: 5px 5px 5px 0;
+}
+.view_rows_l span{
+    color: red;
+}
+/*每行信息盒子里的右边部分*/
+.view_rows_r{
+    height: 20px;
+    padding: 5px 0;
+}

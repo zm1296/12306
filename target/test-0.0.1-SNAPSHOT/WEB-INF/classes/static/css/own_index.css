@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/***主要内容***/
+.admin{
+	/*background-color: white;*/
+	width: 1030px;
+	height: 750px;
+	/*background:#fff;*/
+	position:absolute;
+	/*border-left:solid 1px #b5cfd9;*/
+	right:0px;
+	/*bottom:0;*/
+	top:0px;
+	/*left:180px;*/
+	/*padding:15px;*/
+	/*padding-right:0px;*/
+	/*padding-bottom:0px;*/
+	/*overflow:auto;*/
+	/*border-top:1px solid #b5cfd9;*/
+	/*padding-right:15px;*/
+}
+/*内容*/
+.content {
+	position: relative;
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+}
+.insurance_right{
+	width: 1030px;
+	height: 750px;
+	position: absolute;
+	left: 160px;
+	top: 45px;
+}
+.blue{
+	background-color: #3b99fc;
+}
+.change_color{
+	color: #FFFFFF;
+	background-color: #3b99fc;
+}

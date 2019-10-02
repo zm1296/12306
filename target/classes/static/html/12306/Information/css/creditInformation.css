@@ -1,0 +1,134 @@
+body{
+	background-color: #f2f9fe;
+}
+/*顶部宣传图*/
+.topBanner{
+	text-align: center;
+}
+
+/*失信人名单公示*/
+.lostCreditShow{
+	height: 444px;
+	background-color: #fff;
+}
+.lostCreditShow i{
+	font-size: 40px;
+	margin-right: 20px;
+}
+.leftShow,.rightShow{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 600px;
+}
+.rightShow{
+	float: right;
+}
+.lostCreditShow .title{
+	border-bottom: 1px solid #cecece;
+}
+.leftShowTitle,.rightShowTitle{
+	padding: 30px 0;
+	margin: 0 60px;
+	font-size: 30px;
+	text-align: center;
+	border-bottom: 3px solid #5296fa;
+}
+.icon-aide_icon_lawx{
+	color: #ba7a61;
+}
+.icon-speech{
+	color: #b9785f;
+}
+.leftShowContent,.rightShowContent{
+	padding: 15px 60px;
+}
+.rightShowContent ul li{
+	line-height: 29px;
+	border-bottom: 1px dashed #333;
+	font-size: 14px;
+}
+.rightShowContent ul li:last-child{
+	border-bottom: none;
+}
+.rightShowContent ul li::before{
+	content: "";
+	width: 4px;
+	height: 4px;
+	background-color: #808bb8;
+	float: left;
+	margin: 14px 20px 0 0;
+}
+.rightShowContent ul li > span{
+	display: block;
+	float: right;
+}
+
+/*失信人名单查询*/
+.creditSearch{
+	box-sizing: border-box;
+	height: 250px;
+	margin: 5px 0;
+	padding: 40px 0;
+	background-color: #fff;
+	font-size: 16px;
+	color: #333;
+}
+.creditSearch .search{
+	width: 448px;
+	margin: 0 auto;
+}
+.creditSearch form{
+	text-align: right;
+}
+.creditSearch form input{
+	width: 320px;
+	line-height: 20px;
+	padding: 5px 0 5px 5px;
+	border: 1px solid #cfcdc7;
+}
+.creditSearch form span{
+	color: #999;
+}
+.creditSearch form input[type="submit"]{
+	display: block;
+	width: 160px;
+	height: 40px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 5px;
+	background-color: #478bf0;
+	color: #fff;
+}
+
+/*失信人公布平台说明*/
+.creditExplain{
+	box-sizing: border-box;
+	height: 653px;
+	padding: 40px 60px 40px 60px;
+	background-color: #fff;
+	font-size: 14px;
+}
+.creditExplain .explainTop{
+	line-height: 28px;
+	padding: 10px 20px;
+	background: #5296fa;
+	color: #fff;
+	text-align: center;
+}
+.explainContent{
+	box-sizing: border-box;
+	height: 525px;
+	padding: 30px 0;
+	background-color: #f2f9fe;
+}
+.explainContent h2{
+	line-height: 50px;
+	margin: 0 0 25px 0;
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+}
+.explainContent p{
+	line-height: 30px;
+	padding: 0 30px;
+}

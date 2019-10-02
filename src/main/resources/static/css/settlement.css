@@ -1,0 +1,549 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+strong {
+    font-weight: bold;
+}
+body {
+    background: #fff;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-size: 100%;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+select[disabled] > option {
+    color: graytext;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+input, select, textarea {
+    font-size: 12px;
+    font-family: Tahoma;
+    line-height: 18px;
+    padding: 0;
+    margin: 0;
+    color: #333;
+    outline: 0;
+}
+/*列车信息*/
+.content {
+    width: 980px;
+    min-height: 620px;
+    margin: 0px auto;
+}
+.t-info {
+    margin-top: 10px;
+}
+.layout {
+    border: 1px solid #1678be;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    background-position: 0 -400px;
+}
+.layout .lay-hd {
+    height: 32px;
+    line-height: 30px;
+    color: #e5f8ff;
+    padding-left: 20px;
+    font-size: 14px;
+    position: relative;
+    background-color: #2386C8;
+}
+.layout .lay-hd .small {
+    font-size: 12px;
+}
+.t-info .lay-bd {
+    background: #eef1f8;
+    padding: 0 10px 0;
+    border-top: 0;
+}
+.t-info .t-tit {
+    border-bottom: 1px dashed #999;
+}
+.t-info .t-tit strong {
+    font-size: 16px;
+}
+.mr5 {
+    margin-right: 5px;
+}
+.ml5 {
+    margin-left: 5px;
+}
+.t-info p {
+    line-height: 32px;
+}
+.t-info .s1 {
+    margin-right: 25px;
+    color: #333;
+}
+.colorA {
+    color: #fb7403;
+}
+
+/*乘客信息*/
+.person {
+    margin-top: 10px;
+}
+.s-box {
+    height: 22px;
+    width: 143px;
+    border: 1px solid #125c94;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+.s-box .txt {
+    width: 121px;
+    height: 20px;
+    line-height: 20px;
+    background: #fff;
+    border: 0 none;
+    float: left;
+    border-right: 1px solid #125c94;
+    color: #999;
+    text-indent: 5px;
+}
+.s-box .sub {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    background-position: 0 -850px;
+    text-indent: -9999px;
+    float: left;
+    background: url(../images/icon.png) no-repeat;
+}
+.person .lay-bd {
+    background: #fff;
+    padding: 5px 10px 0 10px;
+}
+.per-sel {
+    border-bottom: 1px dashed #999;
+    padding-bottom: 5px;
+}
+.per-ticket {
+    width: 100%;
+    border: 1px solid #999;
+    margin-top: 10px;
+    background: #eef1f8;
+}
+.per-sel .item {
+    position: relative;
+    height: 24px;
+}
+.clearfix {
+    display: block;
+}
+.per-sel img {
+    width: 40px;
+    height: 24px;
+    float: left;
+    text-indent: -9999px;
+}
+.per-sel ul {
+    float: left;
+}
+.per-sel li {
+    float: left;
+    width: 110px;
+    height: 20px;
+    line-height: 20px;
+    padding: 2px 0;
+    overflow: hidden;
+}
+.check {
+    vertical-align: -3px;
+    _vertical-align: middle;
+    margin-right: 4px;
+}
+element.style {
+    cursor: pointer;
+}
+.per-ticket {
+    width: 100%;
+    border: 1px solid #999;
+    margin-top: 10px;
+    background: #eef1f8;
+}
+.per-ticket th {
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    padding-left: 5px;
+    font-weight: 400;
+    border-bottom: 1px solid #999;
+    background-position: 0 -200px;
+}
+.per-ticket th {
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    padding-left: 5px;
+    font-weight: 400;
+    border-bottom: 1px solid #999;
+    background-position: 0 -200px;
+}
+.per-ticket td {
+    height: 30px;
+    line-height: 30px;
+    padding: 4px 0 4px 5px;
+}
+table tr td select {
+    position: static;
+}
+select {
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 0;
+}
+.pos-rel {
+    position: relative;
+}
+.inptxt {
+    height: 18px;
+    line-height: 18px;
+    border: 1px solid #cfcdc7;
+    background: #fff;
+    color: #999;
+    padding: 5px 0 5px 5px;
+}
+.w110 {
+    width: 105px;
+}
+.w110-focus {
+    width: 105px;
+    height: 35px;
+    line-height: 35px;
+    background: #fffbe5;
+    border: 1px solid #2d8dcf;
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fb7403;
+    font-family: "微软雅黑","黑体";
+    position: absolute;
+    top: -36px;
+    left: 0;
+    display: none;
+}
+table tr td select {
+    position: static;
+}
+.w160 {
+    width: 155px;
+}
+.w160-focus {
+    width: 250px;
+    height: 35px;
+    line-height: 35px;
+    background: #fffbe5;
+    border: 1px solid #2d8dcf;
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fb7403;
+    font-family: "微软雅黑","黑体";
+    position: absolute;
+    top: -36px;
+    left: 0;
+    display: none;
+}
+.i-del {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-position: 0 -350px;
+    vertical-align: middle;
+    background: url(../images/icon1.png) no-repeat;
+}
+/*提交订单*/
+.lay-btn {
+    height: 50px;
+    padding: 10px 0;
+    text-align: center;
+}
+.lay-btn a {
+    margin: 0 10px;
+}
+.btn92 {
+    width: 90px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    background-position: 0 -100px;
+    display: inline-block;
+    text-align: center;
+    background-color: #F2F1F1;
+    color: #333;
+    -webkit-border-radius: 4px;
+}
+.btn92s {
+    width: 92px;
+    height: 30px;
+    line-height: 30px;
+    background-position: 0 0;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    background: url(../images/bg_btn.png) repeat-x;
+    -webkit-border-radius: 4px;
+}
+/*温馨提示*/
+.tips-txt {
+    background: #fffbe5;
+    border: 1px solid #fbd800;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.tips-txt h2 {
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+}
+.tips-txt p {
+    line-height: 20px;
+    color: #666;
+}
+.tips-txt a {
+    color: #07f;
+    text-decoration: none;
+    outline: 0;
+}
+.links {
+    margin-top: 40px;
+}
+
+/*信息核对*/
+.up-box-hd {
+    height: 37px;
+    line-height: 35px;
+    position: relative;
+    background-position: 0 -350px;
+    border-radius: 5px 5px 0 0;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #e5f8ff;
+    background-color: #2386C8;
+    font-family: Tahoma,"宋体";
+}
+.up-box-bd {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 60px;
+    line-height: 25px;
+}
+.up-box-bd .icon {
+    float: left;
+    margin-right: 25px;
+}
+.up-box-bd .r-txt {
+    width: 360px;
+    margin-top: 10px;
+    float: left;
+    color: #666;
+}
+.colorC {
+    color: #d80000;
+}
+.up-box-bd .r-txt .tit {
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    font-family: "微软雅黑","黑体";
+    margin-bottom: 5px;
+}
+.up-box-bd .lay-btn {
+    padding: 0;
+    padding-top: 20px;
+}
+.btn92s {
+    width: 92px;
+    height: 30px;
+    line-height: 30px;
+    background-position: 0 0;
+    color: #fff;
+    -webkit-border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    background: url(../images/bg_btn.png) repeat-x;
+}
+.i-lose, .i-opt, .i-hi, .i-win, .i-warn {
+    display: block;
+    width: 82px;
+    height: 92px;
+    background: url(../images/icon02.png) no-repeat;
+}
+.up-box-bd .i-warn {
+    background-position: 0 -600px;
+}
+.up-box {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    line-height: 25px;
+    width: 602px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9100;
+}
+.ticket-check {
+    padding: 0 20px;
+    background: #eef1f8;
+}
+.label-name{
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+    font-weight: 300;
+}
+.ticket-check .info2 {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 520px;
+}
+.ticket-check .info2 strong {
+    font-size: 14px;
+    font-family: Tahoma,"宋体";
+}
+.mr5 {
+    margin-right: 5px;
+}
+.ml5 {
+    margin-left: 5px;
+}
+.ticket-check .table-a {
+    background: #fff;
+    width: 100%;
+    border: 1px solid #999;
+}
+.table-a th {
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    padding-left: 5px;
+    font-weight: 400;
+    border-bottom: 1px solid #999;
+    background-position: 0 -200px;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}
+.table-a td {
+    border-bottom: 1px dashed #999;
+    padding-left: 5px;
+    line-height: 32px;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}
+.ticket-check p {
+    line-height: 25px;
+    color: #666;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}
+.seat-sel-round {
+    width: 550px;
+    height: 50px;
+    border: 0;
+    background: #f3f3f3;
+    border-bottom: 1px dashed #999;
+}
+.seat-sel {
+    border-top: 1px dashed #999;
+    border-bottom: 1px dashed #999;
+    padding: 5px 5px 5px 95px;
+}
+.seat-sel-round .seat-sel-hd {
+    line-height: 18px;
+    height: 36px;
+    padding-top: 0;
+}
+.seat-sel .seat-sel-hd {
+    float: left;
+    margin-left: -90px;
+    width: 90px;
+    height: 28px;
+    line-height: 28px;
+    padding-top: 5px;
+    font-family: Tahoma,"宋体";
+}
+.seat-sel-round .tips-xz {
+    height: 18px;
+    line-height: 18px;
+    background: url(../images/bg021.png) left center no-repeat;
+    padding-left: 20px;
+    color: #fc8300;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}
+
+.seat-sel .sel-item {
+    height: 28px;
+    line-height: 28px;
+    padding: 5px 0;
+}
+.seat-sel .sel-item .txt {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 20px;
+    border-right: 2px solid #cdcdcd;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}
+.seat-sel .seat-list li {
+    float: left;
+    height: 28px;
+    padding: 0 8px;
+    text-align: center;
+    border-right: 2px solid #cdcdcd;
+}
+.seat-sel .seat-list a {
+    float: left;
+    width: 30px;
+    height: 28px;
+    line-height: 25px;
+    background: url(../images/bg017.png) no-repeat;
+    color: #666;
+    background-position:-80px 0;
+}
+.seat-sel .sel-item .txt-last {
+    border-right: 0;
+}
+.ticket-check p {
+    margin-top: 5px;
+    margin-left: 5px;
+    line-height: 25px;
+    color: #666;
+    font-size: 12px;
+    font-family: Tahoma,"宋体";
+}

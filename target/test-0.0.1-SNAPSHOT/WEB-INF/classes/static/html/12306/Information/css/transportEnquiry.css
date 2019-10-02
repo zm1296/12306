@@ -1,0 +1,109 @@
+/*位置信息*/
+.localPosition{
+	line-height: 50px;
+	color: #666;
+}
+.localPosition span{
+	color: #3b99fc;
+}
+
+/*交通信息*/
+.transportInfo{
+	margin-bottom: 40px;
+	position: relative;
+}
+.transportSearch{
+	box-sizing: border-box;
+	width: 322px;
+	height: 206px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+}
+.transportSearch ul li{
+	width: 106px;
+	line-height: 40px;
+	float: left;
+	cursor: pointer;
+}
+.transportSearch ul::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.transportSearch ul{
+	border-bottom: 2px solid #dedede;
+	text-align: center;
+}
+.transportSearch ul li > a{
+	padding: 0 25px;
+	border-right: 1px solid #dedede;
+}
+.transportSearch ul li:last-child > a{
+	padding: 0;
+	border-right: none;
+}
+.transportSearch ul li:hover > a{
+	color: #3b99fc;
+}
+.transportSearch ul li > a > i{
+	color: #666;
+	margin-right: 3px;
+}
+.transportSearch form{
+	padding: 20px;
+	text-align: center;
+}
+.transportSearch form div{
+	box-sizing: border-box;
+	width: 263px;
+	height: 30px;
+	padding: 4px;
+	border: 1px solid #dedede;
+	color: #999;
+}
+.transportSearch form div input{
+	width: 185px;
+	height: 20px;
+	padding: 0 0 0 5px;
+	border: none;
+	color: #c8c8cf;
+}
+.transportSearch form div i{
+	color: #dcdcdc;
+}
+.transportSearch form input[type="submit"]{
+	width: 280px;
+	line-height: 30px;
+	padding: 0;
+	background-color: #ff8201;
+	border-radius: 6px;
+	border: none;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+.choiceBox{
+	box-sizing: border-box;
+	width: 322px;
+	height: 71px;
+	padding: 20px;
+	position: absolute;
+	top: 236px;
+	left: 20px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+}
+.choiceBox ul li{
+	width: 68px;
+	line-height: 27px;
+	float: left;
+	border: 1px solid #dedede;
+	text-align: center;
+}
+.choiceBox ul li:first-child{
+	background-color: #f8f8f8;
+}

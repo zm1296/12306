@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.content {
+	width: 1200px;
+	margin: 0 auto;
+}
+.content > .nav{
+	width: 1200px;
+	height: 1000px;
+	border: 1.5px solid #ededed;
+}
+/*标签*/
+.nav > .bar >ul{
+	width: 1120px;
+	height:50px;
+	margin-left: 40px;
+	margin-top: 40px;
+	border-bottom: 3px solid #dedede;
+}
+.nav > .bar >ul>li{
+	float: left;
+	font-size: 14px;
+	margin-right: 50px;
+	line-height: 3em;
+	height: 50px;
+	width: 70px;
+	text-align: center;
+}
+.nav > .bar >ul>li:nth-child(1){
+	
+	border-bottom: 3px solid #3b99fc;
+}
+.nav > .bar>ul>li:nth-child(1)>a{
+	color: #3b99fc;
+}
+.nav > .bar >ul>li:nth-child(2)>a:hover{
+	color: #3b99fc;
+}
+/*大标题*/
+.nav > .title{
+	font-size: 22px;
+	margin-left: 40px;
+	margin-top: 40px;
+}
+/*主要细节内容*/
+.nav > .details{
+	height: 750px;
+	margin-top: 30px;
+	margin-left: 40px;
+	border-left: 2px solid #dedede;
+}
+.nav > .details >p{
+	margin-left: 30px;
+	font-size: 14px;
+	line-height: 2.3em;
+}
+.nav > .details >p.al{
+	font-size: 18px;
+}

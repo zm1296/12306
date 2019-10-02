@@ -1,0 +1,70 @@
+.insurance_header{
+	height: 50px;
+	width: 1200px;
+	line-height: 50px;
+	/*居中*/
+	position: relative;
+	margin: 0 auto;
+	font-size: 12px;
+	color: #666666;
+	box-sizing: border-box;
+}
+.insurance_header a{
+	color: #666;
+	font-size: 12px;
+}
+h2{
+	margin: 0;
+	padding: 0 10px;
+}
+.insurance_content{
+	width: 1200px;
+	height: 692px;
+	margin: 0 auto;
+	margin-top: 0;
+}
+.insurance_content>.insurance_left{
+	width: 130px;
+	float: left;
+	position: relative;
+}
+.insurance_content>.insurance_left>li>ul>li>a:hover{
+	color: #3b99fc;
+}
+.insurance_content>.insurance_left>li{
+	width: 130px;
+	height: 100%;
+	line-height: 30px;
+	font-size: 11px;
+	margin-bottom: 4px;
+	box-sizing: border-box;
+
+}
+/*左边栏一级导航变色*/
+/*.insurance_content>.insurance_left>li:first-child{
+	background-color: #3b99fc;
+}*/
+/*左边栏二级导航变色*/
+/*.insurance_content>.insurance_left>li>ul>li:nth-child(4){
+	background-color: #3b99fc;
+}*/
+.insurance_content>.insurance_left>li>h2{
+	font-size: 15px;
+}
+.insurance_content>.insurance_left>li>ul>li{
+	width: 130px;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+	padding-left: 20px;
+}
+.insurance_content>.insurance_left>li>ul>li>a{
+	font-size: 14px;
+	color: #666;
+}
+.icon-up{
+	color:#999;
+	position: absolute;
+	right: 0px;
+	font-size: 16px;
+}
